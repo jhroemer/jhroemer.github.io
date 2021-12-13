@@ -1,6 +1,6 @@
 ---
 slug: internal-ci-at-unity-technologies-mvp
-title: "Internal CI at Unity Technologies, pt. 1: MVP"
+title: "MVP"
 tags: [Product development, MVP, RAT]
 ---
 
