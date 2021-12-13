@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkblog=self.webpackChunkblog||[]).push([[161],{8468:function(e){e.exports=JSON.parse('{"allTagsPath":"/jensroemer.github.io/tags","slug":"/jensroemer.github.io/tags/mvp","name":"MVP","count":1,"permalink":"/jensroemer.github.io/tags/mvp"}')}}]);

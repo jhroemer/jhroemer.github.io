@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkblog=self.webpackChunkblog||[]).push([[498],{4494:function(e){e.exports=JSON.parse('{"allTagsPath":"/jensroemer.github.io/tags","slug":"/jensroemer.github.io/tags/product-development","name":"Product development","count":1,"permalink":"/jensroemer.github.io/tags/product-development"}')}}]);
