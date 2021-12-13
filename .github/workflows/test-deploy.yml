@@ -3,7 +3,7 @@ name: Test deployment
 on:
   pull_request:
     branches: [main]
-    paths: [build/**]
+    paths: [website/**]
   push:
     branches: [add-test-deploy-gha]
 
@@ -18,7 +18,7 @@ jobs:
           node-version: 14.x
           cache: yarn
       - name: Test build
-        working-directory: build
+        working-directory: website
         run: |
           yarn install --frozen-lockfile
           yarn build
