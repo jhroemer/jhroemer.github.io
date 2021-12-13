@@ -8,13 +8,13 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const config = {
   title: "Jens Rømer blog",
   tagline: "Jens Rømer - Personal blog",
-  url: "https://jensroemer.com",
+  url: "https://jensroemer.github.io",
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
   organizationName: "jhroemer",
-  projectName: "Personal blog",
+  projectName: "jensroemer.github.io",
 
   presets: [
     [
