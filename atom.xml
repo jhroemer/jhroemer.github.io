@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://jensroemer.github.io/</id>
+    <id>https://jensroemer.github.io/blog/</id>
     <title>Jens Rømer blog Blog</title>
     <updated>2021-11-15T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://jensroemer.github.io/"/>
+    <link rel="alternate" href="https://jensroemer.github.io/blog/"/>
     <subtitle>Jens Rømer blog Blog</subtitle>
-    <icon>https://jensroemer.github.io/img/favicon.ico</icon>
+    <icon>https://jensroemer.github.io/blog/img/favicon.ico</icon>
     <entry>
         <title type="html"><![CDATA[Internal CI at Unity Technologies, pt. 1: MVP]]></title>
         <id>internal-ci-at-unity-technologies-mvp</id>
-        <link href="https://jensroemer.github.io/internal-ci-at-unity-technologies-mvp"/>
+        <link href="https://jensroemer.github.io/blog/internal-ci-at-unity-technologies-mvp"/>
         <updated>2021-11-15T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Around a month ago I did an internal presentation about some of the learnings I had over the past two years at Unity Technologies. This post is an extension of the first topic in the presentation; the Minimum Viable Product (MVP).]]></summary>
         <content type="html"><![CDATA[<p>Around a month ago I did an internal presentation about some of the learnings I had over the past two years at Unity Technologies. This post is an extension of the first topic in the presentation; the Minimum Viable Product (MVP).</p><p>For the past two years I’ve been working on a new web interface for an internal CI (Continuous Integration) service at Unity Technologies. This has been a profound learning experience for me; I’m a much better developer today than I was two years ago, but more importantly, I’ve become wiser in terms of product development.</p><p>Two years ago I was not very well-versed in the MVP concept, which well-known product development term. I knew the abbreviation, and had an idea about what it is, due to the (seemingly) self-explanatory name.
