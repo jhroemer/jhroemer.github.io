@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkblog=self.webpackChunkblog||[]).push([[874],{5796:function(e){e.exports=JSON.parse('{"allTagsPath":"/tags","slug":"/tags/product-development","name":"Product development","count":1,"permalink":"/tags/product-development"}')}}]);

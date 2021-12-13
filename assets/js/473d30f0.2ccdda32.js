@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblog=self.webpackChunkblog||[]).push([[435],{2520:function(e){e.exports=JSON.parse('{"allTagsPath":"/jensroemer.github.io/tags","slug":"/jensroemer.github.io/tags/rat","name":"RAT","count":1,"permalink":"/jensroemer.github.io/tags/rat"}')}}]);
