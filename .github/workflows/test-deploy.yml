@@ -4,6 +4,8 @@ on:
   pull_request:
     branches: [main]
     paths: [build/**]
+  push:
+    branches: [add-test-deploy-gha]
 
 jobs:
   test-deploy:
