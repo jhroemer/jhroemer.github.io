@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>Jens Rømer blog Blog</title>
-        <link>https://jhroemer.github.io/</link>
+        <link>https://jensroemer.github.io/</link>
         <description>Jens Rømer blog Blog</description>
         <lastBuildDate>Mon, 15 Nov 2021 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <item>
             <title><![CDATA[Internal CI at Unity Technologies, pt. 1: MVP]]></title>
-            <link>https://jhroemer.github.io/internal-ci-at-unity-technologies-mvp</link>
+            <link>https://jensroemer.github.io/internal-ci-at-unity-technologies-mvp</link>
             <guid>internal-ci-at-unity-technologies-mvp</guid>
             <pubDate>Mon, 15 Nov 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[Around a month ago I did an internal presentation about some of the learnings I had over the past two years at Unity Technologies. This post is an extension of the first topic in the presentation; the Minimum Viable Product (MVP).]]></description>
