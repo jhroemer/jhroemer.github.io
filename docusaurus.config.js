@@ -15,18 +15,14 @@ const config = {
   favicon: "img/favicon.ico",
   organizationName: "jhroemer",
   projectName: "jensroemer.github.io",
-
+  deploymentBranch: "gh-pages",
+  trailingSlash: false,
   presets: [
     [
       "@docusaurus/preset-classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
-        // pages: {
-        //   path: "./contact",
-        //   routeBasePath: "/contact",
-        // },
         blog: {
-          path: "./blog",
           routeBasePath: "/",
           showReadingTime: true,
           blogSidebarTitle: "All posts",
@@ -43,14 +39,8 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        // title: "Jens Rømer",
-        // TODO: own logo?
-        // logo: {
-        //   alt: "My Site Logo",
-        //   src: "img/logo.svg",
-        // },
+        title: "Jens Rømer",
         items: [
-          { to: "/", label: "Blog", position: "right" },
           {
             href: "https://github.com/jhroemer",
             label: "GitHub",
