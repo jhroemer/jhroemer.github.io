@@ -13,7 +13,7 @@ For the past two years I’ve been working on a new web interface for an interna
 Two years ago I was not very well-versed in the MVP concept, which well-known product development term. I knew the abbreviation, and had an idea about what it is, due to the (seemingly) self-explanatory name.
 But assumptions are dangerous. And this is certianly also the case for the fabled MVP.
 
-<hr class="narrow-hr"/>
+<hr className="narrow-hr"/>
 
 Let’s start by defining the different parts of the MVP concept.
 
@@ -36,7 +36,7 @@ Using the MVP concept just by using this definition can easily push you into one
 
 This definition also captures why you would want to use an MVP: we want to learn as much as we can about customers and our product with the least effort. A keyword here is _learning_. Your MVP can erroneously become synonymous with the first release of your product, and you’re missing out if it does. Products fail because of assumptions that aren’t true - and if you find out too late, or never, your product is likely to fail.
 
-<hr class="narrow-hr"/>
+<hr className="narrow-hr"/>
 
 One of the core challenges is deciding how minimal your MVP should be. This goes hand in hand with viability. You want something that can be put into the hands of users, and elicit real feedback and learning, which can be used to correct the path you’re on. But you do not need a polished product to elicit this feedback. In fact, you want to avoid polishing something that is likely to change drastically. Focus then should be on viability, and the viability of your product depends on the assumptions you have about the product. You might actually favour the newer kid on the block, the Riskiest Assumption Test (RAT), over the MVP, because it puts a stronger focus on testing your assumptions about a product.
 
