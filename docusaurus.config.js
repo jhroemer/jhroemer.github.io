@@ -39,7 +39,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: "Jens Rømer",
+        logo: { src: "img/logo.svg", srcDark: "img/logo-dark.svg" },
         items: [
           {
             href: "https://github.com/jhroemer",
