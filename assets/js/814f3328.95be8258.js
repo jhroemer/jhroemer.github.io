@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkblog=self.webpackChunkblog||[]).push([[535],{5641:function(e){e.exports=JSON.parse('{"title":"All posts","items":[{"title":"Minimum Viable Product","permalink":"/minimum-viable-product"},{"title":"Do Repeat Yourself","permalink":"/do-repeat-yourself"}]}')}}]);
