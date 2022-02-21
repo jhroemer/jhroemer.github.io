@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkblog=self.webpackChunkblog||[]).push([[535],{5641:function(t){t.exports=JSON.parse('{"title":"All posts","items":[{"title":"Internal CI at Unity Technologies, pt. 1: MVP","permalink":"/internal-ci-at-unity-technologies-mvp"}]}')}}]);
