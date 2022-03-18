@@ -1,7 +1,7 @@
 ---
 slug: do-repeat-yourself
 title: "Do Repeat Yourself"
-tags: [Software Development, TypeScript]
+tags: [Software development, DRY, WET, AHA]
 ---
 
 One of the first software development principles we learn is _Don’t repeat yourself_ (DRY). It’s the principle that leads to cleaner, more compact and readable code bases. Or, is it the principle that leads computer science students and misguided programmers into redundant (over)abstractions, and code which is hard and complex to refactor?
@@ -19,7 +19,7 @@ Let's look at the definition, from it's original formulation in [The Programatic
 
 > Every piece of knowledge must have a single, unambiguous, authoritative representation within a system
 
-So simply reusing bits of dupicate code isn't really the right way. Rather, we need to correctly identify what constitutes a piece of knowledge in our application. This is the difficult part.
+So simply reusing bits of dupicate code isn't really the right way. Rather, we need to correctly identify what constitutes a piece of knowledge in our application. This is the difficult part. My 
 
 ### WET
 
