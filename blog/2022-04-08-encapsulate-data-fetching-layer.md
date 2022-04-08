@@ -1,0 +1,62 @@
+---
+slug: WIP
+title: "Abstract your API http logic with template literal types"
+tags: [Typescript, DRY]
+---
+
+Typing your endpoint calls is very useful but not straightforward.
+Ever found yourself creating a function to encapsulate an endpoint call? Here’s a useful approach using TypeScript and [template literal types](https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html) to get clean and flexible typed endpoint logic.
+
+<!--truncate-->
+
+I mentioned in [my latest post](https://jensroemer.com/do-repeat-yourself) that I would come up with an example of getting DRY wrong and how to get it right. So let's say you’re building a blog-type UI for showing articles from different authors. There’s an endpoint to get articles, and an endpoint to get authors. The article object only have a reference to an author id, and do not contain much author information. You’re building two views in the UI for showing articles with a bit of information about the author as well. The two views look different, but require the same data, and armed with our DRY principle we start hacking away at a solution that might look something like this:
+
+```typescript
+const fetchArticlesWithAuthorDetails = () => {
+  const articles = axios.get();
+  const uniqueAuthors = _.uniq(posts.authors);
+  const authors = axios.get();
+  return posts.map(() => {});
+};
+```
+
+This is a bad abstraction. We do not gain a lot, mostly we just don’t have to do our data transformations twice. But combining and transforming data is not a piece of knowledge in our system, it’s just some of our bread and butter tools we use when we write code. The function name also gives it away somewhat, it's like with commit messages: if there's an _or_ in it, it's probably not sufficiently atomic. It's a code smell basically. But there _is_ a lot of knowledge contained in the function which would be nice to encapsulate and reuse, like how we call our endpoints, what the endpoints are, which parameters they take etc., it’s just not something we can reuse because it is bundled together with use case specific logic. This is an example of braiding vs composing.
+
+### A better abstraction
+
+So let’s try to untangle this. Let’s start with the first: how we call our endpoints. We can make a function for each http method we use with our API, in this example we would need a function for the GET method. The function takes a few arguments, the endpoint path, the token (if it's an authorized endpoint) and an optional body.
+This is
+
+```typescript
+export const get = async (
+  path: string,
+  token: string,
+  body: any
+): Promise<any> => {
+  const response = await axios.get(`${API_URL}${path}`, body, {
+    headers: {
+      Authorization: "Bearer " + token,
+    },
+  });
+
+  return response;
+};
+```
+
+Now we have a very useful function that can be used throughout the application when we have to make GET requests to the API in question. We do no longer have the mental overhead of remembering how we call our API, and we can easily change the library we use to do so.
+
+### Template literal types for endpoint paths
+
+Okay so now we know how we call our endpoints, and we can look at how to encapsulate and type our endpoint paths. Template literal types can be really handy for this.
+
+```typescript
+export const getBranchUrl = (
+  projectId: number,
+  branchName: string
+): GetBranchUrl => {
+  const encodedBranchName = encodeURIComponent(branchName);
+  return `/projects/${projectId}/branches/${encodedBranchName}`;
+};
+
+export type GetBranchUrl = `/projects/${number}/branches/${string}`;
+```
