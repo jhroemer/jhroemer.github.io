@@ -20,12 +20,11 @@ const fetchArticlesWithAuthorDetails = () => {
 };
 ```
 
-This is a bad abstraction. We do not gain a lot, mostly we just don’t have to do our data transformations twice. But combining and transforming data is not a piece of knowledge in our system, it’s just some of our bread and butter tools we use when we write code. The function name also gives it away somewhat, it's like with commit messages: if there's an _or_ in it, it's probably not sufficiently atomic. It's a code smell basically. But there _is_ a lot of knowledge contained in the function which would be nice to encapsulate and reuse, like how we call our endpoints, what the endpoints are, which parameters they take etc., it’s just not something we can reuse because it is bundled together with use case specific logic. This is an example of braiding vs composing.
+This is a bad abstraction. We do not gain a lot, mostly we just don’t have to do our data transformations twice. But combining and transforming data is not a piece of knowledge in our system, it’s just some of our bread and butter tools we use when we write code. The function name also gives it away somewhat, it's like with commit messages: if there's an _or_ in it, it's probably not sufficiently atomic. It's a code smell basically. But there _is_ a lot of knowledge contained in the function which would be nice to encapsulate and reuse, like how we call our endpoints, what the endpoint paths are, which parameters they take etc., it’s just not something we can reuse because it is bundled together with use case specific logic. This is an example of braiding vs composing.
 
 ### A better abstraction
 
-So let’s try to untangle this. Let’s start with the first: how we call our endpoints. We can make a function for each http method we use with our API, in this example we would need a function for the GET method. The function takes a few arguments, the endpoint path, the token (if it's an authorized endpoint) and an optional body.
-This is
+So let’s try to untangle this, using an approach championed by my good friend and colleague [Simon Lagos](https://github.com/sajmoni). We can start with the first piece of knowledge from the tangled function: how we call our endpoints. What we can do is to create a function for each HTTP method we use with our API, in this example we would need a function for the GET method. The function can take a few arguments, in this case: the endpoint path, the token (for an authorized endpoint) and an optional body.
 
 ```typescript
 export const get = async (
@@ -43,7 +42,7 @@ export const get = async (
 };
 ```
 
-Now we have a very useful function that can be used throughout the application when we have to make GET requests to the API in question. We do no longer have the mental overhead of remembering how we call our API, and we can easily change the library we use to do so.
+Now we have a very useful function that can be used throughout the application when we have to make `GET` requests to the API in question. We do no longer have the mental overhead of remembering how we call our API, and we can easily change the library we use to do so. This is a better abstraction.
 
 ### Template literal types for endpoint paths
 
