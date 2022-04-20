@@ -63,3 +63,5 @@ export const getBranchUrl = (
 
 export type GetBranchUrl = `/projects/${number}/branches/${string}`;
 ```
+
+### Connecting the dots
