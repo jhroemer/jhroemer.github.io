@@ -20,7 +20,9 @@ const fetchArticlesWithAuthorDetails = () => {
 };
 ```
 
-This is a bad abstraction. We do not gain a lot, mostly we just don’t have to do our data transformations twice. But combining and transforming data is not a piece of knowledge in our system, it’s just some of our bread and butter tools we use when we write code. The function name also gives it away somewhat, it's like with commit messages: if there's an _or_ in it, it's probably not sufficiently atomic. It's a code smell basically. But there _is_ a lot of knowledge contained in the function which would be nice to encapsulate and reuse, like how we call our endpoints, what the endpoint paths are, which parameters they take etc., it’s just not something we can reuse because it is bundled together with use case specific logic. This is an example of braiding vs composing.
+This is a bad abstraction. We do not gain a lot, other than not having to do our data transformations twice. But combining and transforming data with array utilities is not a piece of knowledge in our system, rather it’s bread and butter tools we use when we write code. 
+
+The function name also gives it away somewhat, it's like with commit messages: if there's an _or_ in it, it's probably not sufficiently atomic. It's a code smell basically. But there _is_ a lot of knowledge contained in the function which would be nice to encapsulate and reuse, like **how** we call our endpoints, **what** the endpoint paths are, **which** parameters they take etc. With the above function these things aren't possible to reuse because they are bundled together with use case specific logic. This is also a good example of [braiding/interleaving vs simplicity/compose](https://youtu.be/LKtk3HCgTa8?t=1896), where the above function is clearly suffering from braiding/interleaving.
 
 ### A better abstraction
 
