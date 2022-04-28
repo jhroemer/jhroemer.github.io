@@ -22,21 +22,21 @@ const fetchArticlesWithAuthorDetails = () => {
 
 This is a bad abstraction. We do not gain a lot, other than not having to do our data transformations twice. But combining and transforming data with array utilities is not a piece of knowledge in our system, rather it’s bread and butter tools we use when we write code.
 
-The function name also gives it away somewhat, it's like with commit messages: if there's an _or_ in it, it's probably not sufficiently atomic. It's a code smell basically. But there _is_ a lot of knowledge contained in the function which would be nice to encapsulate and reuse, like **how** we call our endpoints, **what** the endpoint paths are, **which** parameters they take etc. With the above function these things aren't possible to reuse because they are bundled together with use case specific logic. This is also a good example of [braiding/interleaving vs simplicity/compose](https://youtu.be/LKtk3HCgTa8?t=1896), where the above function is clearly suffering from braiding/interleaving.
+The function name also gives it away somewhat, it's like with commit messages: if there's an _or_ in it, it's probably not sufficiently atomic. It's a code smell basically. But there _is_ a lot of knowledge contained in the function which would be nice to encapsulate and reuse, like **how** we call our endpoints, **what** the endpoint routes are, **which** parameters they take etc. With the above function these things aren't possible to reuse because they are bundled together with use case specific logic. This is also a good example of [braiding/interleaving vs simplicity/compose](https://youtu.be/LKtk3HCgTa8?t=1896), where the above function is clearly suffering from braiding/interleaving.
 
 ### A better abstraction
 
 Let’s try to untangle our braided function, using an approach championed by my good friend and colleague [Simon Lagos](https://github.com/sajmoni). We can start with the first piece of knowledge: **how** we call our endpoints.
 
-What we can do is to create a function for each HTTP method we use with our API, in this example we would need a function for the GET method. The function can take a few arguments, in this case: the endpoint path, the token (for an authorized endpoint) and an optional body.
+What we can do is to create a function for each HTTP method we use with our API, in this example we would need a function for the GET method. The function can take a few arguments, in this case: the endpoint route, the token (for an authorized endpoint) and an optional body.
 
 ```typescript
 export const get = async (
-  path: string,
+  route: string,
   token: string,
   body: any
 ): Promise<any> => {
-  const response = await axios.get(`${API_URL}${path}`, body, {
+  const response = await axios.get(`${API_URL}${route}`, body, {
     headers: {
       Authorization: "Bearer " + token,
     },
