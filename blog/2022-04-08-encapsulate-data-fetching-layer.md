@@ -20,13 +20,13 @@ const fetchArticlesWithAuthorDetails = () => {
 };
 ```
 
-This is a bad abstraction. We do not gain a lot, other than not having to do our data transformations twice. But combining and transforming data with array utilities is not a piece of knowledge in our system, rather it’s bread and butter tools we use when we write code. 
+This is a bad abstraction. We do not gain a lot, other than not having to do our data transformations twice. But combining and transforming data with array utilities is not a piece of knowledge in our system, rather it’s bread and butter tools we use when we write code.
 
 The function name also gives it away somewhat, it's like with commit messages: if there's an _or_ in it, it's probably not sufficiently atomic. It's a code smell basically. But there _is_ a lot of knowledge contained in the function which would be nice to encapsulate and reuse, like **how** we call our endpoints, **what** the endpoint paths are, **which** parameters they take etc. With the above function these things aren't possible to reuse because they are bundled together with use case specific logic. This is also a good example of [braiding/interleaving vs simplicity/compose](https://youtu.be/LKtk3HCgTa8?t=1896), where the above function is clearly suffering from braiding/interleaving.
 
 ### A better abstraction
 
-Let’s try to untangle our braided function, using an approach championed by my good friend and colleague [Simon Lagos](https://github.com/sajmoni). We can start with the first piece of knowledge: **how** we call our endpoints. 
+Let’s try to untangle our braided function, using an approach championed by my good friend and colleague [Simon Lagos](https://github.com/sajmoni). We can start with the first piece of knowledge: **how** we call our endpoints.
 
 What we can do is to create a function for each HTTP method we use with our API, in this example we would need a function for the GET method. The function can take a few arguments, in this case: the endpoint path, the token (for an authorized endpoint) and an optional body.
 
@@ -48,20 +48,26 @@ export const get = async (
 
 Suddenly we have a modular and generic function that can be used throughout the application, in a variety of situation, when we have to make `GET` requests to the API in question. We do no longer have the mental overhead of remembering how we call our API, and we can easily change the library we use to do so. This is a better abstraction.
 
-### Template literal types for endpoint paths
+### Template literal types for endpoint routes
 
-Okay so now we know how we call our endpoints, and we can look at how to encapsulate and type our endpoint paths. Template literal types can be really handy for this.
+Now we have a useful abstraction for how to call our endpoints, and we can look at how to encapsulate and type our endpoint routes. Template literal types can be really handy for this. They're based on [literal types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-types) and [template literals/strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals). The former makes it possible to not only specify if something is of type `string` or `number`, but exactly which string(s) or number(s) a variable can take. The latter for string interpolation/formatting.
+
+Template literal types look exactly like template literals, but can be used as a type as the name suggests. This makes them much more flexible than the literal types because parts of the string can be dynamic.
+
+Getting back to typing endpoint routes: what we can do is to create a function that creates the endpoint route, and type the functions with template literal types to ensure compliance with the route format.
 
 ```typescript
-export const getBranchUrl = (
+export const createGetBranchRoute = (
   projectId: number,
   branchName: string
-): GetBranchUrl => {
+): GetBranchRoute => {
   const encodedBranchName = encodeURIComponent(branchName);
   return `/projects/${projectId}/branches/${encodedBranchName}`;
 };
 
-export type GetBranchUrl = `/projects/${number}/branches/${string}`;
+export type GetBranchRoute = `/projects/${number}/branches/${string}`;
 ```
+
+There's reduced overhead of calling the endpoint when doing it like this, since the function correctly documents the needed/available parameters, and makes sure that the endpoint route is correctly formatted. The function can for example ensure that the parameters are encoded correctly, that the body is formatted as it should etc.
 
 ### Connecting the dots
