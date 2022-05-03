@@ -12,11 +12,22 @@ Ever found yourself creating a function to encapsulate an endpoint call? Here’
 I mentioned in [my latest post](https://jensroemer.com/do-repeat-yourself) that I would come up with an example of getting DRY wrong and how to get it right. So let's say you’re building a blog-type UI for showing articles from different authors. There’s an endpoint to get articles, and an endpoint to get authors. The article object only have a reference to an author id, and do not contain much author information. You’re building two views in the UI for showing articles with a bit of information about the author as well. The two views look different, but require the same data, and armed with our DRY principle we start hacking away at a solution that might look something like this:
 
 ```typescript
+// Example using axios, lodash/fp
 const fetchArticlesWithAuthorDetails = () => {
-  const articles = axios.get();
-  const uniqueAuthors = _.uniq(posts.authors);
-  const authors = axios.get();
-  return posts.map(() => {});
+  const articles = axios.get("/articless");
+  const uniqueAuthors = _.flow(
+    _.map((article) => article.author),
+    _.uniq
+  )(articles);
+  const authors = axios.get("/authors?");
+  return articles.map((article) => {
+    {
+      ...article,
+      author: {
+        // add author specific information
+      }
+    }
+  });
 };
 ```
 
@@ -38,7 +49,7 @@ export const get = async (
 ): Promise<any> => {
   const response = await axios.get(`${API_URL}${route}`, body, {
     headers: {
-      Authorization: "Bearer " + token,
+      Authorization: token,
     },
   });
 
