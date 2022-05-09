@@ -13,7 +13,7 @@ I mentioned in [my latest post](https://jensroemer.com/do-repeat-yourself) that 
 
 ```typescript
 // Example using axios, lodash/fp
-const fetchArticlesWithAuthorDetails = () => {
+const fetchArticlesWithAuthorDetails = (): ArticlesWithAuthorDetails[] => {
   const articles = axios.get("/articles");
   const uniqueAuthors = _.flow(
     _.map((article) => article.author),
