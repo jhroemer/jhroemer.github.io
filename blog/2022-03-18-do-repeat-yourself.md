@@ -44,4 +44,4 @@ It's important that we remember that code is read far more than it is written. W
 
 I will do a follow-up post later about how I got this principle wrong on a previous project, and how it eventually got cleaned up into a better solution.
 
-**Edit**: and [here](2022-04-08-encapsulate-data-fetching-layer.md) it is.
+**Edit**: and [here](2022-05-09-typing-your-api-routes-with-template-literal-types.md) it is.
