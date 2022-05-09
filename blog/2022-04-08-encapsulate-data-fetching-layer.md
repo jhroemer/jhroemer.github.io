@@ -39,15 +39,14 @@ The function name also gives it away somewhat, it's like with commit messages: i
 
 Let’s try to untangle our braided function, using an approach championed by my good friend and colleague [Simon Lagos](https://github.com/sajmoni). We can start with the first piece of knowledge: **how** we call our endpoints.
 
-What we can do is to create a function for each HTTP method we use with our API, in this example we would need a function for the GET method. The function can take a few arguments, in this case: the endpoint route, the token (for an authorized endpoint) and an optional body.
+What we can do is to create a function for each HTTP method we use with our API, in this example we would need a function for the GET method. The function can take a few arguments, in this case: the endpoint route and the token (for an authorized endpoint) - you could add more things such as HTTP body data for non-GET request etc.
 
 ```typescript
 export const get = async (
   route: string,
-  token: string,
-  body: any
-): Promise<any> => {
-  const response = await axios.get(`${API_URL}${route}`, body, {
+  token: string
+): Promise<AxiosResponse> => {
+  const response = await axios.get(`${API_URL}${route}`, {
     headers: {
       Authorization: token,
     },
@@ -80,5 +79,3 @@ export type GetBranchRoute = `/projects/${number}/branches/${string}`;
 ```
 
 There's reduced overhead of calling the endpoint when doing it like this, since the function correctly documents the needed/available parameters, and makes sure that the endpoint route is correctly formatted. The function can for example ensure that the parameters are encoded correctly, that the body is formatted as it should etc.
-
-### Connecting the dots
