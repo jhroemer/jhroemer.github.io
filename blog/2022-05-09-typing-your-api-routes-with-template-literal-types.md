@@ -1,7 +1,7 @@
 ---
-slug: WIP
-title: "Abstract your API http logic with template literal types"
-tags: [Typescript, DRY]
+slug: typing-your-api-routes-with-template-literal-types
+title: "Typing your API routes with template literal types"
+tags: [Typescript, DRY, HTTP]
 ---
 
 Typing your endpoint calls is very useful but not straightforward.
@@ -60,13 +60,17 @@ Suddenly we have a modular and generic function that can be used throughout the 
 
 ### Template literal types for endpoint routes
 
-Now we have a useful abstraction for how to call our endpoints, and we can look at how to encapsulate and type our endpoint routes. Template literal types can be really handy for this. They're based on [literal types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-types) and [template literals/strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals). The former makes it possible to not only specify if something is of type `string` or `number`, but exactly which string(s) or number(s) a variable can take. The latter for string interpolation/formatting.
+Now we have a useful abstraction for how to call our endpoints, and we can look at how to encapsulate and type our endpoint routes. Template literal types can be really handy for this. They're based on [literal types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-types) and [template literals/strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals). The former makes it possible to not only specify if something is of type `string` or `number`, but exactly which string(s) or number(s) a variable can take. The latter is commonly used for string interpolation/formatting.
 
 Template literal types look exactly like template literals, but can be used as a type as the name suggests. This makes them much more flexible than the literal types because parts of the string can be dynamic.
 
 Getting back to typing endpoint routes: what we can do is to create a function that creates the endpoint route, and type the functions with template literal types to ensure compliance with the route format.
 
 ```typescript
+// Add a type that can be used for the return type
+export type GetBranchRoute = `/projects/${number}/branches/${string}`;
+
+// Function to create our endpoint route
 export const createGetBranchRoute = (
   projectId: number,
   branchName: string
@@ -74,8 +78,6 @@ export const createGetBranchRoute = (
   const encodedBranchName = encodeURIComponent(branchName);
   return `/projects/${projectId}/branches/${encodedBranchName}`;
 };
-
-export type GetBranchRoute = `/projects/${number}/branches/${string}`;
 ```
 
-There's reduced overhead of calling the endpoint when doing it like this, since the function correctly documents the needed/available parameters, and makes sure that the endpoint route is correctly formatted. The function can for example ensure that the parameters are encoded correctly, that the body is formatted as it should etc.
+There's reduced overhead of calling the endpoint when using a function like the above, since the function correctly documents the needed/available parameters, and makes sure that the endpoint route is correctly formatted. The function can for example ensure that the parameters are encoded correctly or that the body is formatted as it should.
