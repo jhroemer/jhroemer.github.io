@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkblog=self.webpackChunkblog||[]).push([[156],{3659:function(e){e.exports=JSON.parse('{"allTagsPath":"/tags","name":"Software development","count":1,"permalink":"/tags/software-development"}')}}]);
