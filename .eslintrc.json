@@ -5,7 +5,8 @@
     },
     "extends": [
         "plugin:@docusaurus/recommended",
-        "xo"
+        "xo",
+        "prettier"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -17,9 +18,11 @@
     },
     "plugins": [
         "@typescript-eslint",
-        "@docusaurus"
+        "@docusaurus", 
+        "prettier"
     ],
     "rules": {
-        "semi": ["error", "never"]
+        "semi": ["error", "never"],
+        "prettier/prettier": ["error"]
     }
 }
