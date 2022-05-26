@@ -20,5 +20,6 @@
         "@docusaurus"
     ],
     "rules": {
+        "semi": ["error", "never"]
     }
 }
