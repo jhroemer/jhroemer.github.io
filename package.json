@@ -12,7 +12,8 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@docusaurus/core": "2.0.0-beta.20",
@@ -35,6 +36,8 @@
     "eslint": ">=8.14.0",
     "eslint-config-xo": "^0.41.0",
     "eslint-plugin-react": "^7.30.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^12.4.2",
     "typescript": "^4.4.4"
   },
   "browserslist": {
@@ -48,5 +51,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix"
   }
 }
