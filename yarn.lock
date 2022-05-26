@@ -2345,6 +2345,14 @@
     postcss "^8.4.13"
     postcss-sort-media-queries "^4.2.1"
 
+"@docusaurus/eslint-plugin@^2.0.0-beta.20":
+  version "2.0.0-beta.20"
+  resolved "https://registry.yarnpkg.com/@docusaurus/eslint-plugin/-/eslint-plugin-2.0.0-beta.20.tgz#b272472ac80b04bd2b152e02125c96bc1e4aea62"
+  integrity sha512-jJMjtOgXfGqhLJp2nqBVuI7bjI3ziOX28Tuc4zbaiUrh0oxHdJg4rw21DXpHsj40z7AjIRxu+13zcuS5WMD4ag==
+  dependencies:
+    "@typescript-eslint/utils" "^5.21.0"
+    tslib "^2.4.0"
+
 "@docusaurus/logger@2.0.0-beta.20":
   version "2.0.0-beta.20"
   resolved "https://registry.yarnpkg.com/@docusaurus/logger/-/logger-2.0.0-beta.20.tgz#bb49e8516e48082ab96bca11569a18541476d5a6"
@@ -3342,7 +3350,7 @@
     semver "^7.3.7"
     tsutils "^3.21.0"
 
-"@typescript-eslint/utils@5.26.0":
+"@typescript-eslint/utils@5.26.0", "@typescript-eslint/utils@^5.21.0":
   version "5.26.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/utils/-/utils-5.26.0.tgz#896b8480eb124096e99c8b240460bb4298afcfb4"
   integrity sha512-PJFwcTq2Pt4AMOKfe3zQOdez6InIDOjUJJD3v3LyEtxHGVVRK3Vo7Dd923t/4M9hSH2q2CLvcTdxlLPjcIk3eg==

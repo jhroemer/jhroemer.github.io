@@ -4,7 +4,7 @@
         "es2021": true
     },
     "extends": [
-        "plugin:react/recommended",
+        "plugin:@docusaurus/recommended",
         "xo"
     ],
     "parser": "@typescript-eslint/parser",
@@ -16,8 +16,8 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react",
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "@docusaurus"
     ],
     "rules": {
     }
