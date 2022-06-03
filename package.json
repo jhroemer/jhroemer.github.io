@@ -54,5 +54,10 @@
   },
   "lint-staged": {
     "*.js": "eslint --cache --fix"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all",
+    "semi": false
   }
 }
