@@ -1,7 +1,7 @@
 ---
 slug: typing-your-api-routes-with-template-literal-types
-title: "Typing your API routes with template literal types"
-tags: [Typescript, DRY, HTTP]
+title: 'Typing your API routes with template literal types'
+tags: [TypeScript, DRY, HTTP]
 ---
 
 Typing your endpoint calls is very useful but not straightforward.
