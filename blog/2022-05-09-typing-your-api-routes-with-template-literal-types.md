@@ -44,16 +44,16 @@ What we can do is to create a function for each HTTP method we use with our API,
 ```typescript
 export const get = async (
   route: string,
-  token: string
+  token: string,
 ): Promise<AxiosResponse> => {
   const response = await axios.get(`${API_URL}${route}`, {
     headers: {
       Authorization: token,
     },
-  });
+  })
 
-  return response;
-};
+  return response
+}
 ```
 
 Suddenly we have a modular and generic function that can be used throughout the application, in a variety of situation, when we have to make `GET` requests to the API in question. We do no longer have the mental overhead of remembering how we call our API, and we can easily change the library we use to do so. This is a better abstraction.
@@ -68,16 +68,16 @@ Getting back to typing endpoint routes: what we can do is to create a function t
 
 ```typescript
 // Add a type that can be used for the return type
-export type GetBranchRoute = `/projects/${number}/branches/${string}`;
+export type GetBranchRoute = `/projects/${number}/branches/${string}`
 
 // Function to create our endpoint route
 export const createGetBranchRoute = (
   projectId: number,
-  branchName: string
+  branchName: string,
 ): GetBranchRoute => {
-  const encodedBranchName = encodeURIComponent(branchName);
-  return `/projects/${projectId}/branches/${encodedBranchName}`;
-};
+  const encodedBranchName = encodeURIComponent(branchName)
+  return `/projects/${projectId}/branches/${encodedBranchName}`
+}
 ```
 
 There's reduced overhead of calling the endpoint when using a function like the above, since the function correctly documents the needed/available parameters, and makes sure that the endpoint route is correctly formatted. The function can for example ensure that the parameters are encoded correctly or that the body is formatted as it should.
