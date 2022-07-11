@@ -1,18 +1,16 @@
 ---
-slug: impossible
-title: 'Impossible states'
-tags: [TypeScript]
+slug: prevent-impossible-states-with-typescript
+title: 'Prevent impossible states with TypeScript'
+tags: [TypeScript, Elm]
 ---
 
-Impossible state
+Type systems are a great way of reducing bugs and errors in your application. But not all bugs are caused by runtime errors. For frontend development, state management is one of the very tricky areas. And you can alleviate type systems to prevent erroneous states that should be impossible.
 
 <!--truncate-->
 
-It seems whenever I come up with an interesting theme to blog about, [Kent C. Dodds already blogged about it](https://kentcdodds.com/blog/make-impossible-states-impossible).
+I'm not sure where the idea originated, but it has a lot of mentions in the [Elm](https://elm-lang.org/) community, for example in the [Making Impossible States Impossible](https://www.youtube.com/watch?v=IcgmSRJHu_8&ab_channel=elm-conf) by Richard Feldman, or in the [elm-patterns](https://sporto.github.io/elm-patterns/basic/impossible-states.html). Also, it seems whenever I come up with an interesting theme to blog about, [Kent C. Dodds already blogged about it](https://kentcdodds.com/blog/make-impossible-states-impossible). I take that as a good sign.
 
-[Making Impossible States Impossible](https://www.youtube.com/watch?v=IcgmSRJHu_8&ab_channel=elm-conf) by Richard Feldman.
-
-Here is a little tip that uses Typescript types to prevent impossible states.
+Here is a useful pattern that uses Typescript types to prevent impossible states.
 
 ### Example
 
