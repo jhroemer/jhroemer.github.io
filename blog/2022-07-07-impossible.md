@@ -1,7 +1,7 @@
 ---
 slug: impossible
 title: 'Impossible states'
-tags: [Typescript]
+tags: [TypeScript]
 ---
 
 Impossible state
