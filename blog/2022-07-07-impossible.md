@@ -12,7 +12,9 @@ I'm not sure where the idea originated, but it has a lot of mentions in the [Elm
 
 Here is a useful pattern that uses Typescript types to prevent impossible states.
 
-### Example
+### Example: impossible state possible
+
+Most applications will have to fetch data from somewhere, and often there would be a loading state to go along with the data. The fetch might fail for some reason, and in that case there needs to be an error state as well. We can model this state with an object that has a `value` property (to hold the data we're fetching), an `isLoading` property and an `error` property (to hold potential error messages). We can make the object generic to allow it to be used for different kinds of data:
 
 ```typescript
 interface Data<T> {
@@ -22,13 +24,20 @@ interface Data<T> {
 }
 ```
 
-This is a quite straightforward approach to modelling parts of the application state connected to data fetching. The problem is that there's a lot of the possible state combinations should not be possible. Consider the following for example:
+This is a quite straightforward approach to modelling parts of the application state connected to data fetching. The problem is that there's a lot of the possible state combinations should not be possible. Consider the following value assignment for example:
 
 ```typescript
-data: Data<number> = { value: 1, isLoading: true, error: 'This is an error' }
+const data: Data<number> = {
+  value: 1,
+  isLoading: true,
+  error: 'This is an error',
+}
 ```
 
-Typescript would allow this, but it would not represent a possible state.
+Typescript allows this assignment, as it doesn't violate our type. But it would not represent a valid/possible state, and would lead to a bug in our application. After all, we're not interested in rendering our fetched data, a loading spinner and an error, all at the same time.
+
+### Example: impossible state impossible
+
 One way of preventing such states is to represent state not in terms of
 
 ```typescript
