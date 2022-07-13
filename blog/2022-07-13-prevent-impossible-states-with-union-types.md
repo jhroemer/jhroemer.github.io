@@ -4,7 +4,7 @@ title: 'Prevent impossible states with union types'
 tags: [TypeScript, Elm]
 ---
 
-Type systems are a great way of reducing bugs and errors in your application. But not all bugs are caused by runtime errors. For frontend development, state management is one of the very tricky areas. And you can alleviate type systems to prevent erroneous states that should be impossible.
+For complex frontend applications, state management is often one of the main challenges. One common problem is to end up in erroneous states, that should not be possible to be in. Luckily we can alleviate type systems to prevent the unwanted states, and catch the errors at compile-time.
 
 <!--truncate-->
 
