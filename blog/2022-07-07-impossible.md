@@ -38,7 +38,7 @@ Typescript allows this assignment, as it doesn't violate our type. But it would 
 
 ### Example: making the impossible states impossible
 
-One way of preventing such states is to represent state not in terms of
+One way of preventing such states is to represent state with single state-field, that can take only one value, that represents the given state. TypeScript enums are perfect for this - plain (magic) strings should be avoided:
 
 ```typescript
 enum DataState {
@@ -80,3 +80,5 @@ type Data<T> =
       error: undefined
     }
 ```
+
+While this approach is slightly less expressive and readable, it makes sure we can only be in one of our four possible states. You will be notified about the impossible state at compile-time, and dramatically reduce the potential errors.
