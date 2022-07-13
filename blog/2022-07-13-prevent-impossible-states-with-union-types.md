@@ -1,6 +1,6 @@
 ---
-slug: prevent-impossible-states-with-typescript
-title: 'Prevent impossible states with TypeScript'
+slug: prevent-impossible-states-with-union-types
+title: 'Prevent impossible states with union types'
 tags: [TypeScript, Elm]
 ---
 
