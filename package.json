@@ -16,8 +16,8 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@docusaurus/core": "2.0.0-beta.20",
-    "@docusaurus/preset-classic": "2.0.0-beta.20",
+    "@docusaurus/core": "2.0.1",
+    "@docusaurus/preset-classic": "2.0.1",
     "@mdx-js/react": "^1.6.21",
     "@svgr/webpack": "^5.5.0",
     "clsx": "^1.1.1",
@@ -28,8 +28,8 @@
     "url-loader": "^4.1.1"
   },
   "devDependencies": {
-    "@docusaurus/eslint-plugin": "^2.0.0-beta.20",
-    "@docusaurus/module-type-aliases": "^2.0.0-beta.20",
+    "@docusaurus/eslint-plugin": "^2.0.1",
+    "@docusaurus/module-type-aliases": "^2.0.1",
     "@tsconfig/docusaurus": "^1.0.4",
     "@typescript-eslint/eslint-plugin": "^5.26.0",
     "@typescript-eslint/parser": "^5.26.0",
