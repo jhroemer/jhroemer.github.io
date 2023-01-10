@@ -23,6 +23,69 @@
   padding: 0 var(--ifm-pre-padding);
 }
 
-html[data-theme="dark"] .docusaurus-highlight-code-line {
+html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
+}
+
+.test {
+  position: relative;
+  /* display: flex;
+  align-items: center; */
+  border-radius: 11px;
+  padding: 8px 16px;
+
+  border: 1px solid #d4d4d5;
+  background-color: rgb(251, 251, 251);
+
+  /* Add a box shadow to the button */
+  box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px #00000024,
+    0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+}
+
+.test:after {
+  /* we need 'some' content, otherwise the button won't show */
+  content: '';
+  /* Absolute position, to position the background underneath the button */
+  position: absolute;
+
+  /* Gradient should hide underneath the main element */
+  z-index: -1;
+
+  /* Gradient underlay should have same size as the button but slighty larger so that it overflows */
+  height: calc(100% + 4px);
+  width: calc(100% + 4px);
+
+  /* Button overflows by 4 px to the right and down (since it snaps to the left by default.
+    So we need to move it up and to the left by half of the overflow
+  */
+  left: -2px;
+  top: -2px;
+
+  /* Gradient background should also have border-radius. I find it looks a bit better if it's  */
+  border-radius: 12px;
+
+  background: linear-gradient(60deg, cyan, pink, darkgreen);
+  animation: animatedgradient 4s ease alternate infinite;
+
+  /* We're essentially moving the background back and forth as if it was in front of a camera lense that only could film some of it
+    So the background needs to be larger than the element, by some value. This can be tweaked of course.
+  */
+  background-size: 300% 300%;
+
+  /* TODO: need to do this? */
+  /* box-sizing: border-box; */
+
+  /* TODO: check mask, -webkit-mask-composite and mask-composite css properties */
+}
+
+@keyframes animatedgradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
