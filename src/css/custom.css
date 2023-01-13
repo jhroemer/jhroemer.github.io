@@ -14,6 +14,8 @@
   --ifm-color-primary-lighter: #6a8897;
   --ifm-color-primary-lightest: #7e97a5;
   --ifm-code-font-size: 95%;
+
+  --border-radius: 11px;
 }
 
 .docusaurus-highlight-code-line {
@@ -27,17 +29,15 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-.test {
+.element-with-gradient-border {
   margin: 36px auto;
   height: 80px;
   width: 60%;
   position: relative;
-  /* display: flex;
-  align-items: center; */
-  border-radius: 11px;
+  border-radius: var(--border-radius);
   padding: 8px 16px;
 
-  border: 1px solid #d4d4d5;
+  /* border: 1px solid #d4d4d5; */
   background-color: rgb(251, 251, 251);
 
   /* Add a box shadow to the button */
@@ -46,32 +46,18 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 }
 
 /* TODO: wrap up dark mode colors */
-html[data-theme='dark'] .test {
-  background-color: #40535c;
+html[data-theme='dark'] .element-with-gradient-border {
+  background-color: #282a36;
 }
 
-.test:after {
-  /* we need 'some' content, otherwise the button won't show */
+.element-with-gradient-border:after {
   content: '';
-  /* Absolute position, to position the background underneath the button */
   position: absolute;
-
-  /* Gradient should hide underneath the main element */
   z-index: -1;
-
-  /* Gradient underlay should have same size as the button but slighty larger so that it overflows */
-  height: calc(100% + 4px);
-  width: calc(100% + 4px);
-
-  /* Button overflows by 4 px to the right and down (since it snaps to the left by default.
-    So we need to move it up and to the left by half of the overflow
-  */
-  left: -2px;
-  top: -2px;
-
-  /* Gradient background should also have border-radius. I find it looks a bit better if it's  */
-  border-radius: 12px;
-
+  inset: 0;
+  margin: -2px;
+  /* border-radius: inherit; */
+  border-radius: calc(var(--border-radius) + 2);
   background: linear-gradient(60deg, cyan, pink, darkgreen);
   animation: animatedgradient 4s ease alternate infinite;
 
@@ -79,11 +65,6 @@ html[data-theme='dark'] .test {
     So the background needs to be larger than the element, by some value. This can be tweaked of course.
   */
   background-size: 300% 300%;
-
-  /* TODO: need to do this? */
-  /* box-sizing: border-box; */
-
-  /* TODO: check mask, -webkit-mask-composite and mask-composite css properties */
 }
 
 @keyframes animatedgradient {
