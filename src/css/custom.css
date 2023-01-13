@@ -57,7 +57,7 @@ html[data-theme='dark'] .element-with-gradient-border {
   inset: 0;
   margin: -2px;
   /* border-radius: inherit; */
-  border-radius: calc(var(--border-radius) + 2);
+  border-radius: calc(var(--border-radius) + 2px);
   background: linear-gradient(60deg, cyan, pink, darkgreen);
   animation: animatedgradient 4s ease alternate infinite;
 
