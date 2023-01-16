@@ -56,14 +56,20 @@ html[data-theme='dark'] .element-with-gradient-border {
   z-index: -1;
   inset: 0;
   margin: -2px;
+  border-radius: calc(var(--border-radius) + 2px);
+  background: linear-gradient(60deg, cyan, pink, darkgreen);
+}
+
+.element-with-gradient-border-and-animation:after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  margin: -2px;
   /* border-radius: inherit; */
   border-radius: calc(var(--border-radius) + 2px);
   background: linear-gradient(60deg, cyan, pink, darkgreen);
   animation: animatedgradient 4s ease alternate infinite;
-
-  /* We're essentially moving the background back and forth as if it was in front of a camera lense that only could film some of it
-    So the background needs to be larger than the element, by some value. This can be tweaked of course.
-  */
   background-size: 300% 300%;
 }
 
