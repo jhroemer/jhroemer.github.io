@@ -12,7 +12,7 @@ Here is what we're going to be making:
 
 <div className="element-with-gradient-border-and-animation"></div>
 
-The technique for doing gradients on borders has a few variations, but as far as I know they all require you to render an extra element behind the element where you want the border. Let's start by looking at this.
+The technique for doing gradients on borders has a few variations, but as far as I know they all require you to render an extra element behind the element where you want the border - which is where we're going to start.
 
 ### Making a background element
 
@@ -32,11 +32,11 @@ Let's start by laying out a new element underneath the element where we want the
 
 In order for the `pseudo-element` to show we have to give it some content, an empty string is fine, otherwise the element won't show.
 We position it with `absolute` and a negative `z-index` to make it sit right underneath our original element.
-Then there's a few ways of sizing it correctly. You can use `width` and `height` set to 100% + the amount you want to overflow (with the `calc()` function). But the element will then be impacted by padding on the original element. I think it's nicer to give it `inset: 0;` which is the shorthand for setting the top/right/bottom/left properties (not supported by Safari <15 though). This makes the element's sides snap to the borders of the original element. Then you can simply add a negative margin corresponding to the border thickness you want, and it will overflow correctly.
+Then there's a few ways of sizing it correctly. You can use `width` and `height` set to `100%` + the amount you want to overflow (with the `calc()` function). But the element will then be impacted by padding on the original element. I think it's nicer to give it `inset: 0;` which is the shorthand for setting the top/right/bottom/left properties (not supported by Safari <15 though). This makes the element's sides snap to the borders of the original element. Then you can simply add a negative margin corresponding to the border thickness you want, and it will overflow correctly.
 
 For border-radius you could just use `border-radius: inherit;` to make the property match the original element, effectively making it the same size and get the same position. I think it looks better to add a slightly higher (1-2 px) border-radius than the original element though. Otherwise the corners look slightly square. We can a CSS variable for the border-radius and then add a few pixels to that value with the `calc` function.
 
-Finally add a background with a linear-gradient and a few colors. This is then what we get (the original element is transparent here to make the background more visible):
+Finally add a background with a linear-gradient and a few colors. This is then what we get (the original element is transparent here to make the background more visible - and yes I could've spent more time finding a cool color palette, I blame my children!):
 
 <div className="element-with-gradient-border" style={{ backgroundColor: 'transparent' }}></div>
 
