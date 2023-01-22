@@ -64,10 +64,9 @@ Let's look at animating the 'border' a bit. The trick we will use here is to use
 }
 ```
 
-Here is how the animation looks like:
+Here is how the animation looks like, with the original element hidden and shown:
 
-<div className="element-with-gradient-border-and-animation" style={{ backgroundColor: 'transparent' }}></div>
-
-And if we add the background color back to the original element - voila!
-
-<div className="element-with-gradient-border-and-animation" ></div>
+<div style={{ display: 'flex' }}>
+  <div className="element-with-gradient-border-and-animation" style={{ backgroundColor: 'transparent' }}/>
+  <div className="element-with-gradient-border-and-animation" />
+</div>

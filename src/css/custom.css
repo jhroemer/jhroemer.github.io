@@ -32,7 +32,7 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 .element-with-gradient-border {
   margin: 36px auto;
   height: 80px;
-  width: 60%;
+  width: 40%;
   position: relative;
   border-radius: var(--border-radius);
   padding: 8px 16px;
@@ -48,7 +48,7 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 .element-with-gradient-border-and-animation {
   margin: 36px auto;
   height: 80px;
-  width: 60%;
+  width: 40%;
   position: relative;
   border-radius: var(--border-radius);
   padding: 8px 16px;
