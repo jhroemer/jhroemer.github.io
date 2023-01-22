@@ -2,6 +2,7 @@
 slug: animating-gradient-border
 title: 'Animating gradient border'
 tags: [CSS]
+image: ../static/img/thumbnail.png
 ---
 
 Gradients aren't supported for borders in out of the box in CSS, but there's a few ways to achieve it. Here's an example of an animating gradient border on an element with border radius.
