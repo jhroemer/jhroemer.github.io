@@ -13,6 +13,9 @@ const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "TypeScript"];
 const happy = true;
 const finished = false;
 const goal = 3;
+
+const skillColor = "pink";
+const testTransform = "uppercase";
 ---
 
 <html lang="en">
@@ -22,6 +25,18 @@ const goal = 3;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
+    <style define:vars={{ skillColor, testTransform }}>
+      h1 {
+        color: teal;
+        font-size: 4rem;
+      }
+
+      .skill {
+        color: var(--skillColor);
+        font-weight: bold;
+        text-transform: var(--testTransform);
+      }
+    </style>
   </head>
   <body>
     <a href="/">Home</a>
@@ -48,7 +63,7 @@ const goal = 3;
     </ul>
     <p>My skills are:</p>
     <ul>
-      {skills.map((skill) => <li>{skill}</li>)}
+      {skills.map((skill) => <li class="skill">{skill}</li>)}
     </ul>
 
     {happy && <p>I am happy to be learning Astro!</p>}
