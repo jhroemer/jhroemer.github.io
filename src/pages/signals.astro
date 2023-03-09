@@ -1,0 +1,85 @@
+---
+---
+
+<script>
+  interface Subscriber {
+    execute: () => void;
+  }
+
+  const context: any[] = [];
+
+  const createSignal = (value: any): [() => any, (nextValue: any) => void] => {
+    const subscribers = new Set<Subscriber>();
+
+    // When value is read, make sure observer is subscribed to future updates
+    // This ensures that observer is notified when value updates
+    const read = () => {
+      const observer = context[context.length - 1];
+      if (observer) {
+        subscribers.add(observer);
+      }
+      return value;
+    };
+
+    // Make sure that whenever a value is changed, it's subscribers/observers are notified
+    // and when they are they will execute their execute function, which is registered when the effect is created
+    const write = (newValue: any) => {
+      value = newValue;
+      for (const sub of subscribers) {
+        sub.execute();
+      }
+    };
+
+    return [read, write];
+  };
+
+  // Register a new observer with an execute function
+  // The observer is pushed onto the context stack: TODO: why?
+  const createEffect = (fn: () => void) => {
+    const observer = {
+      execute() {
+        context.push(this);
+        try {
+          fn();
+        } finally {
+          context.pop();
+        }
+      },
+    };
+
+    observer.execute();
+  };
+
+  // Signals/effect usage
+
+  const [greet, setGreet] = createSignal("Hi");
+  const [name, setName] = createSignal("Simon");
+
+  const h1 = document.createElement("h1");
+  const andersButton = document.createElement("button");
+  andersButton.textContent = "Change name to Anders";
+  andersButton.addEventListener("click", () => {
+    setName("Anders");
+  });
+  const atusaButton = document.createElement("button");
+  atusaButton.textContent = "Change name to Atusa";
+  atusaButton.addEventListener("click", () => {
+    setName("Atusa");
+  });
+  const greetButton = document.createElement("button");
+  greetButton.textContent = "Change greet";
+  greetButton.addEventListener("click", () => {
+    setGreet("Yo");
+  });
+
+  createEffect(() => {
+    h1.textContent = `${greet()} ${name()}`;
+  });
+
+  document.body.append(h1);
+  document.body.append(andersButton);
+  document.body.append(atusaButton);
+  document.body.append(greetButton);
+</script>
+
+<p></p>
