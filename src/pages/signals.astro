@@ -39,11 +39,8 @@
     const observer = {
       execute() {
         context.push(this);
-        try {
-          fn();
-        } finally {
-          context.pop();
-        }
+        fn();
+        context.pop();
       },
     };
 
