@@ -5,7 +5,7 @@ tags: [CSS]
 draft: true
 ---
 
-Intro
+Reactivity within frontend development has been dominated by React and its Virtual DOM approach for many years now. But there are other approaches out there. Let's have a look at SolidJS, its fine-grained reactivity model and a very basic implementation of signals.
 
 <!--truncate-->
 
