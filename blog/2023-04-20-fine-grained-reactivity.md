@@ -1,7 +1,7 @@
 ---
 slug: fine-grained-reactivity
 title: 'Fine grained reactivity'
-tags: [CSS]
+tags: [Reactivity, Signals, SolidJS]
 draft: true
 ---
 
