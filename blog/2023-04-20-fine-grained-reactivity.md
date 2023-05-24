@@ -19,8 +19,67 @@ So what's getting back in style exactly? Well, the new kid on the block these da
 
 ### A very basic implementation
 
-- Source and inspiration: https://www.youtube.com/watch?v=N-Y32BqhoYQ&ab_channel=KelvinOmereshone
-- Example
-- Explanation
-- Only x lines of code
+The really cool thing about signals is that it's a fairly simple concept, and that it can be implemented with runtime features and the (normal) DOM quite easily. In fact, the most basic implementation can be done in around 20 lines of code, as demonstrated by Ryan in [this interview with Kelvin Omereshone](https://www.youtube.com/watch?v=N-Y32BqhoYQ&ab_channel=KelvinOmereshone). While that wouldn't be production-ready by any means, it's still quite fascinating to me how the magic of reactivity can be implemented with so little code.
+
+Let's dive in.
+
+```typescript
+interface Subscriber {
+  execute: () => void
+}
+
+const context: any[] = []
+
+const createSignal = (value: any): [() => any, (nextValue: any) => void] => {
+  const subscribers = new Set<Subscriber>()
+
+  // When value is read, make sure observer is subscribed to future updates
+  // This ensures that observer is notified when value updates
+  const read = () => {
+    const observer = context[context.length - 1]
+    if (observer) {
+      subscribers.add(observer)
+    }
+    return value
+  }
+
+  // Whenever a value is changed, the subscribers/observers are notified
+  // and when they are they will execute their execute function,
+  // which is registered when the effect is created
+  const write = (newValue: any) => {
+    value = newValue
+    for (const sub of subscribers) {
+      sub.execute()
+    }
+  }
+
+  return [read, write]
+}
+
+// Register a new observer with an execute function
+// The observer is pushed onto the context stack: TODO: why?
+const createEffect = (fn: () => void) => {
+  const observer = {
+    execute() {
+      context.push(this)
+      fn()
+      context.pop()
+    },
+  }
+
+  observer.execute()
+}
+```
+
 - Solid has a lot of tricks and things to prevent bad things to happen
+
+- https://dev.to/ryansolid/a-hands-on-introduction-to-fine-grained-reactivity-3ndf
+- https://dev.to/this-is-learning/the-evolution-of-signals-in-javascript-8ob
+- https://dev.to/this-is-learning/making-the-case-for-signals-in-javascript-4c7i
+- https://www.solidjs.com/guides/reactivity
+- https://www.youtube.com/watch?v=N-Y32BqhoYQ&ab_channel=KelvinOmereshone
+
+- Solid, Preact, Angular
+- State binding and dependency tracking
+- Sell: Eliminates state management footguns - VS vdom
+- Signals w. Vanilla https://twitter.com/wesbos/status/1650589973215584260
