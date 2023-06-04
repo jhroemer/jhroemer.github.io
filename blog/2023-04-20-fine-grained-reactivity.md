@@ -71,6 +71,39 @@ const createEffect = (fn: () => void) => {
 }
 ```
 
+Usage:
+
+```typescript
+const [greet, setGreet] = createSignal('Hi')
+const [name, setName] = createSignal('Simon')
+
+const h1 = document.createElement('h1')
+const andersButton = document.createElement('button')
+andersButton.textContent = 'Change name to Anders'
+andersButton.addEventListener('click', () => {
+  setName('Anders')
+})
+const atusaButton = document.createElement('button')
+atusaButton.textContent = 'Change name to Atusa'
+atusaButton.addEventListener('click', () => {
+  setName('Atusa')
+})
+const greetButton = document.createElement('button')
+greetButton.textContent = 'Change greet'
+greetButton.addEventListener('click', () => {
+  setGreet('Yo')
+})
+
+createEffect(() => {
+  h1.textContent = `${greet()} ${name()}`
+})
+
+document.body.append(h1)
+document.body.append(andersButton)
+document.body.append(atusaButton)
+document.body.append(greetButton)
+```
+
 - Solid has a lot of tricks and things to prevent bad things to happen
 
 - https://dev.to/ryansolid/a-hands-on-introduction-to-fine-grained-reactivity-3ndf
