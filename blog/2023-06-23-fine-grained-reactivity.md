@@ -6,7 +6,7 @@ tags: [Reactivity, Signals, SolidJS]
 
 Reactivity within frontend development has been dominated by React and its Virtual DOM approach for many years now. But there are other approaches out there. Let's have a look at SolidJS, its fine-grained reactivity model and a very basic implementation of signals.
 
-### Reactivity
+<!--truncate-->
 
 Reactivity and reactive programming isn't a new concept in general. In the context of modern Javascript-based frontend development, it started around 2010, when frameworks like [RxJS](https://rxjs.dev/), [Knockout.js](https://knockoutjs.com/), [Backbone.js](https://backbonejs.org/), [AngularJS](https://angularjs.org/) and [Ember.js](https://emberjs.com/) came out. All these libraries are now somewhat dated, or even deprecated, but they were at the absolute forefront at the time.
 
