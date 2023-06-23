@@ -71,50 +71,42 @@ const createEffect = (fn) => {
 Fine, now we have a function that can store a value, keep track of dependencies, and to run a function for dependencies of the function. How do we use it then? 
 The signal will be used together with functions that return jsx. This could be in a `render` function, or in this simple example; an effect. We can create an effect with the `createEffect` function, that creates a new observer (object with an execute function). The execute function is run once as part of the `createEffect` call, and pushes the observer into the context stack, runs the supplied function, and pops the observer off the stack again.
 
-At this point you might not really see how pieces fit together, so let's have a look at how they can be used together:
-
-Usage:
+At this point you might not really see how pieces fit together. So let's have a look at how they can be used together, with a semi-stupid example of an H1 element that changes it's text based on a few buttons: 
 
 ```javascript
 const [greet, setGreet] = createSignal('Hi')
-const [name, setName] = createSignal('Simon')
+const [name, setName] = createSignal('Harry')
 
-const h1 = document.createElement('h1')
-const andersButton = document.createElement('button')
-andersButton.textContent = 'Change name to Anders'
-andersButton.addEventListener('click', () => {
-  setName('Anders')
-})
-const atusaButton = document.createElement('button')
-atusaButton.textContent = 'Change name to Atusa'
-atusaButton.addEventListener('click', () => {
-  setName('Atusa')
-})
 const greetButton = document.createElement('button')
 greetButton.textContent = 'Change greet'
 greetButton.addEventListener('click', () => {
   setGreet('Yo')
 })
 
+const harryButton = document.createElement('button')
+harryButton.textContent = 'Change name to Anders'
+harryButton.addEventListener('click', () => {
+  setName('Harry')
+})
+
+const lloydButton = document.createElement('button')
+lloydButton.textContent = 'Change name to Anders'
+lloydButton.addEventListener('click', () => {
+  setName('Lloyd')
+})
+
+const h1 = document.createElement('h1')
+
+document.body.append(h1)
+document.body.append(harryButton)
+document.body.append(lloydButton)
+document.body.append(greetButton)
+
 createEffect(() => {
   h1.textContent = `${greet()} ${name()}`
 })
-
-document.body.append(h1)
-document.body.append(andersButton)
-document.body.append(atusaButton)
-document.body.append(greetButton)
 ```
 
-- Solid has a lot of tricks and things to prevent bad things to happen
+The example start by defining two signals, and for a greeting and one for a name. Then we create a few buttons that call the write functions, so that we can change the values. We then a heading element and the buttons to the dom. Finally, we call `createEffect` and supply a function that set the text content on the heading to a template string that calls `greet` and `name`. What happens is that when you press one of the buttons, the button will call the write function on the signal, which will run the `execute` function of any observers. The effect that updates the text content on the heading is a subscriber, due to it's use of the read function. Hence, when the value is changed the H1 text content will change accordingly. And there we have it, a very simple reactivity implementation that works without any black magic. You can go ahead and copy paste the individual pieces into your console, and you should have a heading and a few buttons that will work. 
 
-- https://dev.to/ryansolid/a-hands-on-introduction-to-fine-grained-reactivity-3ndf
-- https://dev.to/this-is-learning/the-evolution-of-signals-in-javascript-8ob
-- https://dev.to/this-is-learning/making-the-case-for-signals-in-javascript-4c7i
-- https://www.solidjs.com/guides/reactivity
-- https://www.youtube.com/watch?v=N-Y32BqhoYQ&ab_channel=KelvinOmereshone
-
-- Solid, Preact, Angular
-- State binding and dependency tracking
-- Sell: Eliminates state management footguns - VS vdom
-- Signals w. Vanilla https://twitter.com/wesbos/status/1650589973215584260
+Thanks to [Ryan Carniato](https://twitter.com/RyanCarniato) and [Kelvin Omereshone](https://twitter.com/Dominus_Kelvin) for the inspiration.
