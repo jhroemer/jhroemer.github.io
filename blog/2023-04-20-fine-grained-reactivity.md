@@ -21,20 +21,14 @@ So what's getting back in style exactly? Well, the new kid on the block these da
 
 The really cool thing about signals is that it's a fairly simple concept, and that it can be implemented with runtime features and the (normal) DOM quite easily. In fact, the most basic implementation can be done in around 20 lines of code, as demonstrated by Ryan in [this interview with Kelvin Omereshone](https://www.youtube.com/watch?v=N-Y32BqhoYQ&ab_channel=KelvinOmereshone). While that wouldn't be production-ready by any means, it's still quite fascinating to me how the magic of reactivity can be implemented with so little code.
 
-Let's dive in.
+Let's start with the signal itself.
 
-```typescript
-interface Subscriber {
-  execute: () => void
-}
+```javascript
+const context = []
 
-const context: any[] = []
+const createSignal = (value) => {
+  const subscribers = new Set()
 
-const createSignal = (value: any): [() => any, (nextValue: any) => void] => {
-  const subscribers = new Set<Subscriber>()
-
-  // When value is read, make sure observer is subscribed to future updates
-  // This ensures that observer is notified when value updates
   const read = () => {
     const observer = context[context.length - 1]
     if (observer) {
@@ -43,10 +37,7 @@ const createSignal = (value: any): [() => any, (nextValue: any) => void] => {
     return value
   }
 
-  // Whenever a value is changed, the subscribers/observers are notified
-  // and when they are they will execute their execute function,
-  // which is registered when the effect is created
-  const write = (newValue: any) => {
+  const write = (newValue) => {
     value = newValue
     for (const sub of subscribers) {
       sub.execute()
@@ -55,10 +46,18 @@ const createSignal = (value: any): [() => any, (nextValue: any) => void] => {
 
   return [read, write]
 }
+```
 
+A signal is created with a `createSignal` function, that returns a tuple with a `read` and `write` function. As expected, the read function returns the value and the write function updates it, just like a getter and a setter. Additionally, when the read function is invoked, it looks for any observers from the context stack, and if here is one, adds it to a list of subscribers. The context stack is a way of tracking observers/dependencies, and the subscriber list is an internal list in the signal used to keep track of what to update if the value changes. What the `write` function does in addition to updating the value, is to go through this list of subscribers/observers, and to run their `execute` function. 
+
+In other words, with the `read` function you can get a value and at the same time sign up to be notified about updates to the value (in an `effect` or a `render` function for example). With the `write` function you make sure that whoever depends on the value is notified, and *reacts* appropriately, when the value is updated
+
+One thing to mention here, the naming convention in Solid is slightly confusing, since it resembles the one by React's `useState` function, that returns a stateful value `state` and a function to update it `setState`. The difference here is that `state` is a value and not a function, like `read` is. `read` needs to be called as a function when you use it, but its naming convention makes it seem similar to a value. We'll have a look at this later. 
+
+```Javascript
 // Register a new observer with an execute function
 // The observer is pushed onto the context stack: TODO: why?
-const createEffect = (fn: () => void) => {
+const createEffect = (fn) => {
   const observer = {
     execute() {
       context.push(this)
