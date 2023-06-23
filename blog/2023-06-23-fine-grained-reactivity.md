@@ -15,13 +15,13 @@ Coincidentally, I did my own baby-steps in frontend development around this time
 
 ### Signals
 
-So what's getting back in style exactly? Well, the new kid on the block these days is signals. But signals isn't actually a new concept. The author of Solid.js, Ryan Carniato, dates it back as far as the [1960's](https://dev.to/this-is-learning/the-evolution-of-signals-in-javascript-8ob). The underlying software engineering concept that most should be familiar with is the [Observer pattern](https://en.wikipedia.org/wiki/Observer_pattern), which is also what's referenced in the [Solid.js docs](https://www.solidjs.com/guides/reactivity#introducing-primitives). The basic idea is that you have an object (subject) that maintains a list of dependents (observers). When state changes the observers are notified, and they can react accordingly. In frontend terms the subject would be a piece of state, and the dependents would be dom elements.
+So what's getting back in style exactly? Well, the new kid on the block these days is signals. But signals isn't actually a new concept. The author of Solid.js, Ryan Carniato, dates it back as far as the [1960's](https://dev.to/this-is-learning/the-evolution-of-signals-in-javascript-8ob). The underlying software engineering concept that most should be familiar with is the [Observer pattern](https://en.wikipedia.org/wiki/Observer_pattern), which is also what's referenced in the [Solid.js docs](https://www.solidjs.com/guides/reactivity#introducing-primitives). The basic idea is that you have an object (subject) that maintains a list of dependents (observers). When state changes the observers are notified, and they can react accordingly. In frontend terms the subject would be a piece of state, and the dependents would be DOM elements.
 
 ### A very basic implementation
 
 The really cool thing about signals is that it's a fairly simple concept, and that it can be implemented with runtime features and the (normal) DOM quite easily. In fact, the most basic implementation can be done in around 20 lines of code, as demonstrated by Ryan in [this interview with Kelvin Omereshone](https://www.youtube.com/watch?v=N-Y32BqhoYQ&ab_channel=KelvinOmereshone). While that wouldn't be production-ready by any means, it's still quite fascinating to me how the magic of reactivity can be implemented with so little code.
 
-Let's start with the signal itself.
+Let's start with the signal itself:
 
 ```javascript
 const context = []
@@ -52,7 +52,9 @@ A signal is created with a `createSignal` function, that returns a tuple with a 
 
 In other words, with the `read` function you can get a value and at the same time sign up to be notified about updates to the value (in an `effect` or a `render` function for example). With the `write` function you make sure that whoever depends on the value is notified, and *reacts* appropriately, when the value is updated
 
-One thing to mention here, the naming convention in Solid is slightly confusing, since it resembles the one by React's `useState` function, that returns a stateful value `state` and a function to update it `setState`. The difference here is that `state` is a value and not a function, like `read` is. `read` needs to be called as a function when you use it, but its naming convention makes it seem similar to a value. We'll have a look at this later. 
+One thing to mention here, the naming convention in Solid is slightly confusing, since it resembles the one by React's `useState` function, that returns a stateful value `state` and a function to update it `setState`. The difference here is that `state` is a value and not a function, like `read` is. `read` needs to be called as a function when you use it, but its naming convention makes it seem similar to a value. We'll have a look at this later.
+
+Fine, now we have a function that can store a value, keep track of dependencies, and to run a function for dependencies of the function. How do we use it then? Let's have a look at an effect:
 
 ```javascript
 const createEffect = (fn) => {
@@ -68,10 +70,9 @@ const createEffect = (fn) => {
 }
 ```
 
-Fine, now we have a function that can store a value, keep track of dependencies, and to run a function for dependencies of the function. How do we use it then? 
 The signal will be used together with functions that return jsx. This could be in a `render` function, or in this simple example; an effect. We can create an effect with the `createEffect` function, that creates a new observer (object with an execute function). The execute function is run once as part of the `createEffect` call, and pushes the observer into the context stack, runs the supplied function, and pops the observer off the stack again.
 
-At this point you might not really see how pieces fit together. So let's have a look at how they can be used together, with a semi-stupid example of an H1 element that changes it's text based on a few buttons: 
+At this point you might not really see how pieces fit together. So let's have a look at how they can be used together, with a silly example of an H1 element that changes it's text based on a few buttons: 
 
 ```javascript
 const [greet, setGreet] = createSignal('Hi')
@@ -107,6 +108,10 @@ createEffect(() => {
 })
 ```
 
-The example start by defining two signals, and for a greeting and one for a name. Then we create a few buttons that call the write functions, so that we can change the values. We then a heading element and the buttons to the dom. Finally, we call `createEffect` and supply a function that set the text content on the heading to a template string that calls `greet` and `name`. What happens is that when you press one of the buttons, the button will call the write function on the signal, which will run the `execute` function of any observers. The effect that updates the text content on the heading is a subscriber, due to it's use of the read function. Hence, when the value is changed the H1 text content will change accordingly. And there we have it, a very simple reactivity implementation that works without any black magic. You can go ahead and copy paste the individual pieces into your console, and you should have a heading and a few buttons that will work. 
+The example start by defining two signals, and for a greeting and one for a name. Then we create a few buttons that call the write functions, so that we can change the values. We then a heading element and the buttons to the dom. Finally, we call `createEffect` and supply a function that set the text content on the heading to a template string that calls `greet` and `name`. 
+
+What happens is that when you press one of the buttons, the button will call the `write` function on the signal, which will run the `execute` function of any observers. The effect that updates the text content on the heading is a subscriber, due to it's use of the read function. Hence, when the value is changed the H1 text content will change accordingly. 
+
+And there we have it, a very simple reactivity implementation that works without any black magic. You can go ahead and copy paste the individual pieces into your console, and you should have a heading and a few buttons that use reactivity to do the DOM updates. 
 
 Thanks to [Ryan Carniato](https://twitter.com/RyanCarniato) and [Kelvin Omereshone](https://twitter.com/Dominus_Kelvin) for the inspiration.
