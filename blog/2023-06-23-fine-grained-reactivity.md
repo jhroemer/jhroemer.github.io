@@ -54,7 +54,7 @@ In other words, with the `read` function you can get a value and at the same tim
 
 One thing to mention here, the naming convention in Solid is slightly confusing, since it resembles the one by React's `useState` function, that returns a stateful value `state` and a function to update it `setState`. The difference here is that `state` is a value and not a function, like `read` is. `read` needs to be called as a function when you use it, but its naming convention makes it seem similar to a value. We'll have a look at this later. 
 
-```Javascript
+```javascript
 const createEffect = (fn) => {
   const observer = {
     execute() {
