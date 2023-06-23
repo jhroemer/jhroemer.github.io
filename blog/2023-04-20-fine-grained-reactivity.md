@@ -55,8 +55,6 @@ In other words, with the `read` function you can get a value and at the same tim
 One thing to mention here, the naming convention in Solid is slightly confusing, since it resembles the one by React's `useState` function, that returns a stateful value `state` and a function to update it `setState`. The difference here is that `state` is a value and not a function, like `read` is. `read` needs to be called as a function when you use it, but its naming convention makes it seem similar to a value. We'll have a look at this later. 
 
 ```Javascript
-// Register a new observer with an execute function
-// The observer is pushed onto the context stack: TODO: why?
 const createEffect = (fn) => {
   const observer = {
     execute() {
@@ -70,9 +68,14 @@ const createEffect = (fn) => {
 }
 ```
 
+Fine, now we have a function that can store a value, keep track of dependencies, and to run a function for dependencies of the function. How do we use it then? 
+The signal will be used together with functions that return jsx. This could be in a `render` function, or in this simple example; an effect. We can create an effect with the `createEffect` function, that creates a new observer (object with an execute function). The execute function is run once as part of the `createEffect` call, and pushes the observer into the context stack, runs the supplied function, and pops the observer off the stack again.
+
+At this point you might not really see how pieces fit together, so let's have a look at how they can be used together:
+
 Usage:
 
-```typescript
+```javascript
 const [greet, setGreet] = createSignal('Hi')
 const [name, setName] = createSignal('Simon')
 
