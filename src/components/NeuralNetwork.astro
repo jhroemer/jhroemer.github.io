@@ -3,6 +3,13 @@ const nodeColor = "#6B3064";
 const edgeColor = "#A67F9E";
 ---
 
+<script>
+  const nodeClick = () => {
+    console.log("Node clicked");
+  };
+  document.getElementById("firstNode")?.addEventListener("click", nodeClick);
+</script>
+
 <style>
   rect {
     /* fill: linear-gradient(to right, #d7f1eb, #50b3a2); */
@@ -21,10 +28,11 @@ const edgeColor = "#A67F9E";
 
   <!-- First layer -->
   <circle
+    id="firstNode"
     cx="20"
     cy="10"
     r="4"
-    fill="none"
+    fill="transparent"
     stroke={nodeColor}
     stroke-width="0.2"></circle>
   <circle
