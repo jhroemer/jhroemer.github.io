@@ -1,0 +1,114 @@
+---
+const nodeColor = "#6B3064";
+const edgeColor = "#A67F9E";
+---
+
+<style>
+  rect {
+    /* fill: linear-gradient(to right, #d7f1eb, #50b3a2); */
+    fill: linear-gradient(to bottom right, #d7f1eb, #50b3a2);
+  }
+</style>
+
+<svg viewBox="0 0 100 60">
+  <defs>
+    <linearGradient id="tealGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#D7F1EB"></stop>
+      <stop offset="100%" style="stop-color:#50B3A2"></stop>
+    </linearGradient>
+  </defs>
+  <rect width="100" height="100" fill="url(#tealGradient)"></rect>
+
+  <!-- First layer -->
+  <circle
+    cx="20"
+    cy="10"
+    r="4"
+    fill="none"
+    stroke={nodeColor}
+    stroke-width="0.2"></circle>
+  <circle
+    cx="20"
+    cy="30"
+    r="4"
+    fill="none"
+    stroke={nodeColor}
+    stroke-width="0.2"></circle>
+  <circle
+    cx="20"
+    cy="50"
+    r="4"
+    fill="none"
+    stroke={nodeColor}
+    stroke-width="0.2"></circle>
+
+  <!-- Edges towards second layer -->
+  <line x1="24" y1="10" x2="46" y2="20" stroke={edgeColor} stroke-width="0.2"
+  ></line>
+  <line x1="24" y1="10" x2="46" y2="40" stroke={edgeColor} stroke-width="0.2"
+  ></line>
+
+  <line x1="24" y1="30" x2="46" y2="20" stroke={edgeColor} stroke-width="0.2"
+  ></line>
+  <line x1="24" y1="30" x2="46" y2="40" stroke={edgeColor} stroke-width="0.2"
+  ></line>
+
+  <line x1="24" y1="50" x2="46" y2="20" stroke={edgeColor} stroke-width="0.2"
+  ></line>
+  <line x1="24" y1="50" x2="46" y2="40" stroke={edgeColor} stroke-width="0.2"
+  ></line>
+
+  <!-- Second layer -->
+  <circle
+    cx="50"
+    cy="20"
+    r="4"
+    fill="none"
+    stroke={nodeColor}
+    stroke-width="0.2"></circle>
+  <circle
+    cx="50"
+    cy="40"
+    r="4"
+    fill="none"
+    stroke={nodeColor}
+    stroke-width="0.2"></circle>
+
+  <!-- Edges towards third layer -->
+  <line x1="54" y1="20" x2="76" y2="10" stroke={edgeColor} stroke-width="0.2"
+  ></line>
+  <line x1="54" y1="20" x2="76" y2="30" stroke={edgeColor} stroke-width="0.2"
+  ></line>
+  <line x1="54" y1="20" x2="76" y2="50" stroke={edgeColor} stroke-width="0.2"
+  ></line>
+
+  <line x1="54" y1="40" x2="76" y2="10" stroke={edgeColor} stroke-width="0.2"
+  ></line>
+  <line x1="54" y1="40" x2="76" y2="30" stroke={edgeColor} stroke-width="0.2"
+  ></line>
+  <line x1="54" y1="40" x2="76" y2="50" stroke={edgeColor} stroke-width="0.2"
+  ></line>
+
+  <!-- Third layer -->
+  <circle
+    cx="80"
+    cy="10"
+    r="4"
+    fill="none"
+    stroke={nodeColor}
+    stroke-width="0.2"></circle>
+  <circle
+    cx="80"
+    cy="30"
+    r="4"
+    fill="none"
+    stroke={nodeColor}
+    stroke-width="0.2"></circle>
+  <circle
+    cx="80"
+    cy="50"
+    r="4"
+    fill="none"
+    stroke={nodeColor}
+    stroke-width="0.2"></circle>
+</svg>
