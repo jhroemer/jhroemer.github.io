@@ -14,20 +14,41 @@ const graph = [
 <script>
   const nodeClick = () => {
     const edges = document.querySelectorAll("line");
-    edges.forEach((edge) => {
-      const length = edge.getTotalLength();
-      edge.style.transition = `stroke-dashoffset 0.5s cubic-bezier(0.6, 0.6, 0, 1)`;
-      edge.style.strokeDashoffset = `${-length}`;
-    });
+    // edges.forEach((edge) => {
+    //   const length = edge.getTotalLength();
+    //   edge.style.transition = `stroke-dashoffset 0.5s cubic-bezier(0.6, 0.6, 0, 1)`;
+    //   edge.style.strokeDashoffset = `${-length}`;
+    // });
 
-    setTimeout(() => {
-      // Reset dash offset
+    // setTimeout(() => {
+    //   // Reset dash offset
+    //   edges.forEach((edge) => {
+    //     const length = edge.getTotalLength();
+    //     edge.style.transition = "unset";
+    //     edge.style.strokeDashoffset = `${length}`;
+    //   });
+    // }, 1000);
+
+    function delay(ms: number) {
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+
+    async function processItems() {
+      for (let edge of edges) {
+        const length = edge.getTotalLength();
+        edge.style.transition = `stroke-dashoffset 0.5s cubic-bezier(0.6, 0.6, 0, 1)`;
+        edge.style.strokeDashoffset = `${-length}`;
+        await delay(150);
+      }
+
       edges.forEach((edge) => {
         const length = edge.getTotalLength();
         edge.style.transition = "unset";
         edge.style.strokeDashoffset = `${length}`;
       });
-    }, 1000);
+    }
+
+    processItems();
   };
 
   const nodes = document.querySelectorAll("[id^=node-]");
@@ -68,9 +89,9 @@ const graph = [
   <defs>
     <linearGradient id="explosiveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" style="stop-color:#A9A9A9; stop-opacity:0.1"></stop>
-      <stop offset="30%" style="stop-color:#A9A9A9; stop-opacity:0.3"></stop>
-      <stop offset="70%" style="stop-color:#FFA500; stop-opacity:0.7"></stop>
-      <stop offset="80%" style="stop-color:#FF69B4; stop-opacity:1"></stop>
+      <stop offset="25%" style="stop-color:#A9A9A9; stop-opacity:0.3"></stop>
+      <stop offset="60%" style="stop-color:#FFA500; stop-opacity:0.7"></stop>
+      <stop offset="70%" style="stop-color:#FF69B4; stop-opacity:0.95"></stop>
       <stop offset="100%" style="stop-color:#FF69B4; stop-opacity:1"></stop>
     </linearGradient>
   </defs>
@@ -103,14 +124,14 @@ const graph = [
     x2="46"
     y2="20"
     stroke="url(#explosiveGradient)"
-    stroke-width="0.2"></line>
+    stroke-width="0.4"></line>
   <line
     x1="24"
     y1="10"
     x2="46"
     y2="40"
     stroke="url(#explosiveGradient)"
-    stroke-width="0.2"></line>
+    stroke-width="0.4"></line>
 
   <line
     x1="24"
@@ -118,14 +139,14 @@ const graph = [
     x2="46"
     y2="20"
     stroke="url(#explosiveGradient)"
-    stroke-width="0.2"></line>
+    stroke-width="0.4"></line>
   <line
     x1="24"
     y1="30"
     x2="46"
     y2="40"
     stroke="url(#explosiveGradient)"
-    stroke-width="0.2"></line>
+    stroke-width="0.4"></line>
 
   <line
     x1="24"
@@ -133,14 +154,14 @@ const graph = [
     x2="46"
     y2="20"
     stroke="url(#explosiveGradient)"
-    stroke-width="0.2"></line>
+    stroke-width="0.4"></line>
   <line
     x1="24"
     y1="50"
     x2="46"
     y2="40"
     stroke="url(#explosiveGradient)"
-    stroke-width="0.2"></line>
+    stroke-width="0.4"></line>
 
   <!-- Edges towards third layer -->
   <line
@@ -149,21 +170,21 @@ const graph = [
     x2="76"
     y2="10"
     stroke="url(#explosiveGradient)"
-    stroke-width="0.2"></line>
+    stroke-width="0.4"></line>
   <line
     x1="54"
     y1="20"
     x2="76"
     y2="30"
     stroke="url(#explosiveGradient)"
-    stroke-width="0.2"></line>
+    stroke-width="0.4"></line>
   <line
     x1="54"
     y1="20"
     x2="76"
     y2="50"
     stroke="url(#explosiveGradient)"
-    stroke-width="0.2"></line>
+    stroke-width="0.4"></line>
 
   <line
     x1="54"
@@ -171,21 +192,21 @@ const graph = [
     x2="76"
     y2="10"
     stroke="url(#explosiveGradient)"
-    stroke-width="0.2"></line>
+    stroke-width="0.4"></line>
   <line
     x1="54"
     y1="40"
     x2="76"
     y2="30"
     stroke="url(#explosiveGradient)"
-    stroke-width="0.2"></line>
+    stroke-width="0.4"></line>
   <line
     x1="54"
     y1="40"
     x2="76"
     y2="50"
     stroke="url(#explosiveGradient)"
-    stroke-width="0.2"></line>
+    stroke-width="0.4"></line>
 </svg>
 
 <!-- 
