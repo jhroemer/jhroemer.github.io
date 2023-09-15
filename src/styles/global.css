@@ -65,13 +65,15 @@ h1 {
   padding: 10px 0;
   text-decoration: none;
   font-size: 1.2rem;
-  font-weight: bold;
   text-transform: uppercase;
+  transition: background-color 0.2s cubic-bezier(0.6, 0.6, 0, 1);
+  border-radius: 2px;
+  color: rgb(18, 18, 18);
 }
 
 .nav-links a:hover,
 a:focus {
-  background-color: #ff9776;
+  background-color: rgba(0, 0, 0, 0.04);
 }
 
 .expanded {
@@ -80,7 +82,6 @@ a:focus {
 
 @media screen and (min-width: 636px) {
   .nav-links {
-    margin-left: 5em;
     display: block;
     position: static;
     width: auto;
@@ -89,7 +90,11 @@ a:focus {
 
   .nav-links a {
     display: inline-block;
-    padding: 15px 20px;
+    padding: 8px;
+
+    &:first-of-type {
+      padding-left: 0px;
+    }
   }
 
   .hamburger {
