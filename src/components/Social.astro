@@ -12,8 +12,13 @@ const { platform, username }: Props = Astro.props;
 <style>
   a {
     padding: 0.5rem 1rem;
-    color: white;
-    background-color: #291c99;
+    color: rgb(108, 108, 108);
+    background-color: rgba(0,0,0,0);
     border-radius: 4px;
+    transition: background-color 0.1s cubic-bezier(0.6, 0.6, 0, 1);
+
+    &:hover {
+      background-color: rgba(0, 0, 0, .04);
+    }
   }
 </style>
