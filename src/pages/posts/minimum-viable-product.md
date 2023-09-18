@@ -4,11 +4,6 @@ slug: minimum-viable-product
 title: "Minimum Viable Product"
 tags: [Product development, MVP, RAT]
 pubDate: 2022-02-22
-description: "This is the first post of my new Astro blog."
-# TODO: add image
-image:
-  url: "https://astro.build/assets/blog/astro-1-release-update/cover.jpeg"
-  alt: "Add image."
 ---
 
 In fall 2021 I did an internal presentation about some of the learnings I had during my first two years at [Unity Technologies](https://unity.com/). This post covers the first topic of that presentation; the Minimum Viable Product (MVP).
