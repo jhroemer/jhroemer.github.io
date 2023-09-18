@@ -33,6 +33,17 @@ body {
 h1 {
   margin: 1rem 0;
   font-size: 2.5rem;
+  font-weight: 400;
+}
+
+h2,
+p,
+ul {
+  font-weight: 300;
+}
+
+a {
+  font-weight: 300;
 }
 
 /* nav styles */
