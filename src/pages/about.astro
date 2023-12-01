@@ -1,7 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from 'astro:assets';
+import profile from '../assets/profil.jpg';
 
-const pageTitle = "About Me";
+const pageTitle = "About me";
 
 const identity = {
   firstName: "Jens",
@@ -10,56 +12,199 @@ const identity = {
   hobbies: ["mountain biking", "hiking", "reading"],
 };
 
-const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "TypeScript"];
-
-const happy = true;
-const finished = false;
-const goal = 3;
-
-const skillColor = "pink";
-const testTransform = "uppercase";
 ---
 
-<style define:vars={{ skillColor, testTransform }}>
-  .skill {
-    color: var(--skillColor);
-    font-weight: bold;
-    text-transform: var(--testTransform);
+<style>
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 24px;
+    
   }
+
+  .section-header {
+    grid-column: 1 / -1;
+    border-bottom: 1px solid rgb(200, 200, 200);
+  }
+
+  mark {
+    color: white;
+    background-color: black;
+    border-radius: 3px;
+    padding: 0 2px;
+  }
+
+  .profile-picture {
+  display: block;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  margin: 0 auto;
+  box-shadow: inset 0 0 20px #424242;
+}
+
+.freetime {
+  grid-column: 1 / -1;
+}
 </style>
 
 <BaseLayout pageTitle={pageTitle}>
-  <p>Currently learning Astro</p>
-  <p>Hopefully it proves to be a good alternative to Docusaurus</p>
+  <div class="container">
+    <h2 class="section-header"></h2>
 
-  <p>Here are a few facts about me:</p>
-  <ul>
-    <li>My name is {identity.firstName}.</li>
-    <li>
-      I live in {identity.country} and I work as a {identity.occupation}.
-    </li>
-    {
-      identity.hobbies.length >= 2 && (
-        <li>
-          Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}
-        </li>
-      )
-    }
-  </ul>
-  <p>My skills are:</p>
-  <ul>
-    {skills.map((skill) => <li class="skill">{skill}</li>)}
-  </ul>
+    <div class="section-left-column">
+      <div>
+        <Image src={profile} alt="Profile picture" class="profile-picture"/>
+      </div>
+    </div>
+    <div class="section-right-column">
+      <p>
+        Hi, my name is Jens, I'm a Software Developer specializing in
+        React-based frontend development. I'm currently working on Continuous
+        Integration services in Unity Technologies. While I love working with
+        code every day, I also like to participate in product development and
+        design, and to contribute to the general direction of a project. I'm
+        always trying to become better at agile development, and have been
+        particularly inspired by Extreme Programming principles. I recently
+        began blogging about software- and product development at <a
+          class="link-dark"
+          target="_blank"
+          href="https://www.jensroemer.com">www.jensroemer.com</a
+        >. I currently consider myself mostly a back-of-the-front-end engineer,
+        but mainly I'm just happy if I get to develop great and exiting software
+        products.
+      </p>
+      <p>
+        <h4>Primary skills:</h4>
+        <mark>React</mark>, <mark>Redux/Redux-Saga</mark>, <mark>Node.js</mark>,
 
-  {happy && <p>I am happy to be learning Astro!</p>}
+        <mark>TypeScript</mark>, <mark>Styled Components</mark>, <mark
+          >Cypress</mark
+        >, <mark>git</mark>.
+      </p>
+      <p>
+        <h4>Secondary skills:</h4>
+        <mark>Figma</mark>, <mark>Agile</mark>, <mark
+          >Continuous Integration/DevOps</mark
+        >, <mark>Product Design/UX</mark>.
+      </p>
+      <p>
+        <h4>Past:</h4>
+        <mark>Java</mark>, <mark>C#</mark>, <mark>.NET</mark>, <mark>SQL</mark>,
+        <mark>GraphQL</mark>,
+        <mark>Scrum</mark>
+      </p>
+    </div>
 
-  {finished && <p>I finished this tutorial!</p>}
+    <div class="section-left-column">
+      <h4>Unity Technologies</h4>
+      <p class="education-sub-heading">Lead, Frontend</p>
+      <p class="light-text">2022 - Present</p>
+    </div>
+    <div class="section-right-column">
+      <p>Leading a small frontend engineering team. Syncing with management, other leads and managing IC's in the team.  
+      </p>
+    </div>
 
-  {
-    goal === 3 ? (
-      <p>My goal is to finish in 3 days.</p>
-    ) : (
-      <p>My goal is not 3 days.</p>
-    )
-  }
+    <div class="section-left-column">
+      <h4>Unity Technologies</h4>
+      <p class="education-sub-heading">Frontend Engineer</p>
+      <p class="light-text">2019 - 2022</p>
+    </div>
+    <div class="section-right-column">
+      <p>Developing a web based UI for an internal Continuous Integration (CI) service. Main technologies are
+        <mark>React</mark>,
+        <mark>Redux/Redux-Saga</mark>, <mark>TypeScript</mark>, <mark>Styled Components</mark>, <mark>Cypress</mark>
+        and <mark>Github Actions</mark> for our own CI needs. The team collaborates closely with UX/Design,
+        product development/ownership and users.
+      </p>
+    </div>
+
+    <div class="section-left-column">
+      <h4>Netcompany</h4>
+      <p class="education-sub-heading">Consultant</p>
+      <p class="light-text">2018 - 2019</p>
+    </div>
+    <div class="section-right-column">
+      <p>Worked on several projects, mainly with backend tasks and technologies such as <mark>API</mark> development,
+        <mark>.NET</mark>, <mark>C#</mark>, <mark>SQL</mark>, <mark>Episerver</mark> and <mark>Microsoft CRM</mark>.
+        In my last project I also had a lot of work on a <mark>Razor</mark>/<mark>Angular</mark> based E-Commerce web
+        client.
+      </p>
+    </div>
+
+    <div class="section-left-column">
+      <h4>IT University of Copenhagen</h4>
+      <p class="education-sub-heading">Teaching Assistant</p>
+      <p class="light-text">2017 - 2018</p>
+    </div>
+    <div class="section-right-column">
+      <p>Was employed in the two courses 'Introductory Programming' and 'Programming Workshop' at the Software
+        Development
+        track. Both courses were taught in <mark>Java</mark>, and the latter also had a strong focus on general
+        software development practices such as <mark>Version Control (Git/Github)</mark>, <mark>Agile
+          Development</mark>, <mark>Testing</mark> and <mark>Benchmarking</mark>.
+      </p>
+    </div>
+
+    <div class="section-left-column">
+      <h4>Zetland</h4>
+      <p class="education-sub-heading">Student developer</p>
+      <p class="light-text">2017</p>
+    </div>
+    <div class="section-right-column">
+      <p>Mainly contributed to their <mark>React</mark>-based web client, which also used <mark>Redux</mark> for state
+        management. Also ad the opportunity to work a bit on their <mark>React-native</mark> mobile app. Furthermore I
+        helped a bit on the business intelligence side and with extracting data <mark>PostgreSQL</mark> and
+        building dashboards.
+      </p>
+    </div>
+
+    <h2 class="section-header">Education</h2>
+    <div class="section-left-column">
+      <h4>IT University of Copenhagen</h4>
+      <p class="education-sub-heading">MSc Software Development</p>
+      <p class="light-text">2016 - 2018</p>
+    </div>
+    <div class="section-right-column">
+      <p>During my masters degree I started programming regularly, primarily in <mark>Java</mark>. I focused on
+        <mark>algorithm</mark> courses, such as <mark>Algorithm Design</mark> and the <mark>Modern AI for
+          Games</mark>
+        course.
+        Eventually wrote my thesis within the AI field. In my thesis I extended the Scalable Collision-avoiding Role
+        Assignment with Minimal-makespan (SCRAM) algorithm, which is a
+        matching algorithm that can be used in conjunction with Autonomous Mobility on Demand (AMoD) systems.
+        During my masters I also worked as a teaching assistent in the <mark>Introductory Programming</mark> and
+        <mark>Programming
+          Workshop</mark> courses.
+      </p>
+    </div>
+
+    <div class="section-left-column">
+      <h4>IT University of Copenhagen</h4>
+      <p class="education-sub-heading">BSc Digital Media & Design</p>
+      <p class="light-text">2010 - 2014</p>
+    </div>
+    <div class="section-right-column">
+      <p>During my bachelor degree I took courses within <mark>Web development</mark>, <mark>User Experience design
+          (UX)</mark> <mark>Interaction design</mark>, <mark>Sketching/prototyping</mark>, <mark>Media and
+          Communication</mark> and <mark>Digital Aesthetics</mark> to name a few. My bachelor project was within
+        online media and communication and was about Brand Communities on social media.</p>
+    </div>
+
+    <h2 class="section-header">When I'm not programming</h2>
+    <div class="freetime">
+      <p>I love most things bike-related, but primarily enduro mountain biking, dirt jumping and watching UCI road
+        cycling. I try to bring my two sons as much as possible, but they're not yet as enthusiastic as I am. I love being
+        outdoors in general, especially if I can go somewhere with mountains. Hiking, surfing and more recently rope
+        skipping are other things I enjoy.</p>
+      <p>I used to play a lot of music, first as a drummer for many years. I had a brief moment in the spotlight as a
+        session drummer for danish indie rock band Figurines. Later I lived in Berlin and was a small part of the Berlin
+        techno scene for a few years. I used to play live shows and DJ at clubs like Ritter Butzke, Brunnen70,
+        Humboldthain Club and others.</p>
+      <p>I've also always been fond of reading fiction, especially Fantasy and Science Fiction. Some of my favorites have
+        been The Kingkiller Chronicles, A Song of Ice and Fire and The Wakening. I seem to have a
+        knack for torturing myself, since all three series are famously still unfinished for quite some time now.</p>
+    </div>
+  </div>
 </BaseLayout>
