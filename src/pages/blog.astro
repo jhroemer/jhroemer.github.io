@@ -9,7 +9,7 @@ const pageTitle = "Blog";
 <BaseLayout pageTitle={pageTitle}>
   <ul>
     {
-      allPosts.map((post) => {
+      allPosts.filter((post) => !post.frontmatter.draft).map((post) => {
         return (
           <li>
             <a href={post.url}>{post.frontmatter.title}</a>
