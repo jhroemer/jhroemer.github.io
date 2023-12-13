@@ -5,8 +5,21 @@ tags: [Software development]
 draft: true
 ---
 
-Went fine.
-Learnings from both what I did well, and what I can improve.
+I recent went through a RFC process, and it started out horribly..
+
+.. in the end it went really well.
+Confusing RFC of both product, technical etc.
+Brings me to my first point:
+
+### It doesn't need to be perfect
+
+- You're looking for the productive discussions
+- You're looking for feedback
+- You're looking for alignment
+
+It turns out, my RFC was extremely effective at provoking all of that, albeit in a more chaotic way than I anticipated.
+
+With that in mind, there's obviously things I would do differently next time.
 
 ### Less is more
 
@@ -14,7 +27,7 @@ The more you write, the more there is to nitpick on which will distract the conv
 
 ### Data
 
-Provide data wherever you can. Data is often much easier for discussions, especially if you present it neutrally.
+Provide data wherever you can. Data is often much easier for discussions, especially if you present it neutrally. Be careful that you're not using data in a way that seems like your pushing your point, and twisting it to your benefit.
 
 ### Time
 
