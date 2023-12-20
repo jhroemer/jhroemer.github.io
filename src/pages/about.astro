@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { Image } from 'astro:assets';
-import profile from '../assets/profil.jpg';
+import { Image } from "astro:assets";
+import profile from "../assets/profil.jpg";
 
 const pageTitle = "About me";
 
@@ -11,7 +11,6 @@ const identity = {
   occupation: "Frontend Developer",
   hobbies: ["mountain biking", "hiking", "reading"],
 };
-
 ---
 
 <style>
@@ -19,7 +18,6 @@ const identity = {
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-gap: 24px;
-    
   }
 
   .section-header {
@@ -35,26 +33,26 @@ const identity = {
   }
 
   .profile-picture {
-  display: block;
-  height: 150px;
-  width: 150px;
-  border-radius: 50%;
-  margin: 0 auto;
-  box-shadow: inset 0 0 20px #424242;
-}
+    display: block;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    margin: 0 auto;
+    box-shadow: inset 0 0 20px #424242;
+  }
 
-.freetime {
-  grid-column: 1 / -1;
-}
+  .freetime {
+    grid-column: 1 / -1;
+  }
 </style>
 
 <BaseLayout pageTitle={pageTitle}>
   <div class="container">
     <h2 class="section-header"></h2>
 
-    <div class="section-left-column">
+      <div class="section-left-column">
       <div>
-        <Image src={profile} alt="Profile picture" class="profile-picture"/>
+        <Image src={profile} alt="Profile picture" class="profile-picture" />
       </div>
     </div>
     <div class="section-right-column">
@@ -78,6 +76,7 @@ const identity = {
         <h4>Primary skills:</h4>
         <mark>React</mark>, <mark>Redux/Redux-Saga</mark>, <mark>Node.js</mark>,
 
+
         <mark>TypeScript</mark>, <mark>Styled Components</mark>, <mark
           >Cypress</mark
         >, <mark>git</mark>.
@@ -91,6 +90,8 @@ const identity = {
       <p>
         <h4>Past:</h4>
         <mark>Java</mark>, <mark>C#</mark>, <mark>.NET</mark>, <mark>SQL</mark>,
+
+
         <mark>GraphQL</mark>,
         <mark>Scrum</mark>
       </p>
@@ -102,7 +103,9 @@ const identity = {
       <p class="light-text">2022 - Present</p>
     </div>
     <div class="section-right-column">
-      <p>Leading a small frontend engineering team. Syncing with management, other leads and managing IC's in the team.  
+      <p>
+        Leading a small frontend engineering team. Syncing with management,
+        other leads and managing IC's in the team.
       </p>
     </div>
 
@@ -112,11 +115,16 @@ const identity = {
       <p class="light-text">2019 - 2022</p>
     </div>
     <div class="section-right-column">
-      <p>Developing a web based UI for an internal Continuous Integration (CI) service. Main technologies are
+      <p>
+        Developing a web based UI for an internal Continuous Integration (CI)
+        service. Main technologies are
         <mark>React</mark>,
-        <mark>Redux/Redux-Saga</mark>, <mark>TypeScript</mark>, <mark>Styled Components</mark>, <mark>Cypress</mark>
-        and <mark>Github Actions</mark> for our own CI needs. The team collaborates closely with UX/Design,
-        product development/ownership and users.
+        <mark>Redux/Redux-Saga</mark>, <mark>TypeScript</mark>, <mark
+          >Styled Components</mark
+        >, <mark>Cypress</mark>
+         and <mark>Github Actions</mark> for our own CI needs. The team
+        collaborates closely with UX/Design, product development/ownership and
+        users.
       </p>
     </div>
 
@@ -126,9 +134,13 @@ const identity = {
       <p class="light-text">2018 - 2019</p>
     </div>
     <div class="section-right-column">
-      <p>Worked on several projects, mainly with backend tasks and technologies such as <mark>API</mark> development,
-        <mark>.NET</mark>, <mark>C#</mark>, <mark>SQL</mark>, <mark>Episerver</mark> and <mark>Microsoft CRM</mark>.
-        In my last project I also had a lot of work on a <mark>Razor</mark>/<mark>Angular</mark> based E-Commerce web
+      <p>
+        Worked on several projects, mainly with backend tasks and technologies
+        such as <mark>API</mark> development,
+        <mark>.NET</mark>, <mark>C#</mark>, <mark>SQL</mark>, <mark
+          >Episerver</mark
+        > and <mark>Microsoft CRM</mark>. In my last project I also had a lot of
+        work on a <mark>Razor</mark>/<mark>Angular</mark> based E-Commerce web
         client.
       </p>
     </div>
@@ -139,11 +151,15 @@ const identity = {
       <p class="light-text">2017 - 2018</p>
     </div>
     <div class="section-right-column">
-      <p>Was employed in the two courses 'Introductory Programming' and 'Programming Workshop' at the Software
-        Development
-        track. Both courses were taught in <mark>Java</mark>, and the latter also had a strong focus on general
-        software development practices such as <mark>Version Control (Git/Github)</mark>, <mark>Agile
-          Development</mark>, <mark>Testing</mark> and <mark>Benchmarking</mark>.
+      <p>
+        Was employed in the two courses 'Introductory Programming' and
+        'Programming Workshop' at the Software Development track. Both courses
+        were taught in <mark>Java</mark>, and the latter also had a strong focus
+        on general software development practices such as <mark
+          >Version Control (Git/Github)</mark
+        >, <mark>Agile Development</mark>, <mark>Testing</mark> and <mark
+          >Benchmarking</mark
+        >.
       </p>
     </div>
 
@@ -153,10 +169,12 @@ const identity = {
       <p class="light-text">2017</p>
     </div>
     <div class="section-right-column">
-      <p>Mainly contributed to their <mark>React</mark>-based web client, which also used <mark>Redux</mark> for state
-        management. Also ad the opportunity to work a bit on their <mark>React-native</mark> mobile app. Furthermore I
-        helped a bit on the business intelligence side and with extracting data <mark>PostgreSQL</mark> and
-        building dashboards.
+      <p>
+        Mainly contributed to their <mark>React</mark>-based web client, which
+        also used <mark>Redux</mark> for state management. Also ad the
+        opportunity to work a bit on their <mark>React-native</mark> mobile app.
+        Furthermore I helped a bit on the business intelligence side and with
+        extracting data <mark>PostgreSQL</mark> and building dashboards.
       </p>
     </div>
 
@@ -167,16 +185,20 @@ const identity = {
       <p class="light-text">2016 - 2018</p>
     </div>
     <div class="section-right-column">
-      <p>During my masters degree I started programming regularly, primarily in <mark>Java</mark>. I focused on
-        <mark>algorithm</mark> courses, such as <mark>Algorithm Design</mark> and the <mark>Modern AI for
-          Games</mark>
-        course.
-        Eventually wrote my thesis within the AI field. In my thesis I extended the Scalable Collision-avoiding Role
-        Assignment with Minimal-makespan (SCRAM) algorithm, which is a
-        matching algorithm that can be used in conjunction with Autonomous Mobility on Demand (AMoD) systems.
-        During my masters I also worked as a teaching assistent in the <mark>Introductory Programming</mark> and
-        <mark>Programming
-          Workshop</mark> courses.
+      <p>
+        During my masters degree I started programming regularly, primarily in <mark
+          >Java</mark
+        >. I focused on
+        <mark>algorithm</mark> courses, such as <mark>Algorithm Design</mark>
+         and the <mark>Modern AI for Games</mark>
+         course. Eventually wrote my thesis within the AI field. In my thesis I
+        extended the Scalable Collision-avoiding Role Assignment with
+        Minimal-makespan (SCRAM) algorithm, which is a matching algorithm that
+        can be used in conjunction with Autonomous Mobility on Demand (AMoD)
+        systems. During my masters I also worked as a teaching assistent in the <mark
+          >Introductory Programming</mark
+        > and
+        <mark>Programming Workshop</mark> courses.
       </p>
     </div>
 
@@ -186,25 +208,42 @@ const identity = {
       <p class="light-text">2010 - 2014</p>
     </div>
     <div class="section-right-column">
-      <p>During my bachelor degree I took courses within <mark>Web development</mark>, <mark>User Experience design
-          (UX)</mark> <mark>Interaction design</mark>, <mark>Sketching/prototyping</mark>, <mark>Media and
-          Communication</mark> and <mark>Digital Aesthetics</mark> to name a few. My bachelor project was within
-        online media and communication and was about Brand Communities on social media.</p>
+      <p>
+        During my bachelor degree I took courses within <mark
+          >Web development</mark
+        >, <mark>User Experience design (UX)</mark>
+        <mark>Interaction design</mark>, <mark>Sketching/prototyping</mark>, <mark
+          >Media and Communication</mark
+        > and <mark>Digital Aesthetics</mark> to name a few. My bachelor project
+        was within online media and communication and was about Brand
+        Communities on social media.
+      </p>
     </div>
 
     <h2 class="section-header">When I'm not programming</h2>
     <div class="freetime">
-      <p>I love most things bike-related, but primarily enduro mountain biking, dirt jumping and watching UCI road
-        cycling. I try to bring my two sons as much as possible, but they're not yet as enthusiastic as I am. I love being
-        outdoors in general, especially if I can go somewhere with mountains. Hiking, surfing and more recently rope
-        skipping are other things I enjoy.</p>
-      <p>I used to play a lot of music, first as a drummer for many years. I had a brief moment in the spotlight as a
-        session drummer for danish indie rock band Figurines. Later I lived in Berlin and was a small part of the Berlin
-        techno scene for a few years. I used to play live shows and DJ at clubs like Ritter Butzke, Brunnen70,
-        Humboldthain Club and others.</p>
-      <p>I've also always been fond of reading fiction, especially Fantasy and Science Fiction. Some of my favorites have
-        been The Kingkiller Chronicles, A Song of Ice and Fire and The Wakening. I seem to have a
-        knack for torturing myself, since all three series are famously still unfinished for quite some time now.</p>
+      <p>
+        I love most things bike-related, but primarily enduro mountain biking,
+        dirt jumping and watching UCI road cycling. I try to bring my two sons
+        as much as possible, but they're not yet as enthusiastic as I am. I love
+        being outdoors in general, especially if I can go somewhere with
+        mountains. Hiking, surfing and more recently rope skipping are other
+        things I enjoy.
+      </p>
+      <p>
+        I used to play a lot of music, first as a drummer for many years. I had
+        a brief moment in the spotlight as a session drummer for danish indie
+        rock band Figurines. Later I lived in Berlin and was a small part of the
+        Berlin techno scene for a few years. I used to play live shows and DJ at
+        clubs like Ritter Butzke, Brunnen70, Humboldthain Club and others.
+      </p>
+      <p>
+        I've also always been fond of reading fiction, especially Fantasy and
+        Science Fiction. Some of my favorites have been The Kingkiller
+        Chronicles, A Song of Ice and Fire and The Wakening. I seem to have a
+        knack for torturing myself, since all three series are famously still
+        unfinished for quite some time now.
+      </p>
     </div>
   </div>
 </BaseLayout>
