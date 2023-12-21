@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
 slug: minimum-viable-product
 title: "Minimum Viable Product"
 tags: [Product development, MVP, RAT]

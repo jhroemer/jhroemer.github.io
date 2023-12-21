@@ -4,12 +4,7 @@ import BaseLayout from "./BaseLayout.astro";
 interface Props {
   frontmatter: {
     title: string;
-    description: string;
-    pubDate: string;
-    image: {
-      url: string;
-      alt: string;
-    };
+    pubDate: Date;
     tags: string[];
   };
 }
@@ -40,8 +35,7 @@ const { frontmatter } = Astro.props;
 </style>
 
 <BaseLayout pageTitle={frontmatter.title}>
-  <p>Published on: {frontmatter.pubDate.slice(0, 10)}</p>
-  <p>{frontmatter.description}</p>
+  <p>Published on: {frontmatter.pubDate.toString().slice(0, 10)}</p>
   
   <slot />
 

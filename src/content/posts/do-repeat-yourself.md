@@ -1,10 +1,8 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
 slug: do-repeat-yourself
 title: "Do Repeat Yourself"
 tags: [Software development, DRY, WET, AHA]
 pubDate: 2022-03-18
-description: "TODO."
 ---
 
 One of the first software development principles we learn is _Don’t repeat yourself_ (DRY). It’s the principle that leads to cleaner, more compact and readable code bases. Or, is it the principle that leads computer science students and misguided programmers into redundant (over)abstractions, and code which is hard and complex to refactor?

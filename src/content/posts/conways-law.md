@@ -1,10 +1,8 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
 slug: conways-law
 title: "Conway's law"
 tags: [Software development]
-pubDate: 2023-12-1
-description: "TODO."
+pubDate: 2023-12-01
 draft: true
 ---
 

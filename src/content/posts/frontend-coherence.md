@@ -1,10 +1,8 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
 slug: frontend-coherence
 title: "Frontend coherence"
 tags: [Software development]
 pubDate: 2023-10-20
-description: "TODO."
 draft: true
 ---
 
