@@ -34,6 +34,15 @@ const { frontmatter } = Astro.props;
   }
 </style>
 
+<!-- In order to affect the slot, we unfortunately need to make the style global -->
+<!-- Should be changed to a locally scoped style in the future if possible -->
+<style is:global>
+  pre {
+    padding: 1rem 1.5rem;
+    border-radius: 4px;
+  }
+</style>
+
 <BaseLayout pageTitle={frontmatter.title}>
   <p>Published on: {frontmatter.pubDate.toString().slice(0, 10)}</p>
   
