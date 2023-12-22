@@ -1,0 +1,62 @@
+---
+interface Props {
+    isAnimating: boolean;
+    hasForeground: boolean;
+}
+
+const { isAnimating, hasForeground } = Astro.props;
+
+const borderRadius = '11px';
+---
+
+<style define:vars={{ borderRadius }}>
+    @keyframes animatedgradient {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    div {
+        margin: 36px auto;
+        height: 80px;
+        width: 40%;
+        position: relative;
+        border-radius: var(--borderRadius);
+        padding: 8px 16px;
+        background-color: rgb(251, 251, 251);
+        box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px #00000024,
+        0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+        background-color: transparent;
+
+        &.foreground {
+            background-color: rgb(251, 251, 251);
+        }
+    }
+
+    div:after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        inset: 0;
+        margin: -2px;
+        border-radius: calc(var(--borderRadius) + 2px);
+        background: linear-gradient(60deg, cyan, pink, darkgreen);
+        background-size: 300% 300%;
+    }
+    
+    div.animate:after {
+        animation: animatedgradient 4s ease alternate infinite;
+    }
+
+    html.dark .foreground {
+        background-color: #282a36;
+    }
+</style>
+
+<div class:list={[{ foreground: hasForeground }, { animate: isAnimating }]}></div>

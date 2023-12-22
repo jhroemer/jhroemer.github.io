@@ -1,0 +1,78 @@
+---
+slug: animating-gradient-border
+title: "Animating gradient border"
+tags: [CSS]
+pubDate: 2023-01-17
+---
+
+import GradientBorder from "../../components/GradientBorder.astro";
+
+Gradients aren't supported for borders in out of the box in CSS, but there's a few ways to achieve it. Here's an example of an animating gradient border on an element with border radius.
+
+Here is what we're going to be making:
+
+<GradientBorder hasForeground isAnimating />
+
+The technique for doing gradients on borders has a few variations, but as far as I know they all require you to render an extra element behind the element where you want the border - which is where we're going to start.
+
+### Making a background element
+
+Let's start by laying out a new element underneath the element where we want the border, and make it overflow by `2px` to each side. We can use the [after pseudo-element](https://developer.mozilla.org/en-US/docs/Web/CSS/::after) and apply the styles for the 'border' to that element
+
+```css
+.element-with-gradient-border:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  margin: -2px;
+  border-radius: calc(var(--border-radius) + 2px);
+  background: linear-gradient(60deg, cyan, pink, darkgreen);
+}
+```
+
+In order for the `pseudo-element` to show we have to give it some content, an empty string is fine, otherwise the element won't show.
+We position it with `absolute` and a negative `z-index` to make it sit right underneath our original element.
+Then there's a few ways of sizing it correctly. You can use `width` and `height` set to `100%` + the amount you want to overflow (with the `calc()` function). But the element will then be impacted by padding on the original element. I think it's nicer to give it `inset: 0;` which is the shorthand for setting the top/right/bottom/left properties (not supported by Safari < 15 though). This makes the element's sides snap to the borders of the original element. Then you can simply add a negative margin corresponding to the border thickness you want, and it will overflow correctly.
+
+For border-radius you could just use `border-radius: inherit;` to make the property match the original element, effectively making it the same size and get the same position. I think it looks better to add a slightly higher (1-2 px) border-radius than the original element though. Otherwise the corners look slightly square. We can a CSS variable for the border-radius and then add a few pixels to that value with the `calc` function.
+
+Finally add a background with a linear-gradient and a few colors. This is then what we get (the original element is transparent here to make the background more visible - and yes I could've spent more time finding a cool color palette, I blame my children!):
+
+<GradientBorder />
+
+<div
+  className="element-with-gradient-border"
+  style={{ backgroundColor: "transparent" }}
+></div>
+
+### Adding the animation
+
+Let's look at animating the 'border' a bit. The trick we will use here is to use the `background-size` which set the size of an element´s background image. We will use this to make the background (the gradient color) larger than the original element. Then we make add an animation that moves it back and forth a bit. It's sort of like looking through a narrow lens at a large picture, and then moving that picture back and forth, showing you a small part of the image at a time. If we don't set a high background size, then the background is gonna wrap to the other side, and we would see a sudden change from one color to the other, instead of the gradient we want.
+
+```css
+.element-with-gradient-border-and-animation:after {
+  /* ... */
+  background-size: 300% 300%;
+  animation: animatedgradient 4s ease alternate infinite;
+}
+
+@keyframes animatedgradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+```
+
+Here is how the animation looks like, with the original element hidden and shown:
+
+<div style={{ display: "flex" }}>
+  <GradientBorder isAnimating />
+  <GradientBorder hasForeground isAnimating />
+</div>
