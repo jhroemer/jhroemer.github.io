@@ -67,18 +67,17 @@ a {
 .nav-links a {
   display: block;
   text-align: center;
-  padding: 10px 0;
-  text-decoration: none;
+  padding: 4px 0;
   font-size: 1.2rem;
   text-transform: uppercase;
   transition: background-color 0.2s cubic-bezier(0.6, 0.6, 0, 1);
   border-radius: 2px;
   color: rgb(18, 18, 18);
-}
+  text-decoration: none;
 
-.nav-links a:hover,
-a:focus {
-  background-color: rgba(0, 0, 0, 0.04);
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .expanded {

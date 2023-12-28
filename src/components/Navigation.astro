@@ -1,6 +1,18 @@
+---
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1);
+---
+
+<style>
+  .active {
+    text-decoration: underline;
+    font-weight: 400;
+  }
+</style>
+
 <div class="nav-links">
-  <a href="/">Home</a>
-  <a href="/about/">About</a>
-  <a href="/blog/">Blog</a>
-  <a href="/tags/">Tags</a>
+  <a href="/" class={currentPath === "" ? 'active' : ''}>Home</a>
+  <a href="/about" class={currentPath === "about" ? 'active' : ''}>About</a>
+  <a href="/blog" class={currentPath === "blog" ? 'active' : ''}>Blog</a>
+  <a href="/tags" class={currentPath === "tags" ? 'active' : ''}>Tags</a>
 </div>
