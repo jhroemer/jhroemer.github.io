@@ -8,12 +8,6 @@ html.dark {
   color: rgb(245, 245, 245);
 }
 
-.dark nav {
-  background-color: #171717;
-  border-radius: 4px;
-  border: 1px solid rgb(59 59 59);
-}
-
 .dark .nav-links a {
   color: rgb(245, 245, 245);
 }
