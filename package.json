@@ -12,6 +12,6 @@
   "dependencies": {
     "@astrojs/mdx": "2.0.2",
     "@astrojs/rss": "^4.0.1",
-    "astro": "4.0.7"
+    "astro": "4.0.8"
   }
 }
