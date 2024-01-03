@@ -12,7 +12,7 @@ const currentPath = pathname.slice(1);
 
 <div class="nav-links">
   <a href="/" class={currentPath === "" ? 'active' : ''}>Home</a>
-  <a href="/about" class={currentPath === "about" ? 'active' : ''}>About</a>
-  <a href="/blog" class={currentPath === "blog" ? 'active' : ''}>Blog</a>
-  <a href="/tags" class={currentPath === "tags" ? 'active' : ''}>Tags</a>
+  <a href="/about" class={currentPath.startsWith("about") ? 'active' : ''}>About</a>
+  <a href="/blog" class={currentPath.startsWith("blog") ? 'active' : ''}>Blog</a>
+  <a href="/tags" class={currentPath.startsWith("tags") ? 'active' : ''}>Tags</a>
 </div>
