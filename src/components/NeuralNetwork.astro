@@ -13,7 +13,8 @@ const graph = [
 
 <script>
   const nodeClick = () => {
-    const edges: NodeListOf<SVGLineElement> = document.querySelectorAll("line.edge");
+    const edges: NodeListOf<SVGLineElement> =
+      document.querySelectorAll("line.edge");
 
     function delay(ms: number) {
       return new Promise((resolve) => setTimeout(resolve, ms));
@@ -43,7 +44,8 @@ const graph = [
     node.addEventListener("click", nodeClick);
   });
 
-  const edges: NodeListOf<SVGLineElement> = document.querySelectorAll("line.edge");
+  const edges: NodeListOf<SVGLineElement> =
+    document.querySelectorAll("line.edge");
   edges.forEach((edge) => {
     const length = edge.getTotalLength();
     edge.style.strokeDasharray = `${length}`;
@@ -60,7 +62,9 @@ const graph = [
 
   circle:hover {
     cursor: pointer;
-    transition: fill 0.1s ease, stroke-width 0.1s ease;
+    transition:
+      fill 0.1s ease,
+      stroke-width 0.1s ease;
     fill: #1d1d1d;
     stroke-width: 0.5;
   }

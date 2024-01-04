@@ -22,7 +22,7 @@ const { frontmatter } = Astro.props;
     font-size: 1.15em;
 
     &:hover {
-      background-color: rgba(0, 0, 0, .04);
+      background-color: rgba(0, 0, 0, 0.04);
     }
   }
 
@@ -45,15 +45,13 @@ const { frontmatter } = Astro.props;
 
 <BaseLayout pageTitle={frontmatter.title}>
   <p>Published on: {frontmatter.pubDate.toString().slice(0, 15)}</p>
-  
+
   <slot />
 
   <div class="tags">
     {
       frontmatter.tags.map((tag) => {
-        return (
-            <a href={`/tags/${tag}`}>{tag}</a>
-        );
+        return <a href={`/tags/${tag}`}>{tag}</a>;
       })
     }
   </div>

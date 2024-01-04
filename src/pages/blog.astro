@@ -10,15 +10,18 @@ const pageTitle = "Blog";
 <BaseLayout pageTitle={pageTitle}>
   <ul>
     {
-      allPosts.filter((post) => !post.data.draft).sort((a, b) => {
-        return b.data.pubDate.valueOf() - a.data.pubDate.valueOf();
-      }).map((post) => {
-        return (
-          <li>
-            <a href={`/posts/${post.slug}`}>{post.data.title}</a>
-          </li>
-        );
-      })
+      allPosts
+        .filter((post) => !post.data.draft)
+        .sort((a, b) => {
+          return b.data.pubDate.valueOf() - a.data.pubDate.valueOf();
+        })
+        .map((post) => {
+          return (
+            <li>
+              <a href={`/posts/${post.slug}`}>{post.data.title}</a>
+            </li>
+          );
+        })
     }
   </ul>
 </BaseLayout>
