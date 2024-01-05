@@ -8,6 +8,8 @@ draft: true
 
 https://medium.com/simple-human/buttons-shouldnt-have-a-hand-cursor-b11e99ca374b#.b33l7fivt
 
+https://uxdesign.cc/buttons-shouldnt-have-a-hand-cursor-part-2-4a6e1c8423a5
+
 https://medium.com/simple-human/but-sometimes-links-look-like-buttons-and-buttons-look-like-links-9b371c57b3d2
 
 ### ..
