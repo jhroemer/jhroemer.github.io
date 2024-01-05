@@ -73,11 +73,6 @@ a {
   transition: background-color 0.2s cubic-bezier(0.6, 0.6, 0, 1);
   border-radius: 2px;
   color: rgb(18, 18, 18);
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
 }
 
 .expanded {
@@ -94,11 +89,6 @@ a {
 
   .nav-links a {
     display: inline-block;
-    padding: 8px;
-
-    &:first-of-type {
-      padding-left: 0px;
-    }
   }
 
   .hamburger {
