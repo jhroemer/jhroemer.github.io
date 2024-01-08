@@ -26,6 +26,10 @@ With that in mind, there's obviously things I would do differently next time.
 
 The more you write, the more there is to nitpick on which will distract the conversation. Make your sections count.
 
+### Scope is your friend
+
+You might be asked a high amount of questions, and sometimes about things which aren't really in scope for the RFC. Save everyone's time by clearly scoping the work at the very beginning of the document.
+
 ### Data
 
 Provide data wherever you can. Data is often much easier for discussions, especially if you present it neutrally. Be careful that you're not using data in a way that seems like your pushing your point, and twisting it to your benefit.
