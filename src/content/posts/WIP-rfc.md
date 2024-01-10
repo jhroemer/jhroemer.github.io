@@ -28,7 +28,13 @@ The more you write, the more there is to nitpick on which will distract the conv
 
 ### Scope is your friend
 
+Related to prior point, but more about the essence of your topic, than the amount of words.
 You might be asked a high amount of questions, and sometimes about things which aren't really in scope for the RFC. Save everyone's time by clearly scoping the work at the very beginning of the document.
+Complexity is the enemy of execution.
+
+### Remember what the point is: discussion:
+
+Related to my post on the MVP/RAT; you're not doing this to convince everyone you're right, and show how good you are. You're doing this to facilitate discussion. Helps if you don't have too high thoughts of your own genius, and are willing to be swayed by good arguments (I'm a natural in this regard! ;-) )
 
 ### Data
 
