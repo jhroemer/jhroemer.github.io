@@ -1,15 +1,20 @@
 html {
-  background-color: #f1f5f9;
   font-family: sans-serif;
+  background-color: #f1f5f9;
+  color: rgb(58, 58, 58);
 }
 
 html.dark {
-  background-color: #050505;
-  color: rgb(245, 245, 245);
+  background-color: rgb(26, 26, 26);
+  color: rgb(229, 229, 229);
+}
+
+.nav-links a {
+  color: rgb(58, 58, 58);
 }
 
 .dark .nav-links a {
-  color: rgb(245, 245, 245);
+  color: rgb(229, 229, 229);
 }
 
 body {
