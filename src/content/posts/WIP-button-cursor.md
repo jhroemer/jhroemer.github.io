@@ -14,4 +14,10 @@ https://medium.com/simple-human/but-sometimes-links-look-like-buttons-and-button
 
 There's another thing to consider, which is that using the cursor exclusively on links more clearly communicates that you can CMD+click something to open it in a new tab.
 
+Mark Dalgleish: https://twitter.com/markdalgleish/status/1744137285346775233
+
+Literally vs. figuratively: "This book will literally blow your mind"
+
+Affordance (design):
+
 ### ..
