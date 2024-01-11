@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { Image } from "astro:assets";
-import profile from "../assets/profil.jpg";
+// import { Image } from "astro:assets";
+// import profile from "../assets/profil.jpg";
 
 const pageTitle = "About me";
 ---
@@ -11,6 +11,7 @@ const pageTitle = "About me";
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-gap: 24px;
+    padding-top: 40px;
   }
 
   .section-header {
@@ -41,7 +42,7 @@ const pageTitle = "About me";
 
 <BaseLayout pageTitle={pageTitle}>
   <div class="container">
-    <h2 class="section-header"></h2>
+    <!-- <h2 class="section-header"></h2>
 
     <div class="section-left-column">
       <div>
@@ -86,7 +87,7 @@ const pageTitle = "About me";
         <mark>GraphQL</mark>,
         <mark>Scrum</mark>
       </p>
-    </div>
+    </div> -->
 
     <div class="section-left-column">
       <h4>Unity Technologies</h4>
@@ -209,7 +210,7 @@ const pageTitle = "About me";
       </p>
     </div>
 
-    <h2 class="section-header">When I'm not programming</h2>
+    <!-- <h2 class="section-header">When I'm not programming</h2>
     <div class="freetime">
       <p>
         I love most things bike-related, but primarily enduro mountain biking,
@@ -233,6 +234,6 @@ const pageTitle = "About me";
         knack for torturing myself, since all three series are famously still
         unfinished for quite some time now.
       </p>
-    </div>
+    </div> -->
   </div>
 </BaseLayout>
