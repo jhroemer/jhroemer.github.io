@@ -6,7 +6,9 @@ pubDate: 2023-12-27
 draft: true
 ---
 
-I recent went through a RFC process, and it started out horribly..
+I recently went through the RFC process, for the direction and technical solution to an internal system in my organization. It's not the first time I create such a document, but it's the first time I've done it on a large scale, both in terms of the scope of the document and amount of reviewers. And it didn't actually start out very well.
+
+At least that's what I thought a few days after publishing. While I outlined more than one potential technical solutions to the problem in question, the proposed solution was opposed quite strongly by a few of the stakeholders, and I was getting feedback that I didn't anticipate, and in sections that surprised me.
 
 .. in the end it went really well.
 Confusing RFC of both product, technical etc.
