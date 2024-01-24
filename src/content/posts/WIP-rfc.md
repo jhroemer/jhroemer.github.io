@@ -6,13 +6,15 @@ pubDate: 2023-12-27
 draft: true
 ---
 
-I recently went through the RFC process, for the direction and technical solution to an internal system in my organization. It's not the first time I create such a document, but it's the first time I've done it on a large scale, both in terms of the scope of the document and amount of reviewers. And it didn't actually start out very well.
+I recently went through the RFC process, for the direction and technical solution to an internal application in my organization. It's not the first time I create such a document, but it's the first time I've done it on a large scale, both in terms of the scope of the document and amount of reviewers. And frankly, it didn't start out very well.
 
-At least that's what I thought a few days after publishing. While I outlined more than one potential technical solutions to the problem in question, the proposed solution was opposed quite strongly by a few of the stakeholders, and I was getting feedback that I didn't anticipate, and in sections that surprised me.
+At least that's what I thought, a few days after publishing. While I outlined more than one potential technical solutions to the problem in question, the proposed solution was opposed quite strongly by a few of the stakeholders, and I was getting feedback that I didn't anticipate. And in sections that surprised me.
 
-.. in the end it went really well.
-Confusing RFC of both product, technical etc.
-Brings me to my first point:
+Safe to say, my first reaction was frustration. I was annoyed at myself for not having done a better job, communicating more clearly etc. But is smooth sailing actually what you're looking for? Of course not, which bring me to my first point.
+
+### Remember what the point is: discussion:
+
+Related to my post on the MVP/RAT; you're not doing this to convince everyone you're right, and show how good you are. You're doing this to facilitate discussion. Helps if you don't have too high thoughts of your own genius, and are willing to be swayed by good arguments (I'm a natural in this regard! ;-) )
 
 ### It doesn't need to be perfect
 
@@ -33,10 +35,6 @@ The more you write, the more there is to nitpick on which will distract the conv
 Related to prior point, but more about the essence of your topic, than the amount of words.
 You might be asked a high amount of questions, and sometimes about things which aren't really in scope for the RFC. Save everyone's time by clearly scoping the work at the very beginning of the document.
 Complexity is the enemy of execution.
-
-### Remember what the point is: discussion:
-
-Related to my post on the MVP/RAT; you're not doing this to convince everyone you're right, and show how good you are. You're doing this to facilitate discussion. Helps if you don't have too high thoughts of your own genius, and are willing to be swayed by good arguments (I'm a natural in this regard! ;-) )
 
 ### Data
 
