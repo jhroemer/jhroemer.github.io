@@ -6,17 +6,17 @@ pubDate: 2023-12-27
 draft: true
 ---
 
+<!-- TODO: include small reference for the RFC format, or explanation? -->
+
 I recently went through the RFC process, for the direction and technical solution to an internal application in my organization. It's not the first time I create such a document, but it's the first time I've done it on a large scale, both in terms of the scope of the document and amount of reviewers. And frankly, it didn't start out very well.
 
-At least that's what I thought, a few days after publishing. While I outlined more than one potential technical solutions to the problem in question, the proposed solution was opposed quite strongly by a few of the stakeholders, and I was getting feedback that I didn't anticipate. And in sections that surprised me.
+At least that's what I thought, a few days after publishing. While I outlined more than one potential technical solutions to the problem in question, the proposed solution was opposed quite strongly by a few of the stakeholders, and I was getting feedback that I didn't anticipate, in sections that surprised me.
 
-Safe to say, my first reaction was frustration. I was annoyed at myself for not having done a better job, communicating more clearly etc. But is smooth sailing actually what you're looking for? Of course not, which bring me to my first point.
+My first reaction was frustration, and I was annoyed at myself for not having done a better job. But hold on, let's take a step back. What are you actually looking for with an RFC? Smooth sailing?
 
 ### Remember what the point is: discussion:
 
-Related to my post on the MVP/RAT; you're not doing this to convince everyone you're right, and show how good you are. You're doing this to facilitate discussion. Helps if you don't have too high thoughts of your own genius, and are willing to be swayed by good arguments (I'm a natural in this regard! ;-) )
-
-### It doesn't need to be perfect
+While the RFC process is for proposals, the entire point with requesting peer-review is that you facilitate an open exchange of opinion on the subject of the proposal. Striving for perfect is often a fools errand, and what would it even mean for an RFC?
 
 - You're looking for the productive discussions
 - You're looking for feedback
