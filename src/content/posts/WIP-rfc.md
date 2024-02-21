@@ -10,19 +10,21 @@ I recently went through the [RFC process](https://en.wikipedia.org/wiki/Request_
 
 At least that's what I thought, a few days after publishing. The proposed solution was opposed quite strongly by a few of the stakeholders, and I was getting feedback that I didn't anticipate, in sections that surprised me. And I had been thorough in investigating and outlining- and discussing multiple solutions.
 
-My first reaction was frustration, and I was annoyed at myself for not having done a better job. But hold on, let's take a step back. The reason you're going through the effort of producing an RFC is not to convince others, but to make sure that you're utilizing the collective knowledge you have, and surface important discussions before the project kicks off.
+My first reaction was frustration, and I was annoyed at myself for not having done a better job. But hold on, let's take a step back.
 
-### Remember what the point is: discussion:
+### Discussion
 
-While the RFC process is for proposals, the entire point with requesting peer-review is that you facilitate an open exchange of opinion on the subject of the proposal. Striving for perfect is often a fools errand, and what would it even mean for an RFC?
+The reason you're going through the effort of producing an RFC is not to convince others, but to make sure that you're utilizing the collective knowledge you have in a company/org, and surface important discussions before the project kicks off. It's only natural that you would try to make the perfect proposal, that everyone will approve without question, but striving for perfect is often a fools errand. And what would 'perfect' even mean for an RFC?
 
-- You're looking for the productive discussions
-- You're looking for feedback
-- You're looking for alignment
+From my perspective, you're looking for:
+
+- Productive discussions; some things may be more complicated than they seem
+- Feedback; is the proposal on the right- or wrong track? It's hard to know how success looks like, and maybe not going forward with a project is the path to success.
+- .. and alignment; if you're dealing with a non-trivial problem, probably more than a few people are going to be working on it, or otherwise going to be impacted by it. Doesn't hurt to have some alignment.
 
 It turns out, my RFC was extremely effective at provoking all of that, albeit in a more chaotic way than I anticipated.
 
-With that in mind, there's obviously things I would do differently next time.
+That being said, there are things I learned and that I would do differently next time.
 
 ### Less is more
 
