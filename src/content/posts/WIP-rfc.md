@@ -6,13 +6,11 @@ pubDate: 2023-12-27
 draft: true
 ---
 
-<!-- TODO: include small reference for the RFC format, or explanation? -->
+I recently went through the [RFC process](https://en.wikipedia.org/wiki/Request_for_Comments), for the direction and technical solution to an internal application in my organization. In case you're unfamiliar with the concept, it's basically a process in which you author documents about upcoming non-trivial pieces of engineering work, and make that document open for peer-review for your entire org- or company. [It can be very effective and efficient way](https://blog.pragmaticengineer.com/scaling-engineering-teams-via-writing-things-down-rfcs/) to discuss new solutions in a technical company or organization. It's not the first time I create such a document, but it's the first time I've done it on a larger scale, both in terms of the scope of the document and amount of reviewers. And frankly, it didn't start out very well.
 
-I recently went through the RFC process, for the direction and technical solution to an internal application in my organization. It's not the first time I create such a document, but it's the first time I've done it on a large scale, both in terms of the scope of the document and amount of reviewers. And frankly, it didn't start out very well.
+At least that's what I thought, a few days after publishing. The proposed solution was opposed quite strongly by a few of the stakeholders, and I was getting feedback that I didn't anticipate, in sections that surprised me. And I had been thorough in investigating and outlining- and discussing multiple solutions.
 
-At least that's what I thought, a few days after publishing. While I outlined more than one potential technical solutions to the problem in question, the proposed solution was opposed quite strongly by a few of the stakeholders, and I was getting feedback that I didn't anticipate, in sections that surprised me.
-
-My first reaction was frustration, and I was annoyed at myself for not having done a better job. But hold on, let's take a step back. What are you actually looking for with an RFC? Smooth sailing?
+My first reaction was frustration, and I was annoyed at myself for not having done a better job. But hold on, let's take a step back. The reason you're going through the effort of producing an RFC is not to convince others, but to make sure that you're utilizing the collective knowledge you have, and surface important discussions before the project kicks off.
 
 ### Remember what the point is: discussion:
 
@@ -39,7 +37,8 @@ Complexity is the enemy of execution.
 ### Data
 
 Provide data wherever you can. Data is often much easier for discussions, especially if you present it neutrally. Be careful that you're not using data in a way that seems like your pushing your point, and twisting it to your benefit.
+And also, data is not everything.
 
 ### Time
 
-The most important thing you're doing is to come up with a thought-through proposal for something, but it doesn't need to-, nor is it possible to-, be perfect. That's the whole intention with writing an RFC, to widen the circle of people who can help think about a problem.
+The most important thing you're doing is to come up with a thought-through proposal for something, but it often doesn't need to-, nor is it possible to-, be perfect. That's the whole intention with writing an RFC, to widen the circle of people who can help think about a problem.
