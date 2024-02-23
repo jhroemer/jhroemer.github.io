@@ -37,4 +37,4 @@ And also, data is not everything.
 
 ### Time
 
-The most important thing you're doing is to come up with a thought-through proposal for something, but it often doesn't need to-, nor is it possible to-, be perfect. That's the whole intention with writing an RFC, to widen the circle of people who can help think about a problem.
+This last point is less about you as an individual, and more about how the process is used in your company or organization. There are so many things we can do to improve the way we work, and the real challenge is to figure out what's worth doing and how much to invest in what. It's easy to set up more and more requirements, and to end up with a very time-consuming process. This means that the RFC process becomes very expensive to do, which is something to be wary of. Also, if the process is too heavy and time-consuming, adoption might turn out to be low. So if you're trying to set up something like this, then try to promote a lightweight and easy process, where things don't need to be extremely elaborate or perfect.
