@@ -22,3 +22,9 @@ Make expectations for the people you manage transparent. Don't know what they ar
 
 Development time? Make sure you understand what the expectations are from your company. Are you realistically going to be able to contribute technically?
 Personally I find it hugely important to have technical knowhow.
+
+This is something I've learned more from having a manager than being a manager. You're gonna be limited if your technical know-how about your product isn't very large. It means you depend totally on your team to help you navigate, and make things quite hard. So having time to contribute technically is super important.
+
+- Makes it possible to access your team and their capabilities
+- Engaging confidently with stakeholders
+- You can help the team, give flexibility
