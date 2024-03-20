@@ -25,6 +25,8 @@ Personally I find it hugely important to have technical knowhow.
 
 This is something I've learned more from having a manager than being a manager. You're gonna be limited if your technical know-how about your product isn't very large. It means you depend totally on your team to help you navigate, and make things quite hard. So having time to contribute technically is super important.
 
+A good tip is to book time-slots for development in your calendar.
+
 - Makes it possible to access your team and their capabilities
 - Engaging confidently with stakeholders
 - You can help the team, give flexibility
