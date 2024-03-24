@@ -28,12 +28,11 @@ That being said, there are things I learned and that I would do differently next
 
 ### Less is more
 
-The more you write, the more there is to nitpick on, which may distract the conversation from the crucial area(s). So make your sections count. And this is not just about the length of your document and the number of words; reducing the _scope_ of your topic will make it much easier to get good and clear feedback. You might be asked a high amount of questions, and sometimes about things which aren't really in scope for the RFC. Save everyone's time by clearly scoping the work at the very beginning of the document. Complexity is the enemy of execution.
+The more you write, the more there is to nitpick on, which may distract the conversation from the crucial area(s). So make your sections count. This is not just about the length of your document and the number of words; reducing the _scope_ of your topic will make it much easier to get good and clear feedback. You might be asked a high amount of questions, and sometimes about things which aren't really in scope for the RFC. Save everyone's time by clearly scoping the work at the very beginning of the document.
 
-### Data
+<!-- TODO: delete? -->
 
-Provide data wherever you can. Data is often much easier for discussions, especially if you present it neutrally. Be careful that you're not using data in a way that seems like your pushing your point, and twisting it to your benefit.
-And also, data is not everything.
+Complexity is the enemy of execution.
 
 ### Time
 
