@@ -30,10 +30,8 @@ That being said, there are things I learned and that I would do differently next
 
 The more you write, the more there is to nitpick on, which may distract the conversation from the crucial area(s). So make your sections count. This is not just about the length of your document and the number of words; reducing the _scope_ of your topic will make it much easier to get good and clear feedback. You might be asked a high amount of questions, and sometimes about things which aren't really in scope for the RFC. Save everyone's time by clearly scoping the work at the very beginning of the document.
 
-<!-- TODO: delete? -->
-
-Complexity is the enemy of execution.
-
 ### Time
 
-This last point is less about you as an individual, and more about how the process is used in your company or organization. There are so many things we can do to improve the way we work, and the real challenge is to figure out what's worth doing and how much to invest in what. It's easy to set up more and more requirements, and to end up with a very time-consuming process. This means that the RFC process becomes very expensive to do, which is something to be wary of. Also, if the process is too heavy and time-consuming, adoption might turn out to be low. So if you're trying to set up something like this, then try to promote a lightweight and easy process, where things don't need to be extremely elaborate or perfect.
+This last point is less about you as an individual, and more about how the process is used in your company or organization. There are so many things we can do to improve the way we work, and the real challenge is to figure out what's worth doing and how much to invest in what.
+
+It's easy to set up more and more requirements, and to end up with a very time-consuming process. Something like an RFC process can become expensive to do, which is something to be wary of. Also, if the process is too heavy and time-consuming, adoption might turn out to be low. So if you're trying to set up something like this, then try to promote a lightweight and easy process, where things don't need to be extremely elaborate or perfect.
