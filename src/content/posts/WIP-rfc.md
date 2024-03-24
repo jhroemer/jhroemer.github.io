@@ -14,13 +14,13 @@ My first reaction was frustration, and I was annoyed at myself for not having se
 
 ### Discussion
 
-The reason you're going through the effort of producing an RFC is not to convince others, but to make sure that you're utilizing the collective knowledge you have in a company/org, and surface important discussions before the project kicks off. It's only natural that you would try to make the perfect proposal, that everyone will approve without question, but striving for perfect is often a fools errand. And what would 'perfect' even mean for an RFC?
+The reason you're going through the effort of producing an RFC is not to convince others, but to make sure that you're utilizing the collective knowledge you have in a company/org, and surface important discussions before the project kicks off. It's only natural that you would want to make the perfect proposal, that everyone will approve without question. Most of us are vain creatures at the end of the day. But striving for perfect is often a fools errand. And what does 'perfect' even mean for an RFC?
 
 From my perspective, you're looking for:
 
-- Productive discussions; some things may be more complicated than they seem
-- Feedback; is the proposal on the right- or wrong track? It's hard to know how success looks like, and maybe not going forward with a project is the path to success.
-- .. and alignment; if you're dealing with a non-trivial problem, probably more than a few people are going to be working on it, or otherwise going to be impacted by it. Doesn't hurt to have some alignment.
+- Productive discussions; some things may be more complicated than they seem.
+- Feedback; is the proposal on the right- or wrong track? It's hard to know how success looks like, and the better path might in some cases be to _not_ move forward with a proposed project.
+- Alignment. if you're dealing with a non-trivial problem, probably more than a few people are going to be working on it, or otherwise going to be impacted by it. It doesn't hurt to be on the same page.
 
 It turns out, my RFC was extremely effective at provoking all of that, albeit in a more chaotic way than I anticipated.
 
