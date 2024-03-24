@@ -1,9 +1,8 @@
 ---
-slug: rfc-learnings
-title: "Writing a good RFC"
+slug: writing-a-good-rfc
+title: "Writing a 'good' RFC"
 tags: [Software development]
-pubDate: 2023-12-27
-draft: true
+pubDate: 2024-03-24
 ---
 
 I recently went through the [RFC process](https://en.wikipedia.org/wiki/Request_for_Comments), for the overall direction and technical solution to an internal application in my organization. In case you're unfamiliar with the RFC concept; it's a process in which you author documents about upcoming non-trivial pieces of (engineering) work, and make that document open for peer-review for your entire org- or company. [It can be an efficient way](https://blog.pragmaticengineer.com/scaling-engineering-teams-via-writing-things-down-rfcs/) of discussing new solutions in a technical company or organization. It's not the first time I create such a document, but it's the first time I've done it on a larger scale, both in terms of the scope of the document and amount of reviewers. And frankly, it didn't start out very well.
