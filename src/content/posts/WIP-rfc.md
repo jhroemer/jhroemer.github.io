@@ -10,7 +10,7 @@ I recently went through the [RFC process](https://en.wikipedia.org/wiki/Request_
 
 At least that's what I thought, a few days after publishing. The proposed solution was opposed quite strongly by a few key stakeholders, and I was getting feedback that I didn't anticipate, in sections that surprised me. And I had been thorough in investigating and outlining- and discussing multiple solutions.
 
-My first reaction was frustration, and I was annoyed at myself for not having done a better job. But hold on, let's take a step back.
+My first reaction was frustration, and I was annoyed at myself for not having seen some of those things coming. This document is not about whether I did a bad job or not though. Maybe a little bit. It's more about what I learned and about what to do different next time. But let's start with my ego; did I really do a bad job?
 
 ### Discussion
 
