@@ -1,3 +1,14 @@
+:root {
+  --grey-1: #c7c7c7;
+  --grey-2: #6f6f6f;
+}
+
+/* use data-theme instead of class? */
+:root.dark {
+  --grey-1: #505050;
+  --grey-2: #a0a0a0;
+}
+
 html {
   font-family: sans-serif;
   background-color: #f1f5f9;
@@ -43,4 +54,14 @@ ul {
 
 a {
   font-weight: 300;
+  color: unset;
+
+  text-decoration: underline 0.025em var(--grey-1);
+  text-underline-offset: 0.2em;
+  transition: text-decoration-color 200ms, text-underline-offset 200ms;
+
+  &:hover {
+    text-decoration-color: var(--grey-2);
+    text-underline-offset: 0.3em;
+  }
 }
