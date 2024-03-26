@@ -7,7 +7,23 @@ const allPosts = await getCollection("posts");
 const pageTitle = "Blog";
 ---
 
+<style>
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  li {
+    margin-bottom: 0.6rem;
+  }
+
+  div {
+    font-size: 0.8rem;
+  }
+</style>
+
 <BaseLayout pageTitle={pageTitle}>
+  <h4>Writing</h4>
   <ul>
     {
       allPosts
@@ -19,6 +35,13 @@ const pageTitle = "Blog";
           return (
             <li>
               <a href={`/posts/${post.slug}`}>{post.data.title}</a>
+              <div>
+                {post.data.pubDate.toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "short",
+                  day: "2-digit",
+                })}
+              </div>
             </li>
           );
         })
