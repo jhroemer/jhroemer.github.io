@@ -1,7 +1,4 @@
 ---
-import { Image } from "astro:assets";
-import logo from "../assets/logo.svg";
-
 import Navigation from "./Navigation.astro";
 import ThemeIcon from "./ThemeIcon.astro";
 ---
@@ -13,13 +10,12 @@ import ThemeIcon from "./ThemeIcon.astro";
     justify-content: space-between;
   }
 
-  a {
+  div {
     display: flex;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    &:hover {
-      background-color: rgba(0, 0, 0, 0.04);
-    }
+  }
+
+  p {
+    font-size: 20px;
   }
 
   nav {
@@ -28,10 +24,10 @@ import ThemeIcon from "./ThemeIcon.astro";
 </style>
 
 <header>
-  <a href="/">
-    <!-- TODO: dark mode -->
-    <Image src={logo} alt="Logo" height="30" />
-  </a>
+  <div>
+    <p>Jens</p>
+    <p>&nbsp;Rømer</p>
+  </div>
   <nav>
     <Navigation />
     <ThemeIcon />
