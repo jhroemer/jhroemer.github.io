@@ -2,9 +2,30 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import "../styles/global.css";
+import type { CollectionEntry } from "astro:content";
 
 const allPosts = await getCollection("posts");
 const pageTitle = "Blog";
+
+const postsByYear = allPosts
+  .filter((post) => !post.data.draft)
+  // Sort descending
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .reduce(
+    (acc, post) => {
+      const year = post.data.pubDate.getFullYear();
+      if (!acc[year]) {
+        acc[year] = [];
+      }
+      acc[year].push(post);
+      return acc;
+    },
+    {} as Record<number, CollectionEntry<"posts">[]>
+  );
+
+// console.log("postsByYear", Object.keys(postsByYear));
+
+console.log("hey man: ", Object.entries(postsByYear)[0]);
 ---
 
 <style>
@@ -25,6 +46,23 @@ const pageTitle = "Blog";
 <BaseLayout pageTitle={pageTitle}>
   <h4>Writing</h4>
   <ul>
+    {console.log({ postsByYear })}
+    {
+      Object.entries(postsByYear).map(([key, value]) => {
+        console.log("value is: ", value);
+        return (
+          <div>
+            {key}
+            {value.map((hey) => {
+              return <p>{hey.data.title}</p>;
+            })}
+          </div>
+        );
+      })
+    }
+
+    <hr />
+
     {
       allPosts
         .filter((post) => !post.data.draft)
