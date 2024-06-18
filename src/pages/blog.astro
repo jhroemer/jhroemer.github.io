@@ -10,7 +10,6 @@ const pageTitle = "Blog";
 
 const postsByYear = allPosts
   .filter((post) => !post.data.draft)
-  // TODO: Sort descending
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .reduce(
     (acc, post) => {
@@ -52,32 +51,31 @@ const postsByYear = allPosts
 </style>
 
 <BaseLayout pageTitle={pageTitle}>
-  <h4>Blog posts</h4>
+  <h4>Blog</h4>
   {
-    Object.entries(postsByYear).map(([year, posts]) => {
-      return (
-        <div class="year-container">
-          <p class="year">{year}</p>
-          {posts.map((post) => {
-            return (
-              <div class="post-container">
-                {/* TODO: more subtle color/size */}
-                {/* TODO: render tags? */}
-                {/* {post.data.tags.map((tag) => (
-                  <span>{tag}</span>
-                  ))} */}
-                <a href={`/posts/${post.slug}`}>{post.data.title}</a>
-                <p>
-                  {post.data.pubDate.toLocaleDateString("en-GB", {
-                    month: "2-digit",
-                    day: "2-digit",
-                  })}
-                </p>
-              </div>
-            );
-          })}
-        </div>
-      );
-    })
+    Object.entries(postsByYear)
+      .sort((a, b) => {
+        return parseInt(b[0]) - parseInt(a[0]);
+      })
+      .map(([year, posts]) => {
+        return (
+          <div class="year-container">
+            <p class="year">{year}</p>
+            {posts.map((post) => {
+              return (
+                <div class="post-container">
+                  <a href={`/posts/${post.slug}`}>{post.data.title}</a>
+                  <p>
+                    {post.data.pubDate.toLocaleDateString("en-GB", {
+                      month: "2-digit",
+                      day: "2-digit",
+                    })}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        );
+      })
   }
 </BaseLayout>
