@@ -1,15 +1,16 @@
 ---
 import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
 import BaseLayout from "../layouts/BaseLayout.astro";
 import "../styles/global.css";
-import type { CollectionEntry } from "astro:content";
 
 const allPosts = await getCollection("posts");
 const pageTitle = "Blog";
 
 const postsByYear = allPosts
   .filter((post) => !post.data.draft)
-  // Sort descending
+  // TODO: Sort descending
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .reduce(
     (acc, post) => {
@@ -22,67 +23,61 @@ const postsByYear = allPosts
     },
     {} as Record<number, CollectionEntry<"posts">[]>
   );
-
-// console.log("postsByYear", Object.keys(postsByYear));
-
-console.log("hey man: ", Object.entries(postsByYear)[0]);
 ---
 
 <style>
-  ul {
-    list-style-type: none;
-    padding: 0;
+  .year-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 8px;
+    padding-bottom: 16px;
   }
 
-  li {
-    margin-bottom: 0.6rem;
+  .year {
+    position: absolute;
+    margin: 0;
   }
 
-  div {
-    font-size: 0.8rem;
+  .post-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 16px;
+
+    p {
+      margin: 0;
+    }
   }
 </style>
 
 <BaseLayout pageTitle={pageTitle}>
-  <h4>Writing</h4>
-  <ul>
-    {console.log({ postsByYear })}
-    {
-      Object.entries(postsByYear).map(([key, value]) => {
-        console.log("value is: ", value);
-        return (
-          <div>
-            {key}
-            {value.map((hey) => {
-              return <p>{hey.data.title}</p>;
-            })}
-          </div>
-        );
-      })
-    }
-
-    <hr />
-
-    {
-      allPosts
-        .filter((post) => !post.data.draft)
-        .sort((a, b) => {
-          return b.data.pubDate.valueOf() - a.data.pubDate.valueOf();
-        })
-        .map((post) => {
-          return (
-            <li>
-              <a href={`/posts/${post.slug}`}>{post.data.title}</a>
-              <div>
-                {post.data.pubDate.toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "short",
-                  day: "2-digit",
-                })}
+  <h4>Blog posts</h4>
+  {
+    Object.entries(postsByYear).map(([year, posts]) => {
+      return (
+        <div class="year-container">
+          <p class="year">{year}</p>
+          {posts.map((post) => {
+            return (
+              <div class="post-container">
+                {/* TODO: more subtle color/size */}
+                {/* TODO: render tags? */}
+                {/* {post.data.tags.map((tag) => (
+                  <span>{tag}</span>
+                  ))} */}
+                <a href={`/posts/${post.slug}`}>{post.data.title}</a>
+                <p>
+                  {post.data.pubDate.toLocaleDateString("en-GB", {
+                    month: "2-digit",
+                    day: "2-digit",
+                  })}
+                </p>
               </div>
-            </li>
-          );
-        })
-    }
-  </ul>
+            );
+          })}
+        </div>
+      );
+    })
+  }
 </BaseLayout>
