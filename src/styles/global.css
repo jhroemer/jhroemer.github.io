@@ -62,7 +62,9 @@ a {
   font-weight: 300;
   color: unset;
 
-  text-decoration: underline 0.025em var(--grey-1);
+  text-decoration: underline;
+  text-decoration-thickness: 0.025em;
+  text-decoration-color: var(--grey-1);
   text-underline-offset: 0.2em;
   transition: text-decoration-color 200ms, text-underline-offset 200ms;
 

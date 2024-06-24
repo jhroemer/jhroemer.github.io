@@ -13,7 +13,9 @@ const currentPath = pathname.slice(1);
     display: flex;
     align-items: center;
     position: relative;
-    text-decoration: underline 3px var(--navigation-underline-off);
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-decoration-color: var(--navigation-underline-off);
     transition: text-decoration-color 200ms;
 
     &:hover,
