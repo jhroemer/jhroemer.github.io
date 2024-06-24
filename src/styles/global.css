@@ -2,6 +2,7 @@
   --grey-1: #c7c7c7;
   --grey-2: #6f6f6f;
   --mark-color: #161616;
+  --navigation-underline: #0f3923;
 }
 
 /* use data-theme instead of class? */
@@ -9,6 +10,7 @@
   --grey-1: #505050;
   --grey-2: #a0a0a0;
   --mark-color: #444667;
+  --navigation-underline: #f3f6e9;
 }
 
 html {
