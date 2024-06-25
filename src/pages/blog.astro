@@ -33,19 +33,25 @@ const postsByYear = allPosts
     margin-bottom: 32px;
   }
 
-  .year {
-    position: absolute;
-    margin: 0;
-  }
-
   .post-container {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     gap: 16px;
 
     p {
       margin: 0;
+    }
+  }
+
+  @media only screen and (min-width: 600px) {
+    .year {
+      position: absolute;
+      margin: 0;
+    }
+
+    .post-container {
+      justify-content: flex-end;
     }
   }
 </style>
