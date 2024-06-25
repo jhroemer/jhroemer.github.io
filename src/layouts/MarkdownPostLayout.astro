@@ -48,12 +48,4 @@ const { frontmatter } = Astro.props;
   <p>Published on: {frontmatter.pubDate.toString().slice(0, 15)}</p>
 
   <slot />
-
-  <div class="tags">
-    {
-      frontmatter.tags.map((tag) => {
-        return <a href={`/tags/${tag}`}>{tag}</a>;
-      })
-    }
-  </div>
 </BaseLayout>
