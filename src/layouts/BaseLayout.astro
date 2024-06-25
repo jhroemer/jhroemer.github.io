@@ -10,6 +10,24 @@ interface Props {
 const { pageTitle }: Props = Astro.props;
 ---
 
+<script is:inline>
+  // Initialise the correct theme
+  if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    document.documentElement.classList.add("dark");
+  }
+
+  // Make sure theme is updated if users changes it
+  window
+    .matchMedia("(prefers-color-scheme: dark)")
+    .addEventListener("change", (event) => {
+      if (event.matches) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    });
+</script>
+
 <style>
   body {
     padding-top: 40px;
