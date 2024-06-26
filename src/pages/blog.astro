@@ -25,6 +25,10 @@ const postsByYear = allPosts
 ---
 
 <style>
+  .posts-container {
+    margin-top: 40px;
+  }
+
   .year-container {
     display: flex;
     flex-direction: column;
@@ -57,31 +61,32 @@ const postsByYear = allPosts
 </style>
 
 <BaseLayout pageTitle={pageTitle}>
-  <h4>Blog</h4>
-  {
-    Object.entries(postsByYear)
-      .sort((a, b) => {
-        return parseInt(b[0]) - parseInt(a[0]);
-      })
-      .map(([year, posts]) => {
-        return (
-          <div class="year-container">
-            <p class="year">{year}</p>
-            {posts.map((post) => {
-              return (
-                <div class="post-container">
-                  <a href={`/posts/${post.slug}`}>{post.data.title}</a>
-                  <p>
-                    {post.data.pubDate.toLocaleDateString("en-GB", {
-                      month: "2-digit",
-                      day: "2-digit",
-                    })}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        );
-      })
-  }
+  <div class="posts-container">
+    {
+      Object.entries(postsByYear)
+        .sort((a, b) => {
+          return parseInt(b[0]) - parseInt(a[0]);
+        })
+        .map(([year, posts]) => {
+          return (
+            <div class="year-container">
+              <p class="year">{year}</p>
+              {posts.map((post) => {
+                return (
+                  <div class="post-container">
+                    <a href={`/posts/${post.slug}`}>{post.data.title}</a>
+                    <p>
+                      {post.data.pubDate.toLocaleDateString("en-GB", {
+                        month: "2-digit",
+                        day: "2-digit",
+                      })}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          );
+        })
+    }
+  </div>
 </BaseLayout>
