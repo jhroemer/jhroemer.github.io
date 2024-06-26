@@ -17,4 +17,5 @@ export default defineConfig({
     "/minimum-viable-product": "/posts/minimum-viable-product",
   },
   site: "https://jhroemer.github.io/",
+  base: "/",
 });
