@@ -6,7 +6,7 @@ export async function get() {
   return rss({
     title: "Jens Rømer Hesselbjerg | Blog",
     description: "My personal blog",
-    site: "https://jensroemer-astro.netlify.app/",
+    site: "https://jhroemer.github.io/",
     items: posts.map((post) => ({
       title: post.data.title,
       pubDate: post.data.pubDate,
