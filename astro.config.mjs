@@ -16,4 +16,5 @@ export default defineConfig({
     "/do-repeat-yourself": "/posts/do-repeat-yourself",
     "/minimum-viable-product": "/posts/minimum-viable-product",
   },
+  site: "https://jhroemer.github.io",
 });
