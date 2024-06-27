@@ -35,6 +35,17 @@ const postsByYear = allPosts
     position: relative;
     gap: 8px;
     margin-bottom: 32px;
+
+    &:hover {
+      .year {
+        color: var(--text-primary);
+      }
+    }
+  }
+
+  .year {
+    color: var(--text-secondary);
+    transition: color 0.2s cubic-bezier(0.12, 0.8, 0.42, 1.03);
   }
 
   .post-container {
@@ -46,6 +57,15 @@ const postsByYear = allPosts
     p {
       margin: 0;
     }
+  }
+
+  .post:hover + .publish-date {
+    color: var(--text-primary);
+  }
+
+  .publish-date {
+    color: var(--text-secondary);
+    transition: color 0.2s cubic-bezier(0.12, 0.8, 0.42, 1.03);
   }
 
   @media only screen and (min-width: 600px) {
@@ -74,8 +94,10 @@ const postsByYear = allPosts
               {posts.map((post) => {
                 return (
                   <div class="post-container">
-                    <a href={`/posts/${post.slug}`}>{post.data.title}</a>
-                    <p>
+                    <a class="post" href={`/posts/${post.slug}`}>
+                      {post.data.title}
+                    </a>
+                    <p class="publish-date">
                       {post.data.pubDate.toLocaleDateString("en-GB", {
                         month: "2-digit",
                         day: "2-digit",

@@ -1,6 +1,8 @@
 :root {
   --grey-1: #c7c7c7;
   --grey-2: #6f6f6f;
+  --text-primary: rgb(58, 58, 58);
+  --text-secondary: #6f6f6f;
   --mark-color: #161616;
   --navigation-underline: rgba(15, 57, 35, 1);
   --navigation-underline-off: rgba(15, 57, 35, 0);
@@ -8,6 +10,8 @@
 
 /* use data-theme instead of class? */
 :root.dark {
+  --text-primary: rgb(229, 229, 229);
+  --text-secondary: #a0a0a0;
   --grey-1: #505050;
   --grey-2: #a0a0a0;
   --mark-color: #444667;
