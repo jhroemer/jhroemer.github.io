@@ -22,12 +22,11 @@
 html {
   font-family: sans-serif;
   background-color: #f1f5f9;
-  color: rgb(58, 58, 58);
+  color: var(--text-primary);
 }
 
 html.dark {
   background-color: rgb(26, 26, 26);
-  color: rgb(229, 229, 229);
 }
 
 .nav-links a {
