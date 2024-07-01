@@ -21,7 +21,7 @@ const graph = [
     }
 
     async function processItems() {
-      for (let edge of edges) {
+      for (const edge of edges) {
         const length = edge.getTotalLength();
         edge.style.transition = `stroke-dashoffset 0.5s cubic-bezier(0.6, 0.6, 0, 1)`;
         edge.style.strokeDashoffset = `${-length}`;
