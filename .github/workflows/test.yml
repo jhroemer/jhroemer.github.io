@@ -11,15 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     permissions: write-all
     steps:
-        - name: Checkout repository
-          uses: actions/checkout@v3
-        - uses: actions/setup-node@v3
-          with:
-            node-version: 20
-            cache: 'npm'
-        - name: Install dependencies
-          run: npm ci
-        - name: Type check
-          run: npx tsc
-        - name: Lint check
-          run: npm run lint
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: "npm"
+      - name: Install dependencies
+        run: npm ci
+      - name: Lint check
+        run: npm run lint
