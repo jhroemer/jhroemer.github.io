@@ -12,14 +12,14 @@ jobs:
     permissions: write-all
     steps:
         - name: Checkout repository
-        uses: actions/checkout@v3
+          uses: actions/checkout@v3
         - uses: actions/setup-node@v3
-        with:
+          with:
             node-version: 20
             cache: 'npm'
         - name: Install dependencies
-        run: npm ci
+          run: npm ci
         - name: Type check
-        run: npx tsc
+          run: npx tsc
         - name: Lint check
-        run: npm run lint
+          run: npm run lint
