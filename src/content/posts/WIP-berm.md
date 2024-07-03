@@ -3,6 +3,7 @@ slug: berm
 title: "Berm"
 tags: [Design]
 pubDate: 2024-06-27
+draft: true
 ---
 
 Dieter Rams; Principles of good design: 4. Good design makes a product understandable
