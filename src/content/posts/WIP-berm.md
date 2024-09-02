@@ -22,6 +22,11 @@ Let's talk about the first analogy, the speed bump. I've tried and failed to fin
 - forcing function (type x name to confirm deletion)
 - Speed bump analogy ambiguous
 
+- https://www.researchgate.net/figure/Friction-in-the-physical-world-speed-bumps-are-used-to-encourage-vehicles-to-adopt-the_fig2_348854280
+- https://www.interaction-design.org/literature/book/the-glossary-of-human-computer-interaction/forcing-functions
+- https://www.experiencedynamics.com/forcing-functions-interaction-design-technique-used-not-widely-understood/
+- https://articles.ux-primer.com/friction-points-identifying-and-refining-problem-areas-in-user-journeys-e7efbc00f75e
+
 Am I mixing things up a bit? Probably.
 
 ### The concept of friction
@@ -32,3 +37,7 @@ Am I mixing things up a bit? Probably.
 ### The berm
 
 ..
+
+### Tip
+
+It's hard finding good solutions like this. It's at the core of good design. My best tip is this: if you find that you're doing something that could be seen as a speed limit sign, then you have the chance to take a step back and consider if you can do better.
