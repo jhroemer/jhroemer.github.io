@@ -6,11 +6,11 @@ pubDate: 2024-06-27
 draft: true
 ---
 
-If the title makes no sense to you then don't worry - it's because you're not into mountain biking, which I am. Actually; if you're into mountain biking you would still have no idea, so let me elaborate. I like analogies, and one of my favorites in the context of design is the speed bump. I also like coming up with analogies, especially if they involve something I'm interested in, which is how we're getting to talk about the speed control berm.
+If the title makes no sense to you then don't worry - it's because you're not into mountain biking, which I am. Actually; if you're into mountain biking it may still make no sense, so let me elaborate. I like analogies, and one of my favorites in the context of design is the speed bump. I also like coming up with analogies, especially if they involve something I'm interested in, which is how we're getting to talk about the speed control berm.
 
 ### Speed bump
 
-Let's talk about the first analogy, the speed bump. I've tried and failed to find the original reference, which I think is from a class in interaction design many years ago. Maybe that's because I remember wrong. The idea is that when you're designing something and you're trying to protect- or make the user do the right thing in a situation, you can choose to go for a solution similar to a speed limit sign, or you can use a speed bump. The sign is the least effective, since users can just decide to ignore the sign, whereas the speed bump forces the user to slow down, otherwise the car is going to take damage. In digital design, whenever there's a situation where users can do something wrong, use the speed bump since it eliminates wrong usage instead of _trying_ to eliminate wrong usage.
+But first, let's talk about another analogy; the speed bump. I've tried and failed to find the original reference, which I think is from a class in interaction design many years ago. The idea is that when you're designing something and you're trying to protect- or make the user do the right thing in a situation, you can choose to go for a solution similar to a speed limit sign, or you can use a speed bump. The sign is the least effective, since users can just decide to ignore the sign, whereas the speed bump forces the user to slow down, otherwise they will cause damage to their car. You can apply this sort of thinking to digital design, and generally whenever there's a situation where users can do something wrong, use the speed bump since it eliminates wrong usage instead of _trying_ to eliminate wrong usage.
 
 <!-- TODO: example -->
 
