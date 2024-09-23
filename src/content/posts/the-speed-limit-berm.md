@@ -3,7 +3,6 @@ slug: the-speed-limit-berm
 title: "The speed limit Berm"
 tags: [Design, UX]
 pubDate: 2024-09-23
-draft: true
 ---
 
 If the title makes no sense to you then don't worry - it's because you're not into mountain biking, like I am. Even if you're into mountain biking, it still might not make any sense, so let me elaborate. I like analogies, and one of my favorites in the context of design has been the speed bump. I also like coming up with- or discovering new analogies, especially if they involve something I'm interested in. Which is why you might end up reading about mountain biking on a developer blog.
