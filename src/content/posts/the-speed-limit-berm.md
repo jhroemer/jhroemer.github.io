@@ -1,6 +1,6 @@
 ---
-slug: the-speed-control-berm
-title: "The speed control Berm"
+slug: the-speed-limit-berm
+title: "The speed limit Berm"
 tags: [Design, UX]
 pubDate: 2024-09-23
 draft: true
@@ -16,15 +16,15 @@ How does a speed bump look in digital design? A typical example is some kind of 
 
 There's one issue with the analogy, and the solution, though; which is that few people actually like speed bumps. They add a type of friction which, although it serves a purpose, is annoying. On top of that, the reference is also somewhat ambiguous, since it is also used to describe [bad ux](https://articles.ux-primer.com/friction-points-identifying-and-refining-problem-areas-in-user-journeys-e7efbc00f75e).
 
-### The speed control berm
+### The speed limit berm
 
-Now for the second analogy, the speed control berm, it's probably easiest to understand if we start with the problem. Mountain biking is often done on dedicated [single tracks](<https://en.wikipedia.org/wiki/Single_track_(mountain_biking)>), which are narrow trails built in forests and mountains. These trails sometimes intersect with gravel/fire roads, which can lead to accidents, where mountain bikers suddenly cross the road in great speed, and collide with someone using the road.
+Now for the second analogy, the speed limit berm, it's probably easiest to understand if we start with the problem. Mountain biking is often done on dedicated [single tracks](<https://en.wikipedia.org/wiki/Single_track_(mountain_biking)>), which are narrow trails built in forests and mountains. These trails sometimes intersect with gravel/fire roads, which can lead to accidents, where mountain bikers suddenly cross the road in great speed, and collide with someone using the road.
 
 You can handle this issue by establishing a barrier (speed bump), or using a sign, and try to force the mountain biker to reduce their speed. We already talked about those two solutions in the prior section. A more attractive solution is to build a tight [berm](https://www.youtube.com/watch?v=z1Oh-KQ3btU&ab_channel=GlobalMountainBikeNetwork) (a banked turn, a popular and fun feature of most mountain bike trails) just before the intersection. If build right, this will cause a low exit speed out of the turn, which counteracts collision dangers in the intersection, while offering a challenging and fun experience for the mountain bikers.
 
 This is an elegant and well-designed solution that leverages its core function to enhance safety. It reminds me of Dieter Rams' [fourth design principle](https://www.vitsoe.com/eu/about/good-design), that "Good design makes a product understandable", and self-explanatory. Product manuals are well and good, but nothing beats a product that you intuitively know how to use (correctly!). At the other (bad) end of the spectrum you find [Norman doors](https://uxdesign.cc/intro-to-ux-the-norman-door-61f8120b6086).
 
-### Speed control berms in digital design?
+### Speed limit berms in digital design?
 
 These things can be hard to spot, since they're designed to not be in the way, but to feel like a natural part of the journey. They are part of products that are enjoyable and _just work_. My best tip is this: if you find that you're doing something that could be a speed limit sign, then take a step back, and consider if you can do better. You might be better off with a speed bump (forcing function), to make sure users don't get into trouble. But sometimes you can aim even higher.
 
