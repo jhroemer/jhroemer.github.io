@@ -1,8 +1,8 @@
 ---
 slug: the-speed-control-berm
 title: "The speed control Berm"
-tags: [Design]
-pubDate: 2024-09-10
+tags: [Design, UX]
+pubDate: 2024-09-23
 draft: true
 ---
 
@@ -26,12 +26,6 @@ This is an elegant and well-designed solution, that uses the core function to al
 
 ### Speed control berms in digital design?
 
-It's hard finding good solutions like this. It's at the core of good design. My best tip is this: if you find that you're doing something that could be seen as a speed limit sign, then you have the chance to take a step back and consider if you can do better.
+These things can be hard to spot, since they're designed to not be in the way, but to feel like a natural part of the journey. They are part of products that are enjoyable and _just work_, without effort. My best tip is this: if you find that you're doing something that could be seen as a speed limit sign, then you have the chance to take a step back, and consider if you can do better. You might need to implement a speed bump (forcing function), to make sure users don't get into trouble. But sometimes you can aim even higher in your design endeavour.
 
-<!-- TODO: get rid of again? -->
-
-### The concept of friction
-
-- https://medium.com/@steveselzer/the-fiction-of-no-friction-17da9349459a
-- If you find yourself doing small info-boxes all over your page, then you might need to go back to the drawing board.
-- Design with intent
+There's an example from airbnb in [this](https://medium.com/@steveselzer/the-fiction-of-no-friction-17da9349459a) article. The article is about friction, and how it's something we typically focus on eliminating in designs. But some types of friction are desirable (challenging MTB turns, anyone?), which you should try to identify and take advantage of. The example is about how they changed their customer support approach, by connecting hosts directly with guests, instead of going the classical customer service approach. An approach that introduced more friction for hosts, but which turned out to have great results for both hosts and guests, connecting them and building community.
