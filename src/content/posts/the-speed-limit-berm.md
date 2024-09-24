@@ -1,6 +1,6 @@
 ---
 slug: the-speed-limit-berm
-title: "The speed limit Berm"
+title: "The speed limit berm"
 tags: [Design, UX]
 pubDate: 2024-09-23
 ---
