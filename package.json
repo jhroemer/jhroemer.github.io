@@ -11,7 +11,7 @@
     "lint": "eslint src"
   },
   "dependencies": {
-    "@astrojs/mdx": "3.1.8",
+    "@astrojs/mdx": "3.1.9",
     "@astrojs/rss": "^4.0.9",
     "astro": "4.16.8"
   },
