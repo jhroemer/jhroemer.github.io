@@ -1,6 +1,6 @@
 # My personal website
 
-This site is still under construction, and is supposed to replace the docusaurus page currently hosted at www.jensroemer.com
+This repository contains all the code for my personal website, hosted at www.jensroemer.com.
 
 ## Commands
 
