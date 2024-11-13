@@ -71,7 +71,7 @@ export default defineConfig({
   /* Run your local dev server before starting the tests */
   webServer: {
     command: process.env.CI
-      ? "npm run build:ci && npm run preview"
+      ? "npm run build && npm run preview"
       : "npm run start",
     port: 4321,
     reuseExistingServer: !process.env.CI,
