@@ -87,6 +87,7 @@ const { frontmatter } = Astro.props;
     [...anchorHeadings].forEach((heading) => {
       const anchor = document.createElement("a");
       anchor.href = `#${heading.id}`;
+      anchor.setAttribute("data-testid", `anchor-heading-${heading.id}`);
       anchor.innerHTML = linkSvg;
       heading.appendChild(anchor);
     });
