@@ -8,13 +8,15 @@ draft: true
 
 Tests are an investment, so it’s very relevant to look at it as such. They have an initial cost (time), recurring fee's along the way (maintenance) and are expected to provide a return (caught bugs, development velocity). Tests are crucial to software development, since (at best) they allow you to maintain development velocity and quality in increasingly complex systems.
 
-<!-- TODO: improve -->
+<!-- TODO: improve, mention my context -->
 
 There's a few different kinds of testing of relevance.
 
 ### Integration / E2E
 
 - Test what the user is actually interacting with. Unit tests don't guarantee quality.
+- How do you write a good test?
+- Don't test for what shouldn't happen (testing error states is fine).
 
 ### Visual regression testing
 
@@ -41,3 +43,4 @@ There's a few different kinds of testing of relevance.
 - Testing trophy
 - One more?
 - https://rauchg.com/2020/develop-preview-test
+- https://www.youtube.com/watch?v=jmPcVTHmdVo&t=1s&ab_channel=TestDouble
