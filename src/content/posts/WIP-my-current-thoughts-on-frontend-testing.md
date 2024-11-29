@@ -20,9 +20,12 @@ There's a few different kinds of testing of relevance.
 
 ### Visual regression testing
 
-- Some setup
+- Some setup and investment
+- Need to install, run and work with docker. Which is not a bad skill to have anyway.
 - DOM snapshot testing
 - Git LFS
+- Some snags along the way typically, like timing of when the screenshot is ready (has the page fully rendered). Plenty of ways to get around this, but there is some amount of learning to do here.
+- Hard (impossible?) to do with views that aren't deterministic - animations and such.
 
 ### Static testing
 
