@@ -28,7 +28,7 @@ const { pageTitle }: Props = Astro.props;
     });
 
   // https://docs.astro.build/en/guides/view-transitions/#script-re-execution
-  document.addEventListener("astro:page-load", () => {
+  document.addEventListener("astro:after-swap", () => {
     if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
       document.documentElement.classList.add("dark");
     }
