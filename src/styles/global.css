@@ -20,7 +20,7 @@
 }
 
 html {
-  font-family: sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   background-color: #f1f5f9;
   color: var(--text-primary);
 }
