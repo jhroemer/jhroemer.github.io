@@ -6,42 +6,57 @@ pubDate: 2024-11-14
 draft: true
 ---
 
-Tests are an investment, so it’s very relevant to look at it as such. They have an initial cost (time), recurring fee's along the way (maintenance) and are expected to provide a return (caught bugs, development velocity). Tests are crucial to software development, since (at best) they allow you to maintain development velocity and quality in increasingly complex systems.
+I work primarily with large complex web applications, with lots of logic and moving parts. Testing is a crucial component in this work, since it's your primary way of ensuring quality, and allows you to keep moving forward at a reasonable pace as the application grows.
 
-<!-- TODO: improve, mention my context -->
+I'll go through some of the different test classes and considerations in this post, and I'll do so by looking at tests as investments (which they are). Tests have an initial cost (time), recurring fee's along the way (maintenance) and are expected to provide a return (caught bugs, development velocity).
 
-There's a few different kinds of testing of relevance.
+<!-- vs Unit? -->
 
 ### Integration / E2E
 
-- Test what the user is actually interacting with. Unit tests don't guarantee quality.
+Firstly, I largely subscribe to Kent C. Dodds' approach to testing, the [Testing Trophy](https://kentcdodds.com/blog/the-testing-trophy-and-testing-classifications), which breaks with the more traditional [Testing Pyramid](https://martinfowler.com/articles/practical-test-pyramid.html). Basically, there's a much higher emphasis on (more expensive) integration and e2e tests over unit tests, due to their higher return on investment. This is what I've witnessed over the past 5 years: a large suite of integration/e2e tests that tests the main workflows in the application has caught a high number of bugs and regressions. And, maybe even more importantly, has been able to provide us with the confidence to move forward with large changes. I've made very fundamental and invasive changes to an application, like completely redoing client side routing, and been able to merge and move on as soon as I've made the test suite green.
+
+Integration and e2e tests are expensive, both to write, run and maintain, where Unit tests on the other hand are cheap. In terms of investment I might not even have identified a single regression with Unit tests over the past 5 years. I'm not seeing Unit tests don't have their place, but for the type of work I do currently their value has been negligible. Mostly they just endlessly succeed, in which case they often can be deleted. What if one of them fails? Well, it's probably because you changed the function/component that was tested, in which case the Unit tests needs to be rewritten anyway.
+
+I find that integration/e2e tests ensure quality in a way Unit tests don't, because they verify the flows that users actually go through in the application. Users aren't running individual functions, they're clicking through your interface.
+
+- TODO:
 - How do you write a good test?
 - Don't test for what shouldn't happen (testing error states is fine).
-
-### Visual regression testing
-
-- Some setup and investment
-- Need to install, run and work with docker. Which is not a bad skill to have anyway.
-- DOM snapshot testing
-- Git LFS
-- Some snags along the way typically, like timing of when the screenshot is ready (has the page fully rendered). Plenty of ways to get around this, but there is some amount of learning to do here.
-- Hard (impossible?) to do with views that aren't deterministic - animations and such.
+- Ask yourself: is there a very high probability that this test will succeed for the rest of its lifetime? Then you might not want it.
+- Mocking; you might need to do it, or want to do it (speed). Crucial that you have a good way of working with fixture data and mocks, that it's easy and fast to generate, and equally easy and fast to clean up again.
 
 ### Static testing
 
-- Cheap to run
-- Learning curve obviously
-- Large return on investment
+Next up is static testing, which is sort of frontend specific, since Javascript doesn't ship with types by default. This box includes type-safety and linting, both things that statically analyze your code in the background. For many these tools are indispensable for frontend development, including for myself. Yes, there's a learning curve, but TypeScript is very good these days, and should be familiar to many developers with another first language. Linting will introduce a learning curve too, but a much wanted one if you ask me, unless you really wanna continue writing bad code.
+
+I don't really see any projects where you wouldn't want to include static testing, besides maybe hackathon projects. It's a cheap way of doing testing but with an enormous return of investment.
+
+### Visual regression testing
+
+Lately I've really enjoyed having visual regression tests in place. Their importance, like other tests too, depend very much on the type of application you're working with. This page, for example, is primarily tested with visual regression tests. That's because it's a content-focused website, without any interactivity. Consider that you just updated your component library to the latest major version - while you're not getting type errors and the application workflows work as expected, you would like to validate that no small UI changes snuck in with the update. This can take a long time to validate in certain applications.
+
+Visual regression testing is offered as a SaaS product, in which case it isn't very hard or time-consuming to set up. You can also set it up manually, with something like Playwright, which is what I have experience with. I find that it integrates nicely with PR's on Github, where the updated screenshots are going to be included in the file changes. In that way, a reviewer can easily validate any visual changes too by looking at the screenshot diff(s).
+
+Now visual regression testing isn't free, especially if you set it up on your own. Firstly, you need to take the screenshots in a deterministic environment, otherwise you can get false-negatives. You solve this by using docker, when running and taking the screenshots, which ensures that the exact same environment, resolution etc. is used. This can be solved by using [Git LFS](https://git-lfs.com/), which stores references to image in the repo, rather than the images themselves. Lastly, visual regression testing is quite sensitive to small changes, which is by design, and needs a bit of tweaking in some cases to run reliably. You need to make sure that screenshots are taken when the UI has finished rendering, and animations can make it hard to get reproducible results. Modern testing tooling, like Playwright, have ways to get around these things, but it takes a bit of work.
+
+You might also run into storage issues, since image files take up a large amount of space.
 
 ### Unit
 
 - Past many years I haven't really caught any regressions with unit tests.
 - Write and then throw out (the test always succeeds anyway - if you change the function it tests you have to update the test also) - of course testing for regressions in test cases might be helpful. Again, might.
+- If the test fails it's probably because I changed the functionality, and probably on purpose. In which case the test failure wouldn't help me beyond saying that whatever I'm testing now behaves differently, which is entirely expected. Of course I could've refactored the internals of a function or simple component, but kept functionality intact, and wanted to test for regressions. But this just hasn't really been a factor for me over the past many years.
+
+### What else?
+
+- You can use nightly/weekly jobs to test for things that don't necessarily fit into a PR check. That could be things that are too expensive to have as a PR check, or not consequential enough. Code cruft.
 
 ### Flake
 
 ### Links
 
+- Learning in public
 - Testing pyramid
 - Testing trophy
 - One more?
