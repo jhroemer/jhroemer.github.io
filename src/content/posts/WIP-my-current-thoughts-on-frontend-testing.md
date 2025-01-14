@@ -2,7 +2,7 @@
 slug: my-current-thoughts-on-frontend-testing
 title: "My (current) thoughts on frontend testing"
 tags: [Testing, Software development]
-pubDate: 2024-11-14
+pubDate: 2025-01-14
 draft: true
 ---
 
@@ -16,13 +16,7 @@ Firstly, I largely subscribe to Kent C. Dodds' approach to testing, the [Testing
 
 The issue with integration and e2e tests is that they're expensive, both to write, run and maintain, whereas Unit tests on the other hand are cheap. In terms of investment though, I might not even have identified a single regression with Unit tests over the past 5 years. I'm not saying Unit tests don't have their place, but for the type of work I do currently their value has been extremely negligible. Mostly they just endlessly succeed, in which case they often can be deleted. What if one of them fails? Well, it's probably because you changed the function/component that was tested, in which case the Unit tests needs to be rewritten anyway. The most value I've gotten from them is when doing Test-driven development. To sum up, from my experience integration/e2e tests ensure quality and allow you to maintain development velocity in a way Unit tests don't, because they verify the flows that users actually go through in the application. Users aren't running individual functions, they're clicking through your interface, which is ultimately the thing that needs to work flawlessly.
 
-Regarding the distinction between integration and E2E: I personally don't sweat too hard over which category tests belong to. Most of those I currently write aren't exactly true E2E, since running the backend with our tests too would be extremely expensive. So we rely on mocking (which has its benefits and drawbacks, I'll get back to this later), and therefore we end up with tests that are written like E2E tests, but aren't truly.
-
-- TODO:
-- How do you write a good test?
-- Don't test for what shouldn't happen (testing error states is fine).
-- Ask yourself: is there a very high probability that this test will succeed for the rest of its lifetime? Then you might not want it.
-- Mocking; you might need to do it, or want to do it (speed). Crucial that you have a good way of working with fixture data and mocks, that it's easy and fast to generate, and equally easy and fast to clean up again.
+Regarding the distinction between integration and E2E: I personally don't sweat too hard over which category tests belong to. Most of those I currently write aren't exactly true E2E, since running the backend with our tests too would be extremely expensive. So we rely on mocking (which has its benefits and drawbacks, I might do a post specifically on mocking at some point), and therefore we end up with tests that are written like E2E tests, but aren't truly.
 
 ### Static testing
 
@@ -40,14 +34,3 @@ Now visual regression testing isn't free, especially if you set it up on your ow
 You might also run into storage issues, since image files take up a large amount of space. This can be solved by using [Git LFS](https://git-lfs.com/), which stores references to image in the repo, rather than the images themselves.
 
 Lastly, visual regression testing is quite sensitive to small changes, which is by design, and needs a bit of tweaking in some cases to run reliably. You need to make sure that screenshots are taken when the UI has finished rendering, and animations can make it hard to get reproducible results. Modern testing tooling, like Playwright, have ways to get around these things, but it takes a bit of work.
-
-### Flake
-
-### Links
-
-- Learning in public
-- Testing pyramid
-- Testing trophy
-- One more?
-- https://rauchg.com/2020/develop-preview-test
-- https://www.youtube.com/watch?v=jmPcVTHmdVo&t=1s&ab_channel=TestDouble
