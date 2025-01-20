@@ -10,8 +10,8 @@
     "astro": "astro",
     "lint": "eslint src",
     "test:ui": "npx playwright test --ui",
-    "test:visual:run": "docker run --rm --network host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:v1.48.2-jammy /bin/bash -c 'npm i && npx playwright test'",
-    "test:visual:update": "docker run --rm --network host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:v1.48.2-jammy /bin/bash -c 'npm i && npx playwright test --update-snapshots'"
+    "test:visual:run": "docker run --rm --network host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:v1.49.1-jammy /bin/bash -c 'npm i && npx playwright test'",
+    "test:visual:update": "docker run --rm --network host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:v1.49.1-jammy /bin/bash -c 'npm i && npx playwright test --update-snapshots'"
   },
   "dependencies": {
     "@astrojs/mdx": "3.1.9",
