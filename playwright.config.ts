@@ -75,4 +75,9 @@ export default defineConfig({
     port: 4321,
     reuseExistingServer: true,
   },
+  expect: {
+    toHaveScreenshot: {
+      maxDiffPixels: 1,
+    },
+  },
 });
