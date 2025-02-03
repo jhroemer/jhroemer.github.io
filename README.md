@@ -1,4 +1,4 @@
-# My personal website
+# jensroemer.com
 
 This repository contains all the code for my personal website, hosted at www.jensroemer.com.
 
