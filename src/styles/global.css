@@ -20,8 +20,7 @@
 }
 
 html {
-  /* font-family: -apple-system, BlinkMacSystemFont, sans-serif; */
-  font-family: "Helvetica", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   background-color: #f1f5f9;
   color: var(--text-primary);
 }
@@ -69,7 +68,9 @@ a {
   text-decoration: underline;
   text-decoration-color: var(--grey-1);
   text-underline-offset: 0.1em;
-  transition: text-decoration-color 200ms, text-underline-offset 200ms;
+  transition:
+    text-decoration-color 200ms,
+    text-underline-offset 200ms;
 
   &:hover {
     text-decoration-color: var(--grey-2);
