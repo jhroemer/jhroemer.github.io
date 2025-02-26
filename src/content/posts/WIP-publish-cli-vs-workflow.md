@@ -12,6 +12,7 @@ draft: true
 - Lots of nice things to get through something like [np](https://github.com/sindresorhus/np), helps you enforce semver etc.
 - Local .npmrc file
 - Should be able to generate release notes, but is hard to get to work with repo's hosted on private registries
+- Stay in your terminal
 
 ## Workflow
 
@@ -22,3 +23,4 @@ draft: true
 - Need to have registry saved in .npmrc file?
 - Local .npmrc file?
 - TODO: how to load in auth token in workflow
+- Easier for a team, one-time setup and then everyone can use it. Non-technical people could even generate a release.
