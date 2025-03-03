@@ -1,6 +1,8 @@
 :root {
   --grey-1: #c7c7c7;
   --grey-2: #6f6f6f;
+  --grey-3: rgb(240, 240, 240);
+  --grey-4: rgb(248, 248, 248);
   --text-primary: rgb(58, 58, 58);
   --text-secondary: #6f6f6f;
   --mark-color: #161616;
@@ -14,6 +16,8 @@
   --text-secondary: #a0a0a0;
   --grey-1: #505050;
   --grey-2: #a0a0a0;
+  --grey-3: rgb(32, 32, 32);
+  --grey-4: rgb(28, 28, 28);
   --mark-color: #444667;
   --navigation-underline: rgba(243, 246, 233, 1);
   --navigation-underline-off: rgba(243, 246, 233, 0);

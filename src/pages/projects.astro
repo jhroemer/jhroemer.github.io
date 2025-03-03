@@ -1,5 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import WebIcon from "../assets/web.svg";
+import SvgIcon from "../assets/cli.svg";
+import ArrowIcon from "../assets/arrow.svg";
 
 const pageTitle = "Projects";
 
@@ -7,14 +10,10 @@ const projects = [
   {
     title: "ts-generate-mock-data",
     type: "CLI",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec fringilla nunc. Nullam nec nunc nec nunc.",
   },
   {
-    title: "jensroemer.com",
-    type: "Web",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec fringilla nunc. Nullam nec nunc nec nunc.",
+    title: "www.jensroemer.com",
+    type: "web",
   },
 ];
 ---
@@ -31,44 +30,51 @@ const projects = [
     gap: 32px;
   }
 
+  h3 {
+    font-weight: 300;
+  }
+
   .card {
     /* TODO: variable */
     border: 2px solid rgba(255, 255, 255, 0.08);
     padding: 24px;
     border-radius: 12px;
-    /* TODO: variable */
-    background-color: rgb(28, 28, 28);
-    /* TODO: variable */
+    background-color: var(--grey-4);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     cursor: pointer;
+    transition: background-color 150ms cubic-bezier(0.5, 0, 0.64, 0.73);
 
     &:hover {
-      background-color: rgb(32, 32, 32);
+      background-color: var(--grey-3);
 
       button {
+        color: var(--text-primary);
+      }
+
+      .project-icon {
         color: var(--text-primary);
       }
     }
   }
 
-  button {
-    width: fit-content;
-    cursor: pointer;
-    border-radius: 6px;
-    padding: 4px 8px;
+  .project-icon {
     color: var(--text-secondary);
-    background: none;
-    border: none;
-    transition: color 200ms;
-    /* Offset button to align with text */
-    margin-left: -8px;
+    /* TODO: variable for transition duration */
+    transition: color 150ms cubic-bezier(0.5, 0, 0.64, 0.73);
+  }
 
-    &:hover {
-      color: var(--text-primary);
-    }
+  .arrow {
+    align-self: flex-end;
+  }
+
+  .card-body {
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 </style>
 
@@ -92,15 +98,19 @@ const projects = [
 <BaseLayout pageTitle={pageTitle}>
   <div class="container">
     <p>Here is a list of some of the projects I have worked on.</p>
-
     <div class="card-container">
-      <!-- TODO: add real data -->
       {
         projects.map((project, index) => (
           <div class="card">
-            <h5>{project.type}</h5>
-            <h3>{project.title}</h3>
-            <button>Read</button>
+            {project.type === "web" ? (
+              <WebIcon size={18} class="project-icon" />
+            ) : (
+              <SvgIcon size={18} class="project-icon" />
+            )}
+            <div class="card-body">
+              <h3>{project.title}</h3>
+              <ArrowIcon size={18} class="arrow project-icon" />
+            </div>
           </div>
         ))
       }
