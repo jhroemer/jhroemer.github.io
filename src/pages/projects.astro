@@ -47,7 +47,7 @@ const projects = [
     flex-direction: column;
     justify-content: space-between;
     cursor: pointer;
-    transition: background-color 150ms cubic-bezier(0.5, 0, 0.64, 0.73);
+    transition: background-color 150ms var(--transition-function-1);
     text-decoration: none;
 
     &:hover {
@@ -65,8 +65,7 @@ const projects = [
 
   .project-icon {
     color: var(--text-secondary);
-    /* TODO: variable for transition duration */
-    transition: color 150ms cubic-bezier(0.5, 0, 0.64, 0.73);
+    transition: color 150ms var(--transition-function-1);
   }
 
   .arrow {

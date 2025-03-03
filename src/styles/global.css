@@ -8,6 +8,9 @@
   --mark-color: #161616;
   --navigation-underline: rgba(15, 57, 35, 1);
   --navigation-underline-off: rgba(15, 57, 35, 0);
+
+  /* Animations */
+  --transition-function-1: cubic-bezier(0.5, 0, 0.64, 0.73);
 }
 
 /* use data-theme instead of class? */
