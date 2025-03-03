@@ -1,7 +1,7 @@
 :root {
   --grey-1: #c7c7c7;
   --grey-2: #6f6f6f;
-  --grey-3: rgb(240, 240, 240);
+  --grey-3: rgb(244, 245, 245);
   --grey-4: rgb(248, 248, 248);
   --text-primary: rgb(58, 58, 58);
   --text-secondary: #6f6f6f;
@@ -25,7 +25,7 @@
 
 html {
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  background-color: #f1f5f9;
+  background-color: #f2f4f5;
   color: var(--text-primary);
 }
 
