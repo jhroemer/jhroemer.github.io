@@ -1,11 +1,16 @@
 :root {
   --grey-1: #c7c7c7;
   --grey-2: #6f6f6f;
+  --grey-3: rgb(244, 245, 245);
+  --grey-4: rgb(248, 248, 248);
   --text-primary: rgb(58, 58, 58);
   --text-secondary: #6f6f6f;
   --mark-color: #161616;
   --navigation-underline: rgba(15, 57, 35, 1);
   --navigation-underline-off: rgba(15, 57, 35, 0);
+
+  /* Animations */
+  --transition-function-1: cubic-bezier(0.5, 0, 0.64, 0.73);
 }
 
 /* use data-theme instead of class? */
@@ -14,6 +19,8 @@
   --text-secondary: #a0a0a0;
   --grey-1: #505050;
   --grey-2: #a0a0a0;
+  --grey-3: rgb(32, 32, 32);
+  --grey-4: rgb(28, 28, 28);
   --mark-color: #444667;
   --navigation-underline: rgba(243, 246, 233, 1);
   --navigation-underline-off: rgba(243, 246, 233, 0);
@@ -21,7 +28,7 @@
 
 html {
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  background-color: #f1f5f9;
+  background-color: #f2f4f5;
   color: var(--text-primary);
 }
 
@@ -55,6 +62,10 @@ h1 {
   font-weight: 400;
 }
 
+h3 {
+  font-weight: 500;
+}
+
 h2,
 p,
 ul {
@@ -72,9 +83,7 @@ a {
   text-decoration: underline;
   text-decoration-color: var(--grey-1);
   text-underline-offset: 0.1em;
-  transition:
-    text-decoration-color 200ms,
-    text-underline-offset 200ms;
+  transition: text-decoration-color 200ms, text-underline-offset 200ms;
 
   &:hover {
     text-decoration-color: var(--grey-2);
