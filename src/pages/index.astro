@@ -34,6 +34,20 @@ const pageTitle = "Home Page";
     display: flex;
     gap: 8px;
   }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  p,
+  ul {
+    animation: 0.5s fadeIn var(--transition-function-1);
+  }
 </style>
 
 <BaseLayout pageTitle={pageTitle}>
