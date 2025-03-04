@@ -22,26 +22,46 @@ const pageTitle = "Home Page";
   p:first-of-type {
     margin-top: 40px;
   }
+
+  .find-me-on {
+    margin-bottom: 4px;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 0;
+    display: flex;
+    gap: 8px;
+  }
 </style>
 
 <BaseLayout pageTitle={pageTitle}>
-  <p>
-    Hi, I'm Jens, a Software Developer specializing in frontend development. At
-    the moment, I'm working on developer tooling at <a href="https://unity.com/"
-      >Unity Technologies</a
-    >.
-  </p>
+  <p>Hi, I'm Jens, a product-driven full-stack software engineer.</p>
 
   <p>
-    I'm a product-driven developer, who've ended up as a bit of an octupus,
-    because I've had the chance to do things I like. I love getting new projects
-    in the air, and to work closely- and iteratively together with users.
+    I'm passionate about idea generation, shipping early and frequently, testing
+    and working closely together with users. I'm currently working on in-house
+    CI/CD systems at <a href="https://unity.com/">Unity Technologies</a>.
   </p>
 
   <p>
     I read a lot, and I've begun writing again on my <a href="/blog">blog</a>,
-    which is a great way of learning and having access to thoughts of the past.
-    Speaking of the past; you can have a look at my work
+    which serves as both a great learning tool and a window into my past
+    thoughts. Speaking of the past, you can have a look at my work
     <a href="/about"> here</a>.
   </p>
+
+  <p class="find-me-on">Find me on</p>
+  <ul>
+    <li>
+      <a>Github</a>
+    </li>
+    <li>
+      <a>Bluesky</a>
+    </li>
+    <li>
+      <a>Linkedin</a>
+    </li>
+  </ul>
 </BaseLayout>
