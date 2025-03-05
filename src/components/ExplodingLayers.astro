@@ -1,0 +1,61 @@
+---
+
+---
+
+<script>
+  const buttons = document.querySelectorAll("button");
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const outer = document.querySelector(".outer");
+      outer?.classList.toggle("explode");
+    });
+  });
+</script>
+
+<style>
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+  }
+
+  .outer {
+    /* Basic styling */
+    background-color: rgb(2, 15, 30);
+    width: 10rem;
+    height: 10rem;
+    border-radius: 8px;
+
+    /* 3D exploding styling */
+    transition: transform 1s var(--transition-function-1);
+    transform-style: preserve-3d;
+
+    &.explode {
+      transform: rotateX(60deg) rotate(25deg);
+    }
+  }
+
+  .inner {
+    z-index: -1;
+    inset: 0;
+    margin: -2px;
+    border-radius: 8px;
+    background: linear-gradient(
+      60deg,
+      rgb(104, 255, 215),
+      rgb(255, 214, 221),
+      rgb(242, 140, 39)
+    );
+    position: absolute;
+
+    transform: translate3d(0, 0, -100px);
+  }
+</style>
+
+<div class="container">
+  <button>Toggle</button>
+  <div class="outer">
+    <div class="inner"></div>
+  </div>
+</div>
