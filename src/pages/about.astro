@@ -1,7 +1,5 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-// import { Image } from "astro:assets";
-// import profile from "../assets/profil.jpg";
 
 const pageTitle = "About me";
 ---
@@ -19,13 +17,6 @@ const pageTitle = "About me";
     border-bottom: 1px solid rgb(200, 200, 200);
   }
 
-  mark {
-    color: white;
-    background-color: var(--mark-color);
-    border-radius: 3px;
-    padding: 0 2px;
-  }
-
   .profile-picture {
     display: block;
     height: 150px;
@@ -38,13 +29,42 @@ const pageTitle = "About me";
   .freetime {
     grid-column: 1 / -1;
   }
+
+  mark {
+    --highlighted: 1;
+    padding: 0 1px;
+    background: transparent;
+    color: var(--text-primary);
+  }
+
+  mark span {
+    background: linear-gradient(120deg, var(--mark-color) 50%, transparent 50%)
+      110% 0 / 200% 100% no-repeat;
+    background-position: calc((1 - var(--highlighted)) * 110%) 0;
+    transition: background-position 1s;
+  }
+
+  @keyframes highlight {
+    to {
+      --highlighted: 1;
+    }
+  }
+
+  @supports (animation-timeline: view()) {
+    mark {
+      --highlighted: 0;
+      animation: highlight steps(1) both;
+      animation-timeline: view();
+      animation-range: entry 100% cover 10%;
+    }
+  }
 </style>
 
 <BaseLayout pageTitle={pageTitle}>
   <div class="container">
     <div class="section-left-column">
       <h4>Unity Technologies</h4>
-      <p class="education-sub-heading">Senior Frontend Engineer</p>
+      <p class="education-sub-heading">Senior Software Engineer</p>
       <p class="light-text">2023 - Present</p>
     </div>
     <div class="section-right-column">
@@ -73,12 +93,15 @@ const pageTitle = "About me";
       <p>
         Developing a web based UI for an internal Continuous Integration (CI)
         service. Main technologies are
-        <mark>React</mark>,
-        <mark>Redux/Redux-Saga</mark>, <mark>TypeScript</mark>, <mark
-          >Styled Components</mark
-        >, <mark>Cypress</mark>
-        and <mark>Github Actions</mark> for our own CI needs. The team collaborates
-        closely with UX/Design, product development/ownership and users.
+        <mark><span>React</span></mark>,
+        <mark><span>Redux/Redux-Saga</span></mark>, <mark
+          ><span>TypeScript</span></mark
+        >, <mark><span> Styled Components </span> </mark>, <mark
+          ><span> Cypress </span>
+        </mark>
+        and <mark><span> Github Actions </span> </mark> for our own CI needs. The
+        team collaborates closely with UX/Design, product development/ownership and
+        users.
       </p>
     </div>
 
@@ -90,11 +113,22 @@ const pageTitle = "About me";
     <div class="section-right-column">
       <p>
         Worked on several projects, mainly with backend tasks and technologies
-        such as <mark>API</mark> development,
-        <mark>.NET</mark>, <mark>C#</mark>, <mark>SQL</mark>, <mark
-          >Episerver</mark
-        > and <mark>Microsoft CRM</mark>. In my last project I also had a lot of
-        work on a <mark>Razor</mark>/<mark>Angular</mark> based E-Commerce web client.
+        such as <mark><span> API </span> </mark> development,
+        <mark>
+          <span> .NET </span>
+        </mark>, <mark>
+          <span> C# </span>
+        </mark>, <mark>
+          <span> SQL </span>
+        </mark>, <mark>
+          <span> Episerver </span>
+        </mark> and <mark>
+          <span> Microsoft CRM </span>
+        </mark>. In my last project I also had a lot of work on a <mark>
+          <span> Razor </span>
+        </mark>/<mark>
+          <span> Angular </span>
+        </mark> based E-Commerce web client.
       </p>
     </div>
 
@@ -107,12 +141,15 @@ const pageTitle = "About me";
       <p>
         Was employed in the two courses 'Introductory Programming' and
         'Programming Workshop' at the Software Development track. Both courses
-        were taught in <mark>Java</mark>, and the latter also had a strong focus
-        on general software development practices such as <mark
-          >Version Control (Git/Github)</mark
-        >, <mark>Agile Development</mark>, <mark>Testing</mark> and <mark
-          >Benchmarking</mark
-        >.
+        were taught in <mark><span> Java </span> </mark>, and the latter also
+        had a strong focus on general software development practices such as <mark
+        >
+          <span> Version Control (Git/Github) </span>
+        </mark>, <mark>
+          <span> Agile Development </span>
+        </mark>, <mark>
+          <span> Testing </span>
+        </mark> and <mark><span> Benchmarking </span> </mark>.
       </p>
     </div>
 
@@ -124,10 +161,13 @@ const pageTitle = "About me";
     <div class="section-right-column">
       <p>
         Mainly contributed to their <mark>React</mark>-based web client, which
-        also used <mark>Redux</mark> for state management. Also ad the opportunity
-        to work a bit on their <mark>React-native</mark> mobile app. Furthermore
-        I helped a bit on the business intelligence side and with extracting data
-        <mark>PostgreSQL</mark> and building dashboards.
+        also used <mark><span> Redux </span></mark> for state management. Also had
+        the opportunity to work a bit on their
+        <mark>
+          <span> React-native </span>
+        </mark> mobile app. Furthermore I helped a bit on the business intelligence
+        side and with extracting data
+        <mark><span> PostgreSQL </span> </mark> and building dashboards.
       </p>
     </div>
 
@@ -140,18 +180,27 @@ const pageTitle = "About me";
     <div class="section-right-column">
       <p>
         During my masters degree I started programming regularly, primarily in <mark
-          >Java</mark
-        >. I focused on
-        <mark>algorithm</mark> courses, such as <mark>Algorithm Design</mark>
-        and the <mark>Modern AI for Games</mark>
+        >
+          <span> Java </span>
+        </mark>. I focused on
+        <mark>
+          <span> algorithm </span>
+        </mark> courses, such as <mark>
+          <span> Algorithm Design </span>
+        </mark>
+        and the <mark>
+          <span> Modern AI for Games </span>
+        </mark>
         course. Eventually wrote my thesis within the AI field. In my thesis I extended
         the Scalable Collision-avoiding Role Assignment with Minimal-makespan (SCRAM)
         algorithm, which is a matching algorithm that can be used in conjunction
         with Autonomous Mobility on Demand (AMoD) systems. During my masters I also
-        worked as a teaching assistent in the <mark
-          >Introductory Programming</mark
-        > and
-        <mark>Programming Workshop</mark> courses.
+        worked as a teaching assistent in the <mark>
+          <span> Introductory Programming </span>
+        </mark> and
+        <mark>
+          <span> Programming Workshop </span>
+        </mark> courses.
       </p>
     </div>
 
@@ -163,13 +212,14 @@ const pageTitle = "About me";
     <div class="section-right-column">
       <p>
         During my bachelor degree I took courses within <mark
-          >Web development</mark
-        >, <mark>User Experience design (UX)</mark>
-        <mark>Interaction design</mark>, <mark>Sketching/prototyping</mark>, <mark
-          >Media and Communication</mark
-        > and <mark>Digital Aesthetics</mark> to name a few. My bachelor project
-        was within online media and communication and was about Brand Communities
-        on social media.
+          ><span>Web development</span></mark
+        >, <mark><span> User Experience design (UX) </span> </mark>
+        <mark><span>Interaction design</span></mark>, <mark
+          ><span> Sketching/prototyping </span>
+        </mark>, <mark><span> Media and Communication </span> </mark> and <mark>
+          <span> Digital Aesthetics </span>
+        </mark> to name a few. My bachelor project was within online media and communication
+        and was about Brand Communities on social media.
       </p>
     </div>
   </div>
