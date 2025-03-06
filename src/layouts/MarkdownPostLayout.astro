@@ -64,6 +64,11 @@ const { frontmatter } = Astro.props;
       transition: opacity 0.4s cubic-bezier(0.12, 0.8, 0.42, 1.03);
     }
   }
+
+  .publish-date {
+    color: var(--text-secondary);
+    font-size: 14px;
+  }
 </style>
 
 <script>
@@ -97,6 +102,8 @@ const { frontmatter } = Astro.props;
 
 <BaseLayout pageTitle={frontmatter.title}>
   <h2>{frontmatter.title}</h2>
-  <p>Published on: {frontmatter.pubDate.toString().slice(0, 15)}</p>
+  <p class="publish-date">
+    Published on: {frontmatter.pubDate.toString().slice(0, 15)}
+  </p>
   <slot />
 </BaseLayout>
