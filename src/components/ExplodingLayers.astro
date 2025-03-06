@@ -35,7 +35,7 @@
 
   .outer {
     /* Basic styling */
-    background-color: rgb(2, 15, 30);
+    background-color: rgb(0, 0, 0);
     width: 20rem;
     height: 10rem;
     border-radius: 8px;
@@ -44,13 +44,17 @@
     transition: transform 1s var(--transition-function-1);
     transform-style: preserve-3d;
 
-    /* TODO: the transform on the outer should happen after the inner when toggled back */
     &.explode {
       transform: rotateX(60deg) rotate(25deg);
 
       .inner {
         transform: translate3d(0, 0, -100px);
+        transition-delay: 1.2s;
       }
+    }
+
+    &:not(.explode) {
+      transition-delay: 1.2s;
     }
   }
 
@@ -67,7 +71,6 @@
     position: absolute;
     transform: translate3d(0, 0, -1px);
     transition: transform 1s var(--transition-function-1);
-    transition-delay: 1.2s;
   }
 </style>
 
