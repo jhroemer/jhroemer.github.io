@@ -3,12 +3,15 @@
 ---
 
 <script>
-  const buttons = document.querySelectorAll("button");
-  buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const outer = document.querySelector(".outer");
-      outer?.classList.toggle("explode");
-    });
+  const checkbox = document.querySelector("#explode-checkbox");
+
+  checkbox?.addEventListener("change", ({ target }) => {
+    const outer = document.querySelector(".outer");
+    if (target instanceof HTMLInputElement && target?.checked) {
+      outer?.classList.add("explode");
+    } else {
+      outer?.classList.remove("explode");
+    }
   });
 </script>
 
@@ -18,20 +21,13 @@
     align-items: center;
     justify-content: center;
     gap: 4rem;
-    padding: 4rem 8rem;
+    padding: 4rem;
   }
 
-  button {
-    background-color: var(--mark-color);
-    color: var(--text-primary);
-    border: none;
-    padding: 4px 8px;
-    border-radius: 4px;
-    transition: filter 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
-  }
-
-  button:hover {
-    filter: brightness(110%);
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 2px;
   }
 
   .outer {
@@ -102,7 +98,11 @@
 </style>
 
 <div class="container">
-  <button>Toggle</button>
+  <div class="checkbox-container">
+    <input type="checkbox" id="explode-checkbox" />
+    <label for="explode-checkbox">Explode</label><br />
+  </div>
+
   <div class="outer">
     <div class="inner"></div>
   </div>

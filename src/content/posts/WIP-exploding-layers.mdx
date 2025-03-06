@@ -37,7 +37,7 @@ We achieve the 3D effect by rotating the outer element on the x and z axis, whic
 Now in order for the 3D effect to apply to any child elements we use `transform-style: preserve-3d;`,
 which ensures that whatever rotations we apply to the parent, will also affect the child.
 The last piece is to add a secondary transform on the child element, moving it back by reducing its z value.
-Add a bit of delay to the transforms to make them apply in steps.
+Add a bit of delay to the transforms to make them apply nicely in steps.
 
 ```css
 .outer {
