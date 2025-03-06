@@ -8,10 +8,74 @@ draft: true
 
 import ExplodingLayers from "../../components/ExplodingLayers.astro";
 
-So I was looking at some of CSS rock star Jhey Tompkins work, when I had a [_Hal fixing a light bulb_](https://www.youtube.com/watch?v=AbSehcT19u0&ab_channel=VinnieFarsheds) moment; I was trying to implement and configure his glowing cards, when I realized how much is going on in that demo. Then I looked for a simpler version of it, found none, and got the idea that I could make one myself. And why not use the ‘exploding layers’ technique to break down the layers and pseudo-elements, like he does in his full demo? So here we are, exploding/3D layers with CSS.
+So I was looking at some of CSS rock star [Jhey Tompkins](https://jhey.dev/) work, when I had a [_Hal fixing a light bulb_](https://www.youtube.com/watch?v=AbSehcT19u0&ab_channel=VinnieFarsheds) moment;
+I was trying to implement and configure his glowing cards, when I realized how much is going on in that demo.
+Then I looked for a simpler version of it, found none, and got the idea that I could make one myself. And why not use the 'exploding layers' technique to break down the layers and pseudo-elements, like he does in his full demo? So here we are, exploding/3D layers with CSS.
 
-That’s the good thing about writing your own blog — you don’t have to fix the light bulb if you’d rather fix the car instead.
+That's the good thing about writing your own blog — you don't have to fix the light bulb if you'd rather fix the car instead.
 
-### ..
+### The example
+
+Jhey uses the 'exploding layers' technique to explain layered HTML elements, which is a good use case.
+I'll use a similar example, one which I showcased in a previous post of mine about making [animated gradient borders](/animating-gradient-border/).
+I won't go into detail here, you can read the other post for that, but essentially we have two or more elements that are layered in order to get a complex border effect.
 
 <ExplodingLayers />
+
+### The code
+
+The markup is extremely simple, simply an outer element with an inner element.
+
+```html
+<div class="outer">
+  <div class="inner"></div>
+</div>
+```
+
+Now for the CSS, the trick is actually also quite simple. Obviously we need the nested elements, by using absolute positioning, and inset on the inner element to make it wider than the outer.
+We achieve the 3D effect by rotating the outer element on the x and z axis, which we apply when the explode class is added.
+Now in order for the 3D effect to apply to any child elements we use `transform-style: preserve-3d;`,
+which ensures that whatever rotations we apply to the parent, will also affect the child.
+The last piece is to add a secondary transform on the child element, moving it back by reducing its z value.
+Add a bit of delay to the transforms to make them apply in steps.
+
+```css
+.outer {
+  /* Basic styling */
+  background-color: rgb(0, 0, 0);
+  width: 20rem;
+  height: 10rem;
+  border-radius: 8px;
+
+  /* 3D exploding styling */
+  transition: transform 1.2s cubic-bezier(0.15, 0.75, 0.27, 0.89);
+  transform-style: preserve-3d;
+
+  &.explode {
+    transform: rotateX(60deg) rotateZ(25deg);
+
+    .inner {
+      transform: translate3d(0, 0, -100px);
+      transition-delay: 1.4s;
+    }
+  }
+
+  &:not(.explode) {
+    transition-delay: 1.4s;
+  }
+}
+
+.inner {
+  inset: -2px;
+  border-radius: 8px;
+  background: linear-gradient(
+    60deg,
+    rgb(104, 255, 215),
+    rgb(255, 214, 221),
+    rgb(242, 140, 39)
+  );
+  position: absolute;
+  transform: translate3d(0, 0, -1px);
+  transition: transform 1.5s cubic-bezier(0.2, 0.71, 0.16, 0.92);
+}
+```

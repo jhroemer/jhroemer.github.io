@@ -18,6 +18,7 @@
     align-items: center;
     justify-content: center;
     gap: 4rem;
+    padding: 4rem 8rem;
   }
 
   button {
@@ -45,7 +46,7 @@
     transform-style: preserve-3d;
 
     &.explode {
-      transform: rotateX(60deg) rotate(25deg);
+      transform: rotateX(60deg) rotateZ(25deg);
 
       .inner {
         transform: translate3d(0, 0, -100px);
@@ -59,7 +60,6 @@
   }
 
   .inner {
-    z-index: -1;
     inset: -2px;
     border-radius: 8px;
     background: linear-gradient(
