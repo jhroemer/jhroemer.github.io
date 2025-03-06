@@ -26,7 +26,7 @@
     border: none;
     padding: 4px 8px;
     border-radius: 4px;
-    transition: filter 0.2s var(--transition-function-1);
+    transition: filter 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
 
   button:hover {
@@ -41,7 +41,7 @@
     border-radius: 8px;
 
     /* 3D exploding styling */
-    transition: transform 1s var(--transition-function-1);
+    transition: transform 1.2s cubic-bezier(0.15, 0.75, 0.27, 0.89);
     transform-style: preserve-3d;
 
     &.explode {
@@ -49,12 +49,12 @@
 
       .inner {
         transform: translate3d(0, 0, -100px);
-        transition-delay: 1.2s;
+        transition-delay: 1.4s;
       }
     }
 
     &:not(.explode) {
-      transition-delay: 1.2s;
+      transition-delay: 1.4s;
     }
   }
 
@@ -70,7 +70,7 @@
     );
     position: absolute;
     transform: translate3d(0, 0, -1px);
-    transition: transform 1s var(--transition-function-1);
+    transition: transform 1.5s cubic-bezier(0.2, 0.71, 0.16, 0.92);
   }
 </style>
 
