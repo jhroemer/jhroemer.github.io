@@ -10,41 +10,6 @@ interface Props {
 const { pageTitle }: Props = Astro.props;
 ---
 
-<script is:inline>
-  // Initialize the correct theme
-  if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-    document.documentElement.classList.add("dark");
-  }
-
-  // Make sure theme is updated if users changes it
-  window
-    .matchMedia("(prefers-color-scheme: dark)")
-    .addEventListener("change", (event) => {
-      if (event.matches) {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-      }
-    });
-
-  // https://docs.astro.build/en/guides/view-transitions/#script-re-execution
-  document.addEventListener("astro:after-swap", () => {
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      document.documentElement.classList.add("dark");
-    }
-  });
-</script>
-
-<style>
-  html {
-    scrollbar-gutter: stable;
-  }
-
-  body {
-    padding: 4rem 2rem;
-  }
-</style>
-
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -63,5 +28,37 @@ const { pageTitle }: Props = Astro.props;
   <body>
     <Header />
     <slot />
-  </body>
+  </body><script is:inline>
+    // Initialize the correct theme
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      document.documentElement.classList.add("dark");
+    }
+
+    // Make sure theme is updated if users changes it
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", (event) => {
+        if (event.matches) {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+      });
+
+    // https://docs.astro.build/en/guides/view-transitions/#script-re-execution
+    document.addEventListener("astro:after-swap", () => {
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        document.documentElement.classList.add("dark");
+      }
+    });
+  </script>
+  <style>
+    html {
+      scrollbar-gutter: stable;
+    }
+
+    body {
+      padding: 4rem 2rem;
+    }
+  </style>
 </html>
