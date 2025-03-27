@@ -13,7 +13,7 @@ With the suggestive title, and questioning subtitle, you can probably already se
 
 Let's look at the DRY principle along with two other related principles that can be used to support it.
 
-## DRY
+### DRY
 
 As the name suggests, it's all about avoiding duplication. I remember when I had my first introductory programming course, and IntelliJ would alert me of duplicate code, which I would zealously put into reusable functions, and pat myself on the back afterwards. But don't fool yourself, this is one of the harder aspect of building up a good codebase.
 Let's look at the definition, from it's original formulation in [The Programatic Programmer](https://en.wikipedia.org/wiki/The_Pragmatic_Programmer) by Andy Hunt and Dave Thomas:
@@ -22,7 +22,7 @@ Let's look at the definition, from it's original formulation in [The Programatic
 
 So simply reusing bits of duplicate code isn't really the right way. Rather, we need to correctly identify what constitutes a piece of knowledge in our application. This is the difficult part. My
 
-## WET
+### WET
 
 One related term/principle is WET, which is most often brought up as the opposite of- and a violation of DRY. It stands for:
 
@@ -33,7 +33,7 @@ The problem with rushing ahead to ensure a DRY codebase is two-fold: firstly, if
 
 Secondly, getting the abstraction right for reusable logic is not always trivial, but can be very hard. If you're just getting started on something, you might not have the required overview of the problem you're solving, which is needed in order to get the abstraction right. This leads me into the third principle.
 
-## AHA
+### AHA
 
 Avoid Hasty Abstraction (AHA) is a newer principle, formulated by Kent C. Dodds, one of the co-founders of the hyped Next.js competitor [Remix](https://remix.run/). It's one of the better named principles I find, because it doesn't try to prescribe how to solve a problem, but rather to give you a notion and a technique that will help you avoid making mistakes. Because while duplication is the enemy of a good codebase, wrong abstractions are often much worse.
 There's two important sources here:

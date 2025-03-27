@@ -103,7 +103,16 @@ const { frontmatter } = Astro.props;
       heading.appendChild(anchor);
     });
   };
-  applyAnchorHeadings();
+
+  if (window.location.pathname.startsWith("/posts")) {
+    applyAnchorHeadings();
+  }
+
+  document.addEventListener("astro:after-swap", () => {
+    if (window.location.pathname.startsWith("/posts")) {
+      applyAnchorHeadings();
+    }
+  });
 </script>
 
 <BaseLayout pageTitle={frontmatter.title}>

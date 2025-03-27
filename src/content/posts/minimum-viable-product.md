@@ -27,7 +27,7 @@ So now we know all about the MVP, and can use it for our product?
 Not a good idea.
 I've found the MVP to be tricky, because it has a catchy and prescriptive name. You easily end up thinking you know what it's about even if you don't.
 
-## Getting the MVP right
+### Getting the MVP right
 
 What is the MVP about then? According to Wikipedia, the MVP has been around since 2001, where it was coined and defined by Frank Robinson. It's all about how to nail your first release of a product, but it's surprisingly easy to get wrong. I really like Eric Ries' definition (many do), which is outlined in his famous book, [The Lean Startup by Eric Ries](http://theleanstartup.com/):
 
@@ -37,6 +37,6 @@ This definition captures why you would want to use an MVP: we want to learn as m
 
 One of the core challenges is deciding how minimal your MVP should be. This goes hand in hand with viability. You want something that can be put into the hands of users, and elicit real feedback and learning, which can be used to correct the path you’re on. But you do not need a polished product to elicit this feedback. In fact, you want to avoid polishing something that is likely to change drastically. You should instead focus on viability, and the viability of your product depends on the assumptions you have about the product. You might actually favour the newer kid on the block, the [Riskiest Assumption Test (RAT)](https://hackernoon.com/the-mvp-is-dead-long-live-the-rat-233d5d16ab02), over the MVP, because it puts a stronger focus on testing your assumptions about a product.
 
-## Summary
+### Summary
 
 Regardless of which of those you choose, you should narrow down on the assumptions that can make or break your product. Some of these assumptions might not be unique to your product and/or can be validated with research, UX or other means. But you are likely to have assumptions that are unique to your product, and which will have to hold true for your product to succeed. If you do not, then an MVP/RAT might not even be the correct tool for you. If you do, you’re gonna be much more likely to succeed if you put your assumptions to the test, and learn as early as possible.
