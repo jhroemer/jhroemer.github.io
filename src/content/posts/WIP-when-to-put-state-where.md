@@ -6,7 +6,7 @@ pubDate: 2023-12-27
 draft: true
 ---
 
-It is difficult to know if state should go into the URL, be local (temporary) state or persist (w. local storage for example)
+It is difficult to know if UI state should go into the URL, be local (temporary) state or persist (w. local storage for example)
 
 ### URL state
 
@@ -18,6 +18,7 @@ It is difficult to know if state should go into the URL, be local (temporary) st
 
 ### Persistent state: Github PR review example
 
+- Forms
 - Some use cases
 - Can be confusing/unclear
 
@@ -25,4 +26,4 @@ It is difficult to know if state should go into the URL, be local (temporary) st
 
 - ephemeral
 - Something temporary
-- Typically not the best choice
+- Typically not the best choice since it won't work with the history stack
