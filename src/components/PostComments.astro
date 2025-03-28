@@ -1,0 +1,37 @@
+---
+const atUri = `at://did:plc:laqygfbyvnkyuhsuaxmp6ez3/app.bsky.feed.post/3ljphoefymc2l`;
+const response = await fetch(
+  `https://public.api.bsky.app/xrpc/app.bsky.feed.getPostThread?uri=${encodeURIComponent(atUri)}`
+);
+const json = await response.json();
+// TODO: type
+const replies: [
+  {
+    post: {
+      author: {
+        displayName: string;
+      };
+      record: {
+        text: string;
+      };
+    };
+  },
+] = json.thread.replies;
+---
+
+<script></script>
+
+<style></style>
+
+<ul>
+  Comments: {
+    replies.map((reply) => {
+      return (
+        <li>
+          <p>{reply.post.author.displayName}</p>
+          {reply.post.record.text}
+        </li>
+      );
+    })
+  }
+</ul>

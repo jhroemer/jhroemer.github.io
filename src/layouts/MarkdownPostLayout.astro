@@ -1,4 +1,5 @@
 ---
+import PostComments from "../components/PostComments.astro";
 import BaseLayout from "./BaseLayout.astro";
 
 interface Props {
@@ -121,4 +122,5 @@ const { frontmatter } = Astro.props;
     Published on: {frontmatter.pubDate.toString().slice(0, 15)}
   </p>
   <slot />
+  <PostComments />
 </BaseLayout>
