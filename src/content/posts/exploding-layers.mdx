@@ -31,7 +31,8 @@ The markup is extremely simple, simply an outer element with an inner element.
 </div>
 ```
 
-Now for the CSS, the trick is actually also quite simple. Obviously we need the nested elements, by using absolute positioning, and inset on the inner element to make it wider than the outer.
+Now for the CSS, the trick is actually also quite simple. We need to layer the elements and make the inner element overflow slightly.
+We do this by using absolute positioning, and inset on the inner element to make it wider than the outer.
 We achieve the 3D effect by rotating the outer element on the x and z axis, which we apply when the explode class is added.
 Now in order for the 3D effect to apply to any child elements we use `transform-style: preserve-3d;`,
 which ensures that whatever rotations we apply to the parent, will also affect the child.
