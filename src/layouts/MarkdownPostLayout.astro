@@ -7,6 +7,7 @@ interface Props {
     title: string;
     pubDate: Date;
     tags: string[];
+    bskyPostId?: string;
   };
 }
 const { frontmatter } = Astro.props;
@@ -117,10 +118,15 @@ const { frontmatter } = Astro.props;
 </script>
 
 <BaseLayout pageTitle={frontmatter.title}>
+  Post id? {frontmatter.bskyPostId}
   <h2>{frontmatter.title}</h2>
   <p class="publish-date">
     Published on: {frontmatter.pubDate.toString().slice(0, 15)}
   </p>
   <slot />
-  <PostComments />
+  {
+    frontmatter.bskyPostId ? (
+      <PostComments postId={frontmatter.bskyPostId} />
+    ) : null
+  }
 </BaseLayout>

@@ -17,13 +17,19 @@ const replies: [
     };
   },
 ] = json.thread.replies;
----
 
-<script></script>
+interface Props {
+  postId: string;
+}
+
+const { postId } = Astro.props;
+// console.log("postId is: ", postId);
+---
 
 <style></style>
 
 <ul>
+  Post id is: {postId}
   Comments: {
     replies.map((reply) => {
       return (
@@ -35,3 +41,15 @@ const replies: [
     })
   }
 </ul>
+
+<script is:inline define:vars={{ postId }}>
+  console.log("Post comments script running");
+  document.addEventListener("astro:after-swap", () => {
+    console.log("post comments after swap");
+  });
+
+  document.addEventListener("astro:page-load", () => {
+    // This runs on first page load and after every navigation.
+    console.log("post id is: ", postId);
+  });
+</script>
