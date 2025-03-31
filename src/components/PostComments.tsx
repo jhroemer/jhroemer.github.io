@@ -1,4 +1,11 @@
-import { createResource, Match, Switch } from "solid-js";
+import {
+  createEffect,
+  createResource,
+  For,
+  Match,
+  Suspense,
+  Switch,
+} from "solid-js";
 
 const fetchData = async (postId: string) => {
   console.log("fetch data running: ");
@@ -61,13 +68,15 @@ const PostComments = (props: PostCommentsProps) => {
         </Match>
         <Match when={postsResource()}>
           <ul>
-            {postsResource()?.map((post) => {
-              return (
-                <li>
-                  {post.post.author.displayName || post.post.author.handle}
-                </li>
-              );
-            })}
+            <For each={postsResource()}>
+              {(post) => {
+                return (
+                  <li>
+                    {post.post.author.displayName || post.post.author.handle}
+                  </li>
+                );
+              }}
+            </For>
           </ul>
         </Match>
       </Switch>
