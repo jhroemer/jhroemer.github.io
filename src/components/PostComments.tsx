@@ -1,4 +1,4 @@
-import { createResource, For, Match, Switch } from "solid-js";
+import { createResource, For, Match, Show, Switch } from "solid-js";
 
 type BlueskyPost = {
   post: {
@@ -56,15 +56,36 @@ const PostComments = (props: PostCommentsProps) => {
             <For each={commentsResource()}>
               {(comment) => {
                 return (
-                  <div>
-                    {/* <img
-                      src={comment.post.author.avatar}
-                      alt={`${comment.post.author.displayName}'s avatar`}
-                      class="avatar"
-                    /> */}
-                    {comment.post.author.displayName ||
-                      comment.post.author.handle}
-                  </div>
+                  <>
+                    {/* Use another color */}
+                    <div class="p-2 mt-2">
+                      <div class="flex gap-2 items-center">
+                        <img
+                          src={comment.post.author.avatar}
+                          alt={`${comment.post.author.displayName}'s avatar`}
+                          class="size-4 rounded-full"
+                        />
+                        {/* TODO: smaller text */}
+                        <span>
+                          {comment.post.author.displayName ||
+                            comment.post.author.handle}
+                        </span>
+                      </div>
+                      <div>{comment.post.record.text}</div>
+                    </div>
+                    {/* TODO: recursive */}
+                    <Show when={comment.replies?.length}>
+                      <div class="border-l-1 border-yellow-500 p-2 mt-4">
+                        <For each={comment.replies}>
+                          {(reply) => {
+                            {
+                              return <div>{reply.post.record.text}</div>;
+                            }
+                          }}
+                        </For>
+                      </div>
+                    </Show>
+                  </>
                 );
               }}
             </For>
