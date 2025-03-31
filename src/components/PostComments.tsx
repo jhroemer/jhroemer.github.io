@@ -36,7 +36,7 @@ type PostCommentsProps = {
 };
 
 const PostComments = (props: PostCommentsProps) => {
-  const [postsResource] = createResource(
+  const [commentsResource] = createResource(
     () => props.postId,
     () => fetchData(props.postId)
   );
@@ -48,21 +48,27 @@ const PostComments = (props: PostCommentsProps) => {
     <div>
       Solid posts
       <Switch>
-        <Match when={postsResource.loading}>
+        <Match when={commentsResource.loading}>
           <div>Loading!</div>
         </Match>
-        <Match when={postsResource()}>
-          <ul>
-            <For each={postsResource()}>
-              {(post) => {
+        <Match when={commentsResource()}>
+          <div>
+            <For each={commentsResource()}>
+              {(comment) => {
                 return (
-                  <li>
-                    {post.post.author.displayName || post.post.author.handle}
-                  </li>
+                  <div>
+                    {/* <img
+                      src={comment.post.author.avatar}
+                      alt={`${comment.post.author.displayName}'s avatar`}
+                      class="avatar"
+                    /> */}
+                    {comment.post.author.displayName ||
+                      comment.post.author.handle}
+                  </div>
                 );
               }}
             </For>
-          </ul>
+          </div>
         </Match>
       </Switch>
     </div>
