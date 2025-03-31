@@ -1,11 +1,23 @@
-import {
-  createEffect,
-  createResource,
-  For,
-  Match,
-  Suspense,
-  Switch,
-} from "solid-js";
+import { createResource, For, Match, Switch } from "solid-js";
+
+type BlueskyPost = {
+  post: {
+    author: {
+      avatar: string;
+      // Can be an empty string
+      displayName: string;
+      handle: string;
+    };
+    record: {
+      text: string;
+    };
+    indexedAt: string;
+    likeCount: number;
+    repostCount: number;
+    replyCount: number;
+  };
+  replies?: BlueskyPost[];
+};
 
 const fetchData = async (postId: string) => {
   console.log("fetch data running: ");
@@ -16,27 +28,7 @@ const fetchData = async (postId: string) => {
     )}`
   );
   const json = await response.json();
-  // TODO: type
-  const replies: [
-    {
-      post: {
-        author: {
-          avatar: string;
-          // Can be an empty string
-          displayName: string;
-          handle: string;
-        };
-        record: {
-          text: string;
-        };
-        indexedAt: string;
-        likeCount: number;
-        repostCount: number;
-        replyCount: number;
-      };
-      //   replies?: BlueskyPost[];
-    }
-  ] = json.thread.replies;
+  const replies: BlueskyPost[] = json.thread.replies;
   console.log("replies is: ", replies);
   return replies;
 };
@@ -52,11 +44,6 @@ const PostComments = (props: PostCommentsProps) => {
   );
 
   // TODO: use query for caching too? https://docs.solidjs.com/solid-router/reference/data-apis/query
-
-  //   if (postsResource.loading) {
-  //     return <div>Loading</div>;
-  //   }
-
   // TODO: should use suspense https://github.com/solidjs/solid/issues/2388
 
   return (
