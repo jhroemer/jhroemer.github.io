@@ -20,7 +20,6 @@ type BlueskyPost = {
 };
 
 const fetchData = async (postId: string) => {
-  console.log("fetch data running: ");
   const atUri = `at://did:plc:laqygfbyvnkyuhsuaxmp6ez3/app.bsky.feed.post/${postId}`;
   const response = await fetch(
     `https://public.api.bsky.app/xrpc/app.bsky.feed.getPostThread?uri=${encodeURIComponent(
@@ -29,7 +28,6 @@ const fetchData = async (postId: string) => {
   );
   const json = await response.json();
   const replies: BlueskyPost[] = json.thread.replies;
-  console.log("replies is: ", replies);
   return replies;
 };
 
