@@ -1,4 +1,11 @@
-import { createResource, For, Match, Show, Switch } from "solid-js";
+import {
+  createResource,
+  For,
+  Match,
+  Show,
+  Switch,
+  type Component,
+} from "solid-js";
 
 type BlueskyPost = {
   post: {
@@ -27,8 +34,42 @@ const fetchData = async (postId: string) => {
     )}`
   );
   const json = await response.json();
-  const replies: BlueskyPost[] = json.thread.replies;
+  const replies: BlueskyPost[] = json.thread?.replies ?? [];
+  console.log("replies are: ", replies);
   return replies;
+};
+
+const PostComment: Component<{ post: BlueskyPost }> = (props) => {
+  return (
+    <>
+      <div class="p-2 mt-2">
+        <div class="flex gap-2 items-center">
+          <img
+            src={props.post.post.author.avatar}
+            alt={`${
+              props.post.post.author.displayName ||
+              props.post.post.author.handle
+            }'s avatar`}
+            class="size-4 rounded-full"
+          />
+          <span class="text-sm">
+            {props.post.post.author.displayName ||
+              props.post.post.author.handle}
+          </span>
+        </div>
+        <div class="text-sm">{props.post.post.record.text}</div>
+      </div>
+      <Show when={props.post.replies?.length}>
+        <div class="border-l-1 border-neutral-600 pl-2">
+          <For each={props.post.replies}>
+            {(reply) => {
+              return <PostComment post={reply} />;
+            }}
+          </For>
+        </div>
+      </Show>
+    </>
+  );
 };
 
 type PostCommentsProps = {
@@ -46,50 +87,18 @@ const PostComments = (props: PostCommentsProps) => {
 
   return (
     <div>
-      Solid posts
+      Comments
       <Switch>
         <Match when={commentsResource.loading}>
+          {/* TODO: improve */}
           <div>Loading!</div>
         </Match>
         <Match when={commentsResource()}>
-          <div>
-            <For each={commentsResource()}>
-              {(comment) => {
-                return (
-                  <>
-                    {/* Use another color */}
-                    <div class="p-2 mt-2">
-                      <div class="flex gap-2 items-center">
-                        <img
-                          src={comment.post.author.avatar}
-                          alt={`${comment.post.author.displayName}'s avatar`}
-                          class="size-4 rounded-full"
-                        />
-                        {/* TODO: smaller text */}
-                        <span>
-                          {comment.post.author.displayName ||
-                            comment.post.author.handle}
-                        </span>
-                      </div>
-                      <div>{comment.post.record.text}</div>
-                    </div>
-                    {/* TODO: recursive */}
-                    <Show when={comment.replies?.length}>
-                      <div class="border-l-1 border-yellow-500 p-2 mt-4">
-                        <For each={comment.replies}>
-                          {(reply) => {
-                            {
-                              return <div>{reply.post.record.text}</div>;
-                            }
-                          }}
-                        </For>
-                      </div>
-                    </Show>
-                  </>
-                );
-              }}
-            </For>
-          </div>
+          <For each={commentsResource()}>
+            {(comment) => {
+              return <PostComment post={comment} />;
+            }}
+          </For>
         </Match>
       </Switch>
     </div>
