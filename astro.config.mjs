@@ -2,9 +2,12 @@ import { defineConfig } from "astro/config";
 
 import mdx from "@astrojs/mdx";
 
+import tailwindcss from "@tailwindcss/vite";
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [mdx()],
+
   redirects: {
     "/writing-a-good-rfc": "/posts/writing-a-good-rfc",
     "/fine-grained-reactivity": "/posts/fine-grained-reactivity",
@@ -16,8 +19,14 @@ export default defineConfig({
     "/do-repeat-yourself": "/posts/do-repeat-yourself",
     "/minimum-viable-product": "/posts/minimum-viable-product",
   },
+
   site: "https://jhroemer.github.io/",
+
   experimental: {
     svg: true,
+  },
+
+  vite: {
+    plugins: [tailwindcss()],
   },
 });
