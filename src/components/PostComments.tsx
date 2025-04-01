@@ -14,6 +14,7 @@ type BlueskyPost = {
       // Can be an empty string
       displayName: string;
       handle: string;
+      did: string;
     };
     record: {
       text: string;
@@ -33,17 +34,23 @@ const fetchData = async (postId: string) => {
       atUri
     )}`
   );
-  const json = await response.json();
-  const replies: BlueskyPost[] = json.thread?.replies ?? [];
-  console.log("replies are: ", replies);
-  return replies;
+  const json: { thread: BlueskyPost } = await response.json();
+  return json.thread;
 };
 
 const PostComment: Component<{ post: BlueskyPost }> = (props) => {
+  const profileLink = `https://bsky.app/profile/${props.post.post.author.did}`;
+
   return (
     <>
       <div class="p-2 mt-2">
-        <div class="flex gap-2 items-center">
+        {/* no-underline is currently trumped by global css */}
+        <a
+          href={profileLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex gap-2 items-center text-sm no-underline"
+        >
           <img
             src={props.post.post.author.avatar}
             alt={`${
@@ -52,12 +59,12 @@ const PostComment: Component<{ post: BlueskyPost }> = (props) => {
             }'s avatar`}
             class="size-4 rounded-full"
           />
-          <span class="text-sm">
-            {props.post.post.author.displayName ||
-              props.post.post.author.handle}
-          </span>
-        </div>
-        <div class="text-sm">{props.post.post.record.text}</div>
+          <Show when={props.post.post.author.displayName}>
+            <span>{props.post.post.author.displayName}</span>
+          </Show>
+          <span>@{props.post.post.author.handle}</span>
+        </a>
+        <div>{props.post.post.record.text}</div>
       </div>
       <Show when={props.post.replies?.length}>
         <div class="border-l-1 border-neutral-600 pl-2">
@@ -94,7 +101,7 @@ const PostComments = (props: PostCommentsProps) => {
           <div>Loading!</div>
         </Match>
         <Match when={commentsResource()}>
-          <For each={commentsResource()}>
+          <For each={commentsResource()?.replies}>
             {(comment) => {
               return <PostComment post={comment} />;
             }}
