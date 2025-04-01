@@ -44,7 +44,8 @@ const PostComment: Component<{ post: BlueskyPost }> = (props) => {
   return (
     <>
       <div class="p-2 mt-2">
-        {/* no-underline is currently trumped by global css */}
+        {/* TODO: add post timestamp */}
+        {/* TODO: no-underline is currently trumped by global css */}
         <a
           href={profileLink}
           target="_blank"
@@ -65,6 +66,13 @@ const PostComment: Component<{ post: BlueskyPost }> = (props) => {
           <span>@{props.post.post.author.handle}</span>
         </a>
         <div>{props.post.post.record.text}</div>
+        {/* Render as icons */}
+        <div class="flex gap-2 text-sm">
+          <span>{props.post.post.replyCount} replies</span>
+          <span>{props.post.post.repostCount} reposts</span>
+          <span>{props.post.post.likeCount} likes</span>
+        </div>
+        {/* TODO: add replies, likes, reposts */}
       </div>
       <Show when={props.post.replies?.length}>
         <div class="border-l-1 border-neutral-600 pl-2">
@@ -94,7 +102,15 @@ const PostComments = (props: PostCommentsProps) => {
 
   return (
     <div>
-      Comments
+      {/* TODO: add svg icons, link to post */}
+      <div class="flex gap-2 text-sm">
+        <span>{commentsResource()?.post.replyCount} replies</span>
+        <span>{commentsResource()?.post.repostCount} reposts</span>
+        <span>{commentsResource()?.post.likeCount} likes</span>
+      </div>
+      {/* TODO: styling, header */}
+      <div>Comments</div>
+
       <Switch>
         <Match when={commentsResource.loading}>
           {/* TODO: improve */}
