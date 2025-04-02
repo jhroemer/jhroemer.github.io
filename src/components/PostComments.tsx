@@ -100,14 +100,56 @@ const PostComments = (props: PostCommentsProps) => {
   // TODO: use query for caching too? https://docs.solidjs.com/solid-router/reference/data-apis/query
   // TODO: should use suspense https://github.com/solidjs/solid/issues/2388
 
+  // TODO: make dynamic
+  const postLink =
+    "https://bsky.app/profile/jensroemer.bsky.social/post/3ljpikbdvts2o";
+
   return (
     <div>
       {/* TODO: add svg icons, link to post */}
-      <div class="flex gap-2 text-sm">
-        <span>{commentsResource()?.post.replyCount} replies</span>
-        <span>{commentsResource()?.post.repostCount} reposts</span>
-        <span>{commentsResource()?.post.likeCount} likes</span>
-      </div>
+      <a
+        href={postLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex gap-2 text-base"
+      >
+        <span class="flex items-center gap-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="currentColor"
+            viewBox="0 0 256 256"
+          >
+            <path d="M128,26A102,102,0,0,0,38.35,176.69L26.73,211.56a14,14,0,0,0,17.71,17.71l34.87-11.62A102,102,0,1,0,128,26Zm0,192a90,90,0,0,1-45.06-12.08,6.09,6.09,0,0,0-3-.81,6.2,6.2,0,0,0-1.9.31L40.65,217.88a2,2,0,0,1-2.53-2.53L50.58,178a6,6,0,0,0-.5-4.91A90,90,0,1,1,128,218Z"></path>
+          </svg>
+          {commentsResource()?.post.replyCount} replies
+        </span>
+        <span class="flex items-center gap-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="currentColor"
+            viewBox="0 0 256 256"
+          >
+            <path d="M222,48V96a6,6,0,0,1-6,6H168a6,6,0,0,1,0-12h33.52L183.47,72a81.51,81.51,0,0,0-57.53-24h-.46A81.5,81.5,0,0,0,68.19,71.28a6,6,0,1,1-8.38-8.58,93.38,93.38,0,0,1,65.67-26.76H126a93.45,93.45,0,0,1,66,27.53l18,18V48a6,6,0,0,1,12,0ZM187.81,184.72a81.5,81.5,0,0,1-57.29,23.34h-.46a81.51,81.51,0,0,1-57.53-24L54.48,166H88a6,6,0,0,0,0-12H40a6,6,0,0,0-6,6v48a6,6,0,0,0,12,0V174.48l18,18.05a93.45,93.45,0,0,0,66,27.53h.52a93.38,93.38,0,0,0,65.67-26.76,6,6,0,1,0-8.38-8.58Z"></path>
+          </svg>
+          {commentsResource()?.post.repostCount} reposts
+        </span>
+        <span class="flex items-center gap-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="CurrentColor"
+            viewBox="0 0 256 256"
+          >
+            <path d="M178,42c-21,0-39.26,9.47-50,25.34C117.26,51.47,99,42,78,42a60.07,60.07,0,0,0-60,60c0,29.2,18.2,59.59,54.1,90.31a334.68,334.68,0,0,0,53.06,37,6,6,0,0,0,5.68,0,334.68,334.68,0,0,0,53.06-37C219.8,161.59,238,131.2,238,102A60.07,60.07,0,0,0,178,42ZM128,217.11C111.59,207.64,30,157.72,30,102A48.05,48.05,0,0,1,78,54c20.28,0,37.31,10.83,44.45,28.27a6,6,0,0,0,11.1,0C140.69,64.83,157.72,54,178,54a48.05,48.05,0,0,1,48,48C226,157.72,144.41,207.64,128,217.11Z"></path>
+          </svg>
+          {commentsResource()?.post.likeCount} likes
+        </span>
+      </a>
       {/* TODO: styling, header */}
       <div>Comments</div>
 
