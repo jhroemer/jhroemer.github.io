@@ -15,6 +15,7 @@ https://www.infoq.com/presentations/Simple-Made-Easy/
 ## Component lifecycle
 
 - Solid one time
+- React is very easy to get started with, and to understand. But gets tricky really fast. Strict mode is a testament to this.
 
 ## Data fetching
 
