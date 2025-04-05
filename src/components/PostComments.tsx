@@ -43,7 +43,7 @@ const PostComment: Component<{ post: BlueskyPost }> = (props) => {
 
   return (
     <>
-      <div class="p-2 mt-2">
+      <div class="p-2">
         {/* TODO: add post timestamp */}
         {/* TODO: no-underline is currently trumped by global css */}
         <a
@@ -65,9 +65,10 @@ const PostComment: Component<{ post: BlueskyPost }> = (props) => {
           </Show>
           <span>@{props.post.post.author.handle}</span>
         </a>
-        <div>{props.post.post.record.text}</div>
+        <div class="text-sm">{props.post.post.record.text}</div>
         {/* Render as icons */}
         <div class="flex gap-2 text-sm">
+          {/* TODO: component */}
           <span>{props.post.post.replyCount} replies</span>
           <span>{props.post.post.repostCount} reposts</span>
           <span>{props.post.post.likeCount} likes</span>
@@ -114,6 +115,7 @@ const PostComments = (props: PostCommentsProps) => {
         class="flex gap-2 text-base"
       >
         <span class="flex items-center gap-2">
+          {/* TODO: Make into component */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
@@ -151,7 +153,7 @@ const PostComments = (props: PostCommentsProps) => {
         </span>
       </a>
       {/* TODO: styling, header */}
-      <div>Comments</div>
+      <div class="mt-2">Comments</div>
 
       <Switch>
         <Match when={commentsResource.loading}>
