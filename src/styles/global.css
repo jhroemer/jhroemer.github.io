@@ -3,94 +3,96 @@
 /* @import "tailwindcss/preflight.css" layer(base); */
 @import "tailwindcss/utilities.css" layer(utilities);
 
-:root {
-  --grey-1: #c7c7c7;
-  --grey-2: #6f6f6f;
-  --grey-3: rgb(244, 245, 245);
-  --grey-4: rgb(248, 248, 248);
-  --text-primary: rgb(58, 58, 58);
-  --text-secondary: #6f6f6f;
-  --mark-color: #f5e0a3;
-  --navigation-underline: rgba(15, 57, 35, 1);
-  --navigation-underline-off: rgba(15, 57, 35, 0);
+@layer base {
+  :root {
+    --grey-1: #c7c7c7;
+    --grey-2: #6f6f6f;
+    --grey-3: rgb(244, 245, 245);
+    --grey-4: rgb(248, 248, 248);
+    --text-primary: rgb(58, 58, 58);
+    --text-secondary: #6f6f6f;
+    --mark-color: #f5e0a3;
+    --navigation-underline: rgba(15, 57, 35, 1);
+    --navigation-underline-off: rgba(15, 57, 35, 0);
 
-  /* Animations */
-  --transition-function-1: cubic-bezier(0.5, 0, 0.64, 0.73);
-}
+    /* Animations */
+    --transition-function-1: cubic-bezier(0.5, 0, 0.64, 0.73);
+  }
 
-/* use data-theme instead of class? */
-:root.dark {
-  --text-primary: rgb(229, 229, 229);
-  --text-secondary: #a0a0a0;
-  --grey-1: #505050;
-  --grey-2: #a0a0a0;
-  --grey-3: rgb(32, 32, 32);
-  --grey-4: rgb(28, 28, 28);
-  --mark-color: #a17d12;
-  --navigation-underline: rgba(243, 246, 233, 1);
-  --navigation-underline-off: rgba(243, 246, 233, 0);
-}
+  /* use data-theme instead of class? */
+  :root.dark {
+    --text-primary: rgb(229, 229, 229);
+    --text-secondary: #a0a0a0;
+    --grey-1: #505050;
+    --grey-2: #a0a0a0;
+    --grey-3: rgb(32, 32, 32);
+    --grey-4: rgb(28, 28, 28);
+    --mark-color: #a17d12;
+    --navigation-underline: rgba(243, 246, 233, 1);
+    --navigation-underline-off: rgba(243, 246, 233, 0);
+  }
 
-html {
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  background-color: #f2f4f5;
-  color: var(--text-primary);
-}
+  html {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #f2f4f5;
+    color: var(--text-primary);
+  }
 
-html.dark {
-  background-color: rgb(26, 26, 26);
-}
+  html.dark {
+    background-color: rgb(26, 26, 26);
+  }
 
-.nav-links a {
-  color: rgb(58, 58, 58);
-}
+  .nav-links a {
+    color: rgb(58, 58, 58);
+  }
 
-.dark .nav-links a {
-  color: rgb(229, 229, 229);
-}
+  .dark .nav-links a {
+    color: rgb(229, 229, 229);
+  }
 
-body {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 720px;
-  padding: 1rem;
-  line-height: 1.5;
-}
+  body {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 720px;
+    padding: 1rem;
+    line-height: 1.5;
+  }
 
-* {
-  box-sizing: border-box;
-}
+  * {
+    box-sizing: border-box;
+  }
 
-h1 {
-  margin: 1rem 0;
-  font-size: 2.5rem;
-  font-weight: 400;
-}
+  h1 {
+    margin: 1rem 0;
+    font-size: 2.5rem;
+    font-weight: 400;
+  }
 
-h3 {
-  font-weight: 500;
-}
+  h3 {
+    font-weight: 500;
+  }
 
-h2,
-p,
-ul {
-  font-weight: 300;
-}
+  h2,
+  p,
+  ul {
+    font-weight: 300;
+  }
 
-p {
-  font-size: 15px;
-}
+  p {
+    font-size: 15px;
+  }
 
-a {
-  font-weight: 300;
-  color: unset;
+  a {
+    font-weight: 300;
+    color: unset;
 
-  text-decoration: underline;
-  text-decoration-color: var(--grey-1);
-  text-underline-offset: 0.1em;
-  transition: text-decoration-color 200ms, text-underline-offset 200ms;
+    text-decoration: underline;
+    text-decoration-color: var(--grey-1);
+    text-underline-offset: 0.1em;
+    transition: text-decoration-color 200ms, text-underline-offset 200ms;
 
-  &:hover {
-    text-decoration-color: var(--grey-2);
+    &:hover {
+      text-decoration-color: var(--grey-2);
+    }
   }
 }
