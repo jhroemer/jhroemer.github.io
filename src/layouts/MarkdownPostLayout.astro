@@ -1,4 +1,5 @@
 ---
+import SolidComments from "../components/PostComments";
 import BaseLayout from "./BaseLayout.astro";
 
 interface Props {
@@ -6,6 +7,7 @@ interface Props {
     title: string;
     pubDate: Date;
     tags: string[];
+    bskyPostId?: string;
   };
 }
 const { frontmatter } = Astro.props;
@@ -121,4 +123,9 @@ const { frontmatter } = Astro.props;
     Published on: {frontmatter.pubDate.toString().slice(0, 15)}
   </p>
   <slot />
+  {
+    frontmatter.bskyPostId ? (
+      <SolidComments postId={frontmatter.bskyPostId} client:only="solid-js" />
+    ) : null
+  }
 </BaseLayout>
