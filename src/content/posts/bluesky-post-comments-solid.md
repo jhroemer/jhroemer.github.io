@@ -31,7 +31,8 @@ draft: true
 - Solid is fast, small, does pretty well on benchmarks
 - Trying something new
 - Fond of Ryan Carniato.
-- Fundamental difference - render function only runs once
+- Fundamental difference - render function only runs once. You cannot expect things in the function body to update- or be reactive, unless they're hooked up with a signal, effect etc.
+- So for React: props/state change and render re-runs. For Solid, props/state changes and everything that subscribes will re-evaluate.
 - Feeling: React is easy but not necessarily simple, Solid is simple but not necessarily easy.
 - createResource ~ useQuery
 - Simply add a recursive comment component (you might be able to add a nicer one)
