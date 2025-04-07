@@ -14,13 +14,14 @@ draft: true
 
 - AT Protocol
 - API is quite open, much of it unauthorized
+- at:// is the schema
 - Endpoint to get post data
 - Endpoint to get?
 - Handle vs did
 
 ### Astro
 
-- Frontmatter is server-side, data would be static
+- Component script is server-side (everything within the code fence --- ---), data would be static
 - Client-side scripts
 - JSX but no reactivity
 - Client directives
@@ -30,9 +31,11 @@ draft: true
 - Solid is fast, small, does pretty well on benchmarks
 - Trying something new
 - Fond of Ryan Carniato.
+- Fundamental difference - render function only runs once
 - Feeling: React is easy but not necessarily simple, Solid is simple but not necessarily easy.
 - createResource ~ useQuery
 - Simply add a recursive comment component (you might be able to add a nicer one)
 - No props.destructuring
 - <Show>, <For>, <Switch>, <Match>
-- Gotcha: Components only render once
+- Get used to missing () on getters
+- Conditionally rendering an element based on its existence follows a fairly specific pattern - use <Show> component and access the ancestor with a function inside of it.
