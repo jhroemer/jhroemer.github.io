@@ -70,6 +70,7 @@ const Stats: Component<StatsProps> = (props) => {
 
 type BlueskyPost = {
   post: {
+    uri: string;
     author: {
       avatar: string;
       // Can be an empty string
@@ -100,15 +101,13 @@ const fetchData = async (postId: string) => {
 };
 
 const PostComment: Component<{ post: BlueskyPost }> = (props) => {
-  const profileLink = `https://bsky.app/profile/${props.post.post.author.did}`;
-
-  // TODO:
-  // reply link https://bsky.app/profile/jhey.dev/post/3ljpijlmzjc2v
+  const profileLink = `https://bsky.app/profile/${props.post.post.author.handle}`;
+  const rkey = props.post.post.uri.split("post/")[1];
+  const replyLink = `https://bsky.app/profile/${props.post.post.author.handle}/post/${rkey}`;
 
   return (
     <>
       <div class="p-2">
-        {/* TODO: add post timestamp */}
         <a
           href={profileLink}
           target="_blank"
@@ -133,7 +132,7 @@ const PostComment: Component<{ post: BlueskyPost }> = (props) => {
         <div class="mt-1">
           <Stats
             variant="small"
-            link="link"
+            link={replyLink}
             replyCount={props.post.post.replyCount}
             repostCount={props.post.post.repostCount}
             likeCount={props.post.post.likeCount}
