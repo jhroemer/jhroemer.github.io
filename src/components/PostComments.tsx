@@ -113,7 +113,7 @@ const PostComment: Component<{ post: BlueskyPost }> = (props) => {
 
   return (
     <>
-      <div class="p-2">
+      <div class="p-2 mt-2">
         <a
           href={profileLink}
           target="_blank"
@@ -135,7 +135,7 @@ const PostComment: Component<{ post: BlueskyPost }> = (props) => {
           <span>@{props.post.post.author.handle}</span>
         </a>
         <div class="text-sm mt-1">{props.post.post.record.text}</div>
-        <div class="mt-1">
+        <div class="mt-2">
           <Stats
             variant="small"
             link={replyLink}
@@ -169,7 +169,7 @@ const PostComments = (props: PostCommentsProps) => {
   );
 
   return (
-    <div class="mt-2">
+    <div class="mt-8">
       <Show when={!commentsResource.loading && commentsResource()}>
         {(post) => (
           <Stats
@@ -182,7 +182,7 @@ const PostComments = (props: PostCommentsProps) => {
         )}
       </Show>
       {/* TODO: styling, header */}
-      <div class="mt-2">Comments</div>
+      <div class="mt-4">Comments</div>
       <Switch>
         <Match when={commentsResource.loading}>
           {/* TODO: improve */}
