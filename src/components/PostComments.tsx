@@ -7,6 +7,12 @@ import {
   type Component,
 } from "solid-js";
 
+const createPostLink = (post: BlueskyPost) => {
+  const rkey = post.post.uri.split("post/")[1];
+  const replyLink = `https://bsky.app/profile/${post.post.author.handle}/post/${rkey}`;
+  return replyLink;
+};
+
 type StatsProps = {
   link: string;
   replyCount: number;
@@ -18,6 +24,7 @@ type StatsProps = {
 const Stats: Component<StatsProps> = (props) => {
   const isLarge = props.variant === "large";
   const size = isLarge ? "20" : "16";
+
   return (
     <a
       href={props.link}
@@ -102,8 +109,7 @@ const fetchData = async (postId: string) => {
 
 const PostComment: Component<{ post: BlueskyPost }> = (props) => {
   const profileLink = `https://bsky.app/profile/${props.post.post.author.handle}`;
-  const rkey = props.post.post.uri.split("post/")[1];
-  const replyLink = `https://bsky.app/profile/${props.post.post.author.handle}/post/${rkey}`;
+  const replyLink = createPostLink(props.post);
 
   return (
     <>
@@ -159,25 +165,22 @@ type PostCommentsProps = {
 const PostComments = (props: PostCommentsProps) => {
   const [commentsResource] = createResource(
     () => props.postId,
-    () => fetchData(props.postId)
+    (postId) => fetchData(postId)
   );
-
-  // TODO: use query for caching too? https://docs.solidjs.com/solid-router/reference/data-apis/query
-  // TODO: should use suspense https://github.com/solidjs/solid/issues/2388
-
-  // TODO: make dynamic
-  const postLink =
-    "https://bsky.app/profile/jensroemer.bsky.social/post/3ljpikbdvts2o";
 
   return (
     <div class="mt-2">
-      <Stats
-        variant="large"
-        link={postLink}
-        replyCount={commentsResource()?.post.repostCount ?? 0}
-        repostCount={commentsResource()?.post.repostCount ?? 0}
-        likeCount={commentsResource()?.post.likeCount ?? 0}
-      />
+      <Show when={!commentsResource.loading && commentsResource()}>
+        {(post) => (
+          <Stats
+            variant="large"
+            link={createPostLink(post())}
+            replyCount={post().post.repostCount ?? 0}
+            repostCount={post().post.repostCount ?? 0}
+            likeCount={post().post.likeCount ?? 0}
+          />
+        )}
+      </Show>
       {/* TODO: styling, header */}
       <div class="mt-2">Comments</div>
       <Switch>
@@ -196,4 +199,5 @@ const PostComments = (props: PostCommentsProps) => {
     </div>
   );
 };
+
 export default PostComments;
