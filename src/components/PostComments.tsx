@@ -65,9 +65,9 @@ const PostComment: Component<{ post: BlueskyPost }> = (props) => {
           </Show>
           <span>@{props.post.post.author.handle}</span>
         </a>
-        <div class="text-sm">{props.post.post.record.text}</div>
+        <div class="text-sm mt-1">{props.post.post.record.text}</div>
         {/* Render as icons */}
-        <div class="flex gap-2 text-sm">
+        <div class="flex gap-2 text-xs mt-1">
           {/* TODO: component */}
           <span>{props.post.post.replyCount} replies</span>
           <span>{props.post.post.repostCount} reposts</span>
@@ -106,7 +106,7 @@ const PostComments = (props: PostCommentsProps) => {
     "https://bsky.app/profile/jensroemer.bsky.social/post/3ljpikbdvts2o";
 
   return (
-    <div>
+    <div class="mt-2">
       {/* TODO: add svg icons, link to post */}
       <a
         href={postLink}
