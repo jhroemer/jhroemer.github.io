@@ -131,8 +131,15 @@ const PostComment: Component<{ post: BlueskyPost }> = (props) => {
           <Show when={props.post.post.author.displayName}>
             <span>{props.post.post.author.displayName}</span>
           </Show>
-          {/* TODO: Gray-out handle */}
-          <span>@{props.post.post.author.handle}</span>
+          <span
+            class={`${
+              props.post.post.author.displayName
+                ? "text-[var(--text-secondary)]"
+                : ""
+            }`}
+          >
+            @{props.post.post.author.handle}
+          </span>
         </a>
         <div class="text-sm mt-1">{props.post.post.record.text}</div>
         <div class="mt-2">
