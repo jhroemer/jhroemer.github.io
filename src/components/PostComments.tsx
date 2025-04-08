@@ -188,12 +188,13 @@ const PostComments = (props: PostCommentsProps) => {
           />
         )}
       </Show>
-      {/* TODO: styling, header */}
-      <div class="mt-4">Comments</div>
+      <h3 class="mt-4">Comments</h3>
       <Switch>
         <Match when={commentsResource.loading}>
-          {/* TODO: improve */}
-          <div>Loading!</div>
+          <div class="max-w-11/12 animate-pulse">
+            <div class="h-3 bg-[var(--text-secondary)] rounded-md w-64 mb-2"></div>
+            <div class="h-[100px] bg-[var(--text-secondary)] rounded-md"></div>
+          </div>
         </Match>
         <Match when={commentsResource()}>
           <For each={commentsResource()?.replies}>
