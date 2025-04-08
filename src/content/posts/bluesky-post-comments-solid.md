@@ -10,12 +10,23 @@ I've been having a great time on [Bluesky](https://bsky.app/) lately, and recent
 
 ### Bluesky
 
-- AT Protocol
-- API is quite open, much of it unauthorized
-- at:// is the schema
-- Endpoint to get post data
-- Endpoint to get?
-- Handle vs did
+We need some comment data from Bluesky, that's our first step. And it's surprisingly easy. Bluesky has a fairly comprehensive [API](https://docs.bsky.app/docs/category/http-reference), and many of the endpoints don't even need authentication, not to speak of having to set up a developer account. Here's the endpoint for getting the post thread corresponding to this post for example:
+
+> https://public.api.bsky.app/xrpc/app.bsky.feed.getPostThread?uri=at://did:plc:laqygfbyvnkyuhsuaxmp6ez3/app.bsky.feed.post/3ljpikbdvts2o
+
+So the fact that this works without any prior setup is one of the reasons why Bluesky claim to be 'open'.
+
+Let's just break down the endpoint, the [app.bsky.feed.getPostThread](https://docs.bsky.app/docs/api/app-bsky-feed-get-post-thread) endpoint, real quick.
+
+- First there's the path: https://public.api.bsky.app
+- Then there's the endpoint path: app.bsky.feed.getPostThread
+
+And at the end you have a single URL param called uri.
+The URI params consists of a few different pieces. First there's the `at://`-part, which describes the protocol, in this case Bluesky's [AT-Protocol](https://atproto.com/).
+The next part is an identifier for the user, which can either be a DID (decentralized identifier) or a user handle. While the latter is more readable, it may also change, which the DID won't.
+TODO: The next part is `app.bsky.feed.post`.
+And lastly we have an identifier for the post in question, in this case `3ljpikbdvts2o`.
+And that's all we need.
 
 ### Astro
 
