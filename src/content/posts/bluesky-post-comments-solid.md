@@ -1,14 +1,12 @@
 ---
-slug: bluesky-comments-astro-solid
-title: "Bluesky comments x Astro x Solid"
-tags: [Software development, SolidJS, Astro]
-pubDate: 2025-03-31
+slug: astro-bluesky-solid
+title: "Astro, Bluesky and Solid"
+tags: [Bluesky, SolidJS, Astro]
+pubDate: 2025-04-08
 draft: true
 ---
 
-- Inspiration:
-  - https://emilyliu.me/blog/comments
-  - https://graysky.app/blog/2024-02-05-adding-blog-comments
+I've been having a great time on [Bluesky](https://bsky.app/) lately, and recently came across [Emily Lui's blogpost](https://emilyliu.me/blog/comments) on integrating Bluesky post comments with your blog. I think it's a really cute and fun idea, and decided to do my own little spin on it. [Emily's implementation](https://gist.github.com/emilyliu7321/19ac4e111588bdc0cb4e411c88d9c79a) is React/Next based, but since I'm using [Astro](https://astro.build/) for my site I have some flexibility in terms of the type of framework to use. So I decided to try going with [Solid](https://docs.solidjs.com/) instead.
 
 ### Bluesky
 
