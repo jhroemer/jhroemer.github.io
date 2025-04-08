@@ -48,7 +48,17 @@ One last thing regarding Astro: UI framework components are by default not [hydr
 <Comments client:only="solid-js> ..." />
 ```
 
-### SolidJS
+### Solid JS
+
+For the last piece, the framework component, I ended up reaching for Solid JS. There's a few reasons for this. Firstly, I like the framework and its creator Ryan Carniato. I covered their approach to signals almost two years ago, in my [post](/posts/fine-grained-reactivity/) about fine grained reactivity.
+
+<!-- TODO: get a good reference for this -->
+
+Secondly, Solid is both smaller and faster than React. I would probably still pick React, in a work-environment at least, but for a small personal project going with Solid is both low risk and presents a good learning opportunity.
+
+Thirdly, Solid actually comes with a 'primitive' for data fetching, [createResource](https://docs.solidjs.com/reference/basic-reactivity/create-resource), which React (infamously) doesn't. I could of course also add the ever-awesome [TanStack Query](https://tanstack.com/query/latest) too, but having to maintain a smaller list of dependencies is definitely a plus for me.
+
+<!-- TODO: Solid stats: https://dev.to/this-is-learning/javascript-framework-todomvc-size-comparison-504f -->
 
 - Solid is fast, small, does pretty well on benchmarks
 - Trying something new
