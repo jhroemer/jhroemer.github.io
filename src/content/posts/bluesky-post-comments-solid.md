@@ -50,9 +50,9 @@ One last thing regarding Astro: UI framework components are by default not [hydr
 
 ### Solid JS
 
-For the last piece, the framework component, I ended up reaching for Solid JS. There's a few reasons for this. Firstly, I like the framework and its creator Ryan Carniato. I covered their approach to signals almost two years ago, in my [post](/posts/fine-grained-reactivity/) about fine grained reactivity.
+For the last piece, the framework component, I ended up reaching for Solid JS. There's a few reasons for this. Firstly, I like the framework and its creator Ryan Carniato. I covered Solid's approach to signals almost two years ago, in my [post](/posts/fine-grained-reactivity/) about fine grained reactivity.
 
-<!-- TODO: get a good reference for this -->
+<!-- TODO: get a good reference for this + HOW is solid faster -->
 
 Secondly, Solid is both smaller and faster than React. I would probably still pick React, in a work-environment at least, but for a small personal project going with Solid is both low risk and presents a good learning opportunity.
 
@@ -60,15 +60,44 @@ Thirdly, Solid actually comes with a 'primitive' for data fetching, [createResou
 
 <!-- TODO: Solid stats: https://dev.to/this-is-learning/javascript-framework-todomvc-size-comparison-504f -->
 
-- Solid is fast, small, does pretty well on benchmarks
-- Trying something new
-- Fond of Ryan Carniato.
-- Fundamental difference - render function only runs once. You cannot expect things in the function body to update- or be reactive, unless they're hooked up with a signal, effect etc.
-- So for React: props/state change and render re-runs. For Solid, props/state changes and everything that subscribes will re-evaluate.
-- Feeling: React is easy but not necessarily simple, Solid is simple but not necessarily easy.
-- createResource ~ useQuery
-- Simply add a recursive comment component (you might be able to add a nicer one)
-- No props.destructuring
-- <Show>, <For>, <Switch>, <Match>
-- Get used to missing () on getters
-- Conditionally rendering an element based on its existence follows a fairly specific pattern - use <Show> component and access the ancestor with a function inside of it.
+With the motivation out of the way, let's look at a few parts of the Solid implementation.
+
+I've included a small code-example further down, and as you might see Solid initially looks very similar to React, since it also the idea of components as functions that return JSX. But it is quite different, most fundamentally in how the render function in Solid only runs once (whereas React components will rerender when their props/state change, or when their parent re-renders). This has quite a few implications for how you can structure your components.
+
+What you might also notice is how `createResource` looks and feels similar to TanStack Query, which [according to the changelog is on purpose](https://github.com/solidjs/solid/blob/main/CHANGELOG.md#updated-resource-api). It's definitely more basic than TanStack Query, and doesn't do caching on its own.
+
+Lastly, conditional- and list rendering is done with specific Solid components. In the example below a switch component that will render one of three sections based on the resource state. And a for-component that will render a list of PostComments. There's different ways to render the post comments, but I used a recursive component for this (`<PostComment>` component renders its own list of `<PostComment>`), which worked well for this type of data structure.
+
+```jsx
+const PostComments = (props: PostCommentsProps) => {
+  // Looks and feels quite similar to TanStack Query
+  const [commentsResource] = createResource(
+    // You cannot destructure props since they are wrapped in Object getters
+    () => props.postId,
+    (postId) => fetchData(postId)
+  );
+
+  // This only runs once!
+
+  return (
+    <Switch>
+      <Match when={commentsResource.loading}>
+        {/* Loading state */}
+      </Match>
+      <Match when={commentsResource.error}>
+        {/* Error state */}
+      <Match>
+      {/* The getter is an actual function */}
+      <Match when={commentsResource()}>
+        {/* No need to remember keys
+          - but you can forget to use the <For> component */}
+        <For each={commentsResource()?.replies}>
+          {(comment) => {
+            return <PostComment post={comment} />;
+          }}
+        </For>
+      </Match>
+    </Switch>
+  );
+};
+```
