@@ -3,6 +3,7 @@ slug: my-current-thoughts-on-frontend-testing
 title: "My (current) thoughts on frontend testing"
 tags: [Testing, Software development]
 pubDate: 2025-01-16
+bskyPostId: "3lfupnvbq722g"
 ---
 
 I work primarily with large complex web applications, with lots of logic and moving parts. Testing is a crucial component in this work, since it's your primary way of ensuring quality, and allows you to keep moving forward at a reasonable pace as the application grows.

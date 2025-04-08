@@ -11,13 +11,16 @@
     "lint": "eslint src",
     "test:ui": "npx playwright test --ui",
     "test": "docker run --rm --network host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:v1.51.0-noble /bin/bash -c 'npm i && npx playwright test'",
-    "test:update": "docker run --rm --network host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:v1.51.0-noble /bin/bash -c 'npm i && npx playwright test --update-snapshots'"
+    "test:update": "docker run --rm --network host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:v1.51.0-noble /bin/bash -c 'npm i && npx playwright test --update-snapshots'",
+    "generate-mock": "ts-generate-mock-data --output-dir ./tests/mocks"
   },
   "dependencies": {
     "@astrojs/mdx": "4.2.3",
     "@astrojs/rss": "4.0.11",
+    "@astrojs/solid-js": "5.0.6",
     "@tailwindcss/vite": "4.0.17",
     "astro": "5.5.6",
+    "solid-js": "1.9.5",
     "tailwindcss": "4.0.17"
   },
   "devDependencies": {
@@ -25,6 +28,7 @@
     "@types/node": "22.13.10",
     "eslint": "9.23.0",
     "eslint-plugin-astro": "1.3.1",
+    "ts-generate-mock-data": "0.0.2",
     "typescript-eslint": "8.28.0"
   }
 }

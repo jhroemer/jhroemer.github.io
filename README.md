@@ -20,6 +20,14 @@ If you have made changes and need to update the snapshots:
 npm run test:update
 ```
 
+For tests that depend on fetching data, mock the specific endpoints with:
+
+```
+npm run generate-mock
+```
+
+Which will run [ts-generate-mock-data](https://github.com/jhroemer/ts-generate-mock-data) - follow the prompts and the mock data will be saved to a TS file in /tests/mocks.
+
 ## VSCode setup (optional)
 
 Install the recommended extensions in .vscode/extensions.json.

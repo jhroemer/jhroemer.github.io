@@ -1,13 +1,13 @@
 import { defineConfig } from "astro/config";
 
 import mdx from "@astrojs/mdx";
-
 import tailwindcss from "@tailwindcss/vite";
+import solidJs from "@astrojs/solid-js";
+
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [mdx()],
-
+  integrations: [mdx(), solidJs()],
   redirects: {
     "/writing-a-good-rfc": "/posts/writing-a-good-rfc",
     "/fine-grained-reactivity": "/posts/fine-grained-reactivity",
