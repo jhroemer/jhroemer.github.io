@@ -1,9 +1,8 @@
 ---
-slug: astro-bluesky-solid
-title: "Astro, Bluesky and Solid"
+slug: solid-rendered-bluesky-comments
+title: "Solid-rendered Bluesky comments"
 tags: [Bluesky, SolidJS, Astro]
-pubDate: 2025-04-08
-draft: true
+pubDate: 2025-04-09
 ---
 
 I've been having a great time on [Bluesky](https://bsky.app/) lately, and recently came across [Emily Lui's blog post](https://emilyliu.me/blog/comments) on integrating Bluesky post comments with your blog. I think it's a really cute and fun idea, so I decided to put my own little spin on it.
