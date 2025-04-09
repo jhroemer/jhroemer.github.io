@@ -8,27 +8,33 @@ draft: true
 
 I've been having a great time on [Bluesky](https://bsky.app/) lately, and recently came across [Emily Lui's blogpost](https://emilyliu.me/blog/comments) on integrating Bluesky post comments with your blog. I think it's a really cute and fun idea, and decided to do my own little spin on it.
 
-<!-- TODO: improve wording here -->
-
-[Emily's implementation](https://gist.github.com/emilyliu7321/19ac4e111588bdc0cb4e411c88d9c79a) is React/Next based, but since I'm using [Astro](https://astro.build/) for my site I have some flexibility in terms of the type of framework to use. So I decided to try something different and go with [Solid](https://docs.solidjs.com/) instead.
+[Emily's implementation](https://gist.github.com/emilyliu7321/19ac4e111588bdc0cb4e411c88d9c79a) is React/Next based, but since I'm using [Astro](https://astro.build/) for my site I have some flexibility in terms of the type of framework to use. So I decided to try something different which I'll outline in the sections below.
 
 ### Bluesky
 
-We need some comment data from Bluesky, that's our first step. And it's surprisingly easy. Bluesky has a fairly comprehensive [API](https://docs.bsky.app/docs/category/http-reference), and many of the endpoints don't even need authentication, let alone setting up a developer account. Here's the endpoint for getting the post thread corresponding to this post for example:
+We need some comment data from Bluesky, that's our first step. And it's surprisingly easy. Bluesky has a fairly comprehensive [API](https://docs.bsky.app/docs/category/http-reference), and many of the endpoints don't require authentication, let alone setting up a developer account. Here's the endpoint for getting the post thread corresponding to this post for example - and try calling it:
 
 > https://public.api.bsky.app/xrpc/app.bsky.feed.getPostThread?uri=at://did:plc:laqygfbyvnkyuhsuaxmp6ez3/app.bsky.feed.post/3ljpikbdvts2o
 
-So the fact that this works without any prior setup is one of the reasons why Bluesky claim to be 'open'.
+The fact that this works without any prior setup, is one of the reasons why Bluesky is said to be open (their [marketing page](https://bsky.social/about) mentions the word _open_ 9 times).
 
 Let's just break down the endpoint, the [app.bsky.feed.getPostThread](https://docs.bsky.app/docs/api/app-bsky-feed-get-post-thread) endpoint, real quick.
 
-- First there's the path: https://public.api.bsky.app
-- Then there's the endpoint path: app.bsky.feed.getPostThread
+First there's the API path:
 
-And at the end you have a single URL param called uri.
+> https://public.api.bsky.app
+
+Then there's the specific path for the endpoint to get the thread data:
+
+> app.bsky.feed.getPostThread
+
+And at the end you have a single URL param called `uri`.
+
+> at://did:plc:laqygfbyvnkyuhsuaxmp6ez3/app.bsky.feed.post/3ljpikbdvts2o
+
 The URI params consists of a few different pieces. First there's the `at://`-part, which describes the protocol, in this case Bluesky's [AT-Protocol](https://atproto.com/).
 The next part is an identifier for the user, which can either be a DID (decentralized identifier) or a user handle. While the latter is more readable, it may also change, which the DID won't.
-TODO: The next part is `app.bsky.feed.post`.
+The next part is `app.bsky.feed.post` which is the [record type](https://atproto.com/guides/lexicon).
 And lastly we have an identifier for the post in question, in this case `3ljpikbdvts2o`.
 And that's all we need.
 
