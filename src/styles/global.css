@@ -89,10 +89,16 @@
     text-decoration: underline;
     text-decoration-color: var(--grey-1);
     text-underline-offset: 0.1em;
-    transition: text-decoration-color 200ms, text-underline-offset 200ms;
+    transition:
+      text-decoration-color 200ms,
+      text-underline-offset 200ms;
 
     &:hover {
       text-decoration-color: var(--grey-2);
     }
+  }
+
+  blockquote {
+    word-break: break-word;
   }
 }
