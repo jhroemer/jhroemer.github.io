@@ -8,7 +8,7 @@ draft: true
 
 It is difficult to know if UI state should go into the URL, be local (temporary) state or persist (w. local storage for example)
 
-### URL state
+## URL state
 
 - Often the best choice
 - Integrating with the browser chrome is often the right thing to do
@@ -16,13 +16,13 @@ It is difficult to know if UI state should go into the URL, be local (temporary)
 - Simple model, URL simply maps to state
 - Can be tricky if the system isn't stateless, then you cannot simply map the url to state, but have to consider what the previous state was.
 
-### Persistent state: Github PR review example
+## Persistent state: Github PR review example
 
 - Forms
 - Some use cases
 - Can be confusing/unclear
 
-### Local state
+## Local state
 
 - ephemeral
 - Something temporary

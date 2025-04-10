@@ -11,7 +11,7 @@ I'm not sure where the idea originated, but it has a lot of mentions in the [Elm
 
 Here is a useful pattern that uses Typescript types to prevent impossible states.
 
-### Example: impossible states are possible
+## Example: impossible states are possible
 
 Most applications will have to fetch data from somewhere, and often there would be a loading state to go along with the data. The fetch might fail for some reason, and in that case there needs to be an error state as well. We can model this state with an object that has a `value` property (to hold the data we're fetching), an `isLoading` property and an `error` property (to hold potential error messages). We can make the object generic to allow it to be used for different kinds of data:
 
@@ -35,7 +35,7 @@ const data: Data<number> = {
 
 Typescript allows this assignment, as it doesn't violate our type. But it would not represent a valid/possible state, and would lead to a bug in our application. After all, we're not interested in rendering our fetched data, a loading spinner and an error, all at the same time.
 
-### Example: making the impossible states impossible
+## Example: making the impossible states impossible
 
 One way of preventing such states is to represent state with single state-field, that can take only one value, that represents the given state. TypeScript enums are perfect for this - plain (magic) strings should be avoided:
 

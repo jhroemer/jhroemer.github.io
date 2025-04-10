@@ -197,7 +197,7 @@ const PostComments = (props: PostCommentsProps) => {
                 repostCount={post().post.repostCount ?? 0}
                 likeCount={post().post.likeCount ?? 0}
               />
-              <h3 class="mt-4">Comments</h3>
+              <h2 class="mt-4">Comments</h2>
               <p class="text-sm">
                 Click{" "}
                 <a

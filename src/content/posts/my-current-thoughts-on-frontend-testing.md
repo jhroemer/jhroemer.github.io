@@ -10,7 +10,7 @@ I work primarily with large complex web applications, with lots of logic and mov
 
 I'll go through different test classes and considerations in this post, and I'll do so by looking at tests as investments (which they are). Tests have an initial cost (time), recurring fees along the way (maintenance) and are expected to provide a return (caught bugs, development velocity).
 
-### Integration / End-to-end testing (E2) vs Unit testing
+## Integration / End-to-end testing (E2) vs Unit testing
 
 Firstly, I largely subscribe to Kent C. Dodds' approach to testing, the [Testing Trophy](https://kentcdodds.com/blog/the-testing-trophy-and-testing-classifications), which breaks with the more traditional [Testing Pyramid](https://martinfowler.com/articles/practical-test-pyramid.html). Basically, there's a much higher emphasis on (more expensive) integration and e2e tests over unit tests, due to their higher return on investment. Here's what I've witnessed over the past five years: a large suite of integration/e2e tests that tests the main workflows in the application has caught a high number of bugs and regressions. And, maybe even more importantly, has been able to provide us with the confidence to move forward with large changes. I've made very fundamental and invasive changes to an application, like completely redoing client side routing, and been able to merge and move on as soon as I've made the test suite green.
 
@@ -18,13 +18,13 @@ The issue with integration and e2e tests is that they're expensive, both to writ
 
 Regarding the distinction between integration and E2E: I personally don't sweat too hard over which category tests belong to. Most of those I currently write aren't exactly true E2E, since running the backend with our tests too would be extremely expensive. So we rely on mocking (which has its benefits and drawbacks, I might do a post specifically on mocking at some point), and therefore we end up with tests that are written like E2E tests, but aren't truly.
 
-### Static testing
+## Static testing
 
 Next up is static testing, which is sort of frontend specific, since Javascript doesn't ship with types by default. This box includes type safety and linting, both things that statically analyze your code in the background. For many developers, including myself, these tools are indispensable for frontend development. Yes, there's a learning curve, but TypeScript is very good these days, and should be familiar to many developers with another first language. Linting will introduce a learning curve too, but a much wanted one if you ask me, unless you really wanna continue writing bad code.
 
 I don't really see any projects where you wouldn't want to include static testing, besides hackathon projects or similar. It's a cheap way of doing testing but with an enormous return on investment.
 
-### Visual regression testing
+## Visual regression testing
 
 Lately I've really enjoyed having visual regression tests. Their importance, like other tests too, depends very much on the type of application you're working with. This page, for example, is primarily tested with visual regression tests. That's because it's a content-focused website, without any interactivity. Consider that you just updated your component library to the latest major version - while you're not getting type errors and the application workflows work as expected, you would like to validate that no UI regressions snuck in with the update. This can take a long time to validate in certain applications, especially if your page has more than a single theme.
 

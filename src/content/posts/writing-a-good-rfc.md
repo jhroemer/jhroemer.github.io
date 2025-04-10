@@ -11,7 +11,7 @@ At least that's what I thought, a few days after publishing. The proposed soluti
 
 My first reaction was frustration, and I was annoyed at myself for not having seen some of those things coming. This document is not about whether I did a bad job or not though. Maybe a little bit. It's more about what I learned and about what to do different next time. But let's start with my ego; did I really do a bad job?
 
-### Discussion
+## Discussion
 
 The reason you're going through the effort of producing an RFC is not to convince others, but to make sure that you're utilizing the collective knowledge you have in a company/org, and surface important discussions before the project kicks off. It's only natural that you would want to make the perfect proposal, that everyone will approve without question. Most of us are vain creatures at the end of the day. But striving for perfect is often a fools errand. And what does 'perfect' even mean for an RFC?
 
@@ -25,11 +25,11 @@ It turns out, my RFC was extremely effective at provoking all of that, albeit in
 
 That being said, there are things I learned and that I would do differently next time.
 
-### Less is more
+## Less is more
 
 The more you write, the more there is to nitpick on, which may distract the conversation from the crucial area(s). So make your sections count. This is not just about the length of your document and the number of words; reducing the _scope_ of your topic will make it much easier to get good and clear feedback. You might be asked a high amount of questions, and sometimes about things which aren't really in scope for the RFC. Save everyone's time by clearly scoping the work at the very beginning of the document.
 
-### Time
+## Time
 
 This last point is less about you as an individual, and more about how the process is used in your company or organization. There are so many things we can do to improve the way we work, and the real challenge is to figure out what's worth doing and how much to invest in what.
 

@@ -48,7 +48,7 @@ const { frontmatter } = Astro.props;
     scroll-behavior: smooth;
   }
 
-  h3 {
+  h2 {
     position: relative;
 
     &:hover {
@@ -95,7 +95,7 @@ const { frontmatter } = Astro.props;
   `;
 
   const applyAnchorHeadings = () => {
-    const anchorHeadings = document.querySelectorAll("h3, h4, h5, h6");
+    const anchorHeadings = document.querySelectorAll("h2, h3, h4, h5, h6");
 
     [...anchorHeadings].forEach((heading) => {
       const anchor = document.createElement("a");
@@ -118,7 +118,7 @@ const { frontmatter } = Astro.props;
 </script>
 
 <BaseLayout pageTitle={frontmatter.title}>
-  <h2>{frontmatter.title}</h2>
+  <h1>{frontmatter.title}</h1>
   <p class="publish-date">
     Published on: {frontmatter.pubDate.toString().slice(0, 15)}
   </p>

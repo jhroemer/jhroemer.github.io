@@ -8,7 +8,7 @@ draft: true
 
 ..
 
-### First approach, pseudo element
+## First approach, pseudo element
 
 https://tobiasahlin.com/blog/css-trick-animating-link-underlines/
 
@@ -18,6 +18,6 @@ Another, arguably small and negligible, difference is that the pseudo element is
 
 TODO: a11y?
 
-### CSS underline properties
+## CSS underline properties
 
 https://css-irl.info/animating-underlines/

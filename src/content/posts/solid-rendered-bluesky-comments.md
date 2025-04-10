@@ -10,7 +10,7 @@ I've been having a great time on [Bluesky](https://bsky.app/) lately, and recent
 
 [Emily's implementation](https://gist.github.com/emilyliu7321/19ac4e111588bdc0cb4e411c88d9c79a) is React/Next based, but since I'm using [Astro](https://astro.build/) for my site I have some flexibility in terms of the type of framework to use. So I decided to try something different which I'll outline in the sections below.
 
-### Bluesky
+## Bluesky
 
 We need some comment data from Bluesky, that's our first step. And it's surprisingly easy. Bluesky has a fairly comprehensive [API](https://docs.bsky.app/docs/category/http-reference), and many of the endpoints don't require authentication, let alone setting up a developer account. Here's the endpoint for getting the post thread corresponding to this post for example - and try calling it:
 
@@ -38,7 +38,7 @@ The next part is `app.bsky.feed.post` which is the [record type](https://atproto
 And lastly we have an identifier for the post in question, in this case `3ljpikbdvts2o`.
 And that's all we need.
 
-### Astro
+## Astro
 
 As mentioned this site is built with Astro, and all blog posts are written as simple markdown files (there's various ways to [integrate with a CMS](https://docs.astro.build/en/guides/cms/), but that's overkill for me right now). The first thing to figure out is how to make the connection between a blog post and a Bluesky post, which is a manual step. In my case, I'll create a new blog post, share it on Bluesky and then copy the Bluesky post ID into my blog post Frontmatter (metadata). That ID can then be read in my [layout component](https://docs.astro.build/en/basics/layouts/#markdown-layouts) used for blog posts, and can be passed to a component that will handle rendering of the comments.
 
@@ -54,7 +54,7 @@ One last thing regarding Astro: By default, UI framework components are not [hyd
 <Comments client:only="solid-js ..." />
 ```
 
-### Solid JS
+## Solid JS
 
 For the last piece, the framework component, I ended up reaching for [Solid JS](https://www.solidjs.com/). There's a few reasons for this. Firstly, I like the framework and its creator Ryan Carniato, who's an amazing resource for the web community. Also, I covered Solid's approach to signals almost two years ago, in my [post](/posts/fine-grained-reactivity/) about fine grained reactivity.
 

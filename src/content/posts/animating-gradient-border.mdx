@@ -15,7 +15,7 @@ Here is what we're going to be making:
 
 The technique for doing gradients on borders has a few variations, but as far as I know they all require you to render an extra element behind the element where you want the border - which is where we're going to start.
 
-### Making a background element
+## Making a background element
 
 Let's start by laying out a new element underneath the element where we want the border, and make it overflow by `2px` to each side. We can use the [after pseudo-element](https://developer.mozilla.org/en-US/docs/Web/CSS/::after) and apply the styles for the 'border' to that element
 
@@ -46,7 +46,7 @@ Finally add a background with a linear-gradient and a few colors. This is then w
   style={{ backgroundColor: "transparent" }}
 ></div>
 
-### Adding the animation
+## Adding the animation
 
 Let's look at animating the 'border' a bit. The trick we will use here is to use the `background-size` which set the size of an element´s background image. We will use this to make the background (the gradient color) larger than the original element. Then we make add an animation that moves it back and forth a bit. It's sort of like looking through a narrow lens at a large picture, and then moving that picture back and forth, showing you a small part of the image at a time. If we don't set a high background size, then the background is gonna wrap to the other side, and we would see a sudden change from one color to the other, instead of the gradient we want.
 
