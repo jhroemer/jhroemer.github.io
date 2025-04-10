@@ -177,31 +177,45 @@ const PostComments = (props: PostCommentsProps) => {
 
   return (
     <div class="mt-8">
-      <Show when={!commentsResource.loading && commentsResource()}>
-        {(post) => (
-          <Stats
-            variant="large"
-            link={createPostLink(post())}
-            replyCount={post().post.repostCount ?? 0}
-            repostCount={post().post.repostCount ?? 0}
-            likeCount={post().post.likeCount ?? 0}
-          />
-        )}
-      </Show>
-      <h3 class="mt-4">Comments</h3>
       <Switch>
         <Match when={commentsResource.loading}>
-          <div class="max-w-11/12 animate-pulse">
-            <div class="h-3 bg-[var(--text-secondary)] rounded-md w-64 mb-2"></div>
-            <div class="h-[100px] bg-[var(--text-secondary)] rounded-md"></div>
-          </div>
+          <>
+            <h3 class="mt-4">Comments</h3>
+            <div class="max-w-11/12 animate-pulse">
+              <div class="h-3 bg-[var(--text-secondary)] rounded-md w-64 mb-2"></div>
+              <div class="h-[100px] bg-[var(--text-secondary)] rounded-md"></div>
+            </div>
+          </>
         </Match>
         <Match when={commentsResource()}>
-          <For each={commentsResource()?.replies}>
-            {(comment) => {
-              return <PostComment post={comment} />;
-            }}
-          </For>
+          {(post) => (
+            <>
+              <Stats
+                variant="large"
+                link={createPostLink(post())}
+                replyCount={post().post.replyCount ?? 0}
+                repostCount={post().post.repostCount ?? 0}
+                likeCount={post().post.likeCount ?? 0}
+              />
+              <h3 class="mt-4">Comments</h3>
+              <p class="text-sm">
+                Click{" "}
+                <a
+                  href={createPostLink(post())}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  here
+                </a>{" "}
+                to join the conversation on Bluesky.
+              </p>
+              <For each={post().replies}>
+                {(comment) => {
+                  return <PostComment post={comment} />;
+                }}
+              </For>
+            </>
+          )}
         </Match>
       </Switch>
     </div>
