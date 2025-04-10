@@ -209,11 +209,20 @@ const PostComments = (props: PostCommentsProps) => {
                 </a>{" "}
                 to join the conversation on Bluesky.
               </p>
-              <For each={post().replies}>
-                {(comment) => {
-                  return <PostComment post={comment} />;
-                }}
-              </For>
+              <Show
+                when={post().replies?.length}
+                fallback={
+                  <p class="text-sm text-[var(--text-secondary)]">
+                    No replies yet. Be the first to comment!
+                  </p>
+                }
+              >
+                <For each={post().replies}>
+                  {(comment) => {
+                    return <PostComment post={comment} />;
+                  }}
+                </For>
+              </Show>
             </>
           )}
         </Match>
