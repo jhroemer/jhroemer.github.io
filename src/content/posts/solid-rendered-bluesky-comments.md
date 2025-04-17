@@ -34,8 +34,7 @@ And at the end you have a single URL param called `uri`, which unsurprisingly ho
 
 The URI params consists of a few different pieces. The scheme `at`, which describes the protocol, in this case Bluesky's [AT-Protocol](https://atproto.com/).
 The next part, the [authority](https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Authority), is an identifier for the user, which can either be a DID (decentralized identifier) or a user handle. While the latter is more readable, it may also change, which the DID won't.
-The next part is the path,`app.bsky.feed.post`, which is the [record type](https://atproto.com/guides/lexicon).
-And lastly we have an identifier for the post in question, in this case `3ljpikbdvts2o`.
+After this we have the path, consisting of the [record type](https://atproto.com/guides/lexicon): `app.bsky.feed.post`, and an identifier for the post in question, in this case `3ljpikbdvts2o`.
 
 ## Astro
 
