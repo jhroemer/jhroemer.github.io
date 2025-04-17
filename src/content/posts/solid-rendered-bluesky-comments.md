@@ -28,15 +28,14 @@ Then there's the specific path for the endpoint to get the thread data:
 
 > app.bsky.feed.getPostThread
 
-And at the end you have a single URL param called `uri`.
+And at the end you have a single URL param called `uri`, which unsurprisingly holds a [URI](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier) value.
 
 > at://did:plc:laqygfbyvnkyuhsuaxmp6ez3/app.bsky.feed.post/3ljpikbdvts2o
 
-The URI params consists of a few different pieces. First there's the `at://`-part, which describes the protocol, in this case Bluesky's [AT-Protocol](https://atproto.com/).
-The next part is an identifier for the user, which can either be a DID (decentralized identifier) or a user handle. While the latter is more readable, it may also change, which the DID won't.
-The next part is `app.bsky.feed.post` which is the [record type](https://atproto.com/guides/lexicon).
+The URI params consists of a few different pieces. The scheme `at`, which describes the protocol, in this case Bluesky's [AT-Protocol](https://atproto.com/).
+The next part, the [authority](https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Authority), is an identifier for the user, which can either be a DID (decentralized identifier) or a user handle. While the latter is more readable, it may also change, which the DID won't.
+The next part is the path,`app.bsky.feed.post`, which is the [record type](https://atproto.com/guides/lexicon).
 And lastly we have an identifier for the post in question, in this case `3ljpikbdvts2o`.
-And that's all we need.
 
 ## Astro
 
