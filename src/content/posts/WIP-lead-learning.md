@@ -6,6 +6,14 @@ pubDate: 2024-01-01
 draft: true
 ---
 
+New notes:
+
+- Realization that even as an IC you're accumulating lead/management experience
+- Eg. I learned early that coming in strong, with lots of ideas for changes etc is never a good idea. Start by building trust, relationships, aligning expectations and getting to know the product, domain, problems, people etc. first.
+- Pick up the managers path: will help you understand your organization and how you can interact with management better, even if you're not looking to become a manager.
+- These days getting into management might be slightly harder. Maybe you can find a manager from another team as mentor.
+- Timing? 20-50% dev time doesn't allow for much technical growth, so as a tech leader you want to have a very solid base here.
+
 It's been almost one and a half year since I wrapped up a year as team lead, and I've had this half-written post lying around since then. Some context: I'm a software engineer so this was the first time doing people management.
 
 Context: engineer going into tech lead role.
