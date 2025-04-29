@@ -18,6 +18,13 @@ It's been almost one and a half year since I wrapped up a year as team lead, and
 
 Context: engineer going into tech lead role.
 
+## My own story
+
+- Natural transition, stand-in
+- Arrow was pointing at me to take over line-management
+- Happy to only do it for a year
+- But what if you don't have a natural transition like that?
+
 ## Do your reading
 
 People skills play a significant part in doing management. It's a skill that's difficult to 'just pick up and learn', but it's obviously also not the only thing you need. I would consider myself to have decent people skills, for example, and in that case you could be tempted to just 'wing it' and go by intuition in your work as a manager. That might even work out fine, especially if you find yourself in an environment where things are going great, and having a personal/unique management style might even be a plus. But there's a number of challenging situations that can arise as a lead, and you really need to be well-equipped to handle those.
