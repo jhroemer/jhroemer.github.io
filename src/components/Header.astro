@@ -3,41 +3,26 @@ import Navigation from "./Navigation.astro";
 ---
 
 <style>
-  header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  div {
-    display: flex;
-  }
-
-  nav {
-    display: flex;
-  }
-
   a {
+    /* TODO */
     font-family:
       jost,
       -apple-system,
       BlinkMacSystemFont,
       sans-serif;
-    text-decoration: none;
-    transition: color 0.2s;
-    letter-spacing: 1px;
-
-    &:hover {
-      color: var(--grey-2);
-    }
   }
 </style>
 
-<header>
-  <div>
-    <a href="/"> Jens Rømer </a>
+<header class="flex items-center justify-between">
+  <div class="flex">
+    <a
+      href="/"
+      class="no-underline tracking-wide transition-colors duration-200 hover:text-[var(--grey-2)]"
+    >
+      Jens Rømer
+    </a>
   </div>
-  <nav>
+  <nav class="flex">
     <Navigation />
   </nav>
 </header>
