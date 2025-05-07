@@ -3,6 +3,10 @@
 /* @import "tailwindcss/preflight.css" layer(base); */
 @import "tailwindcss/utilities.css" layer(utilities);
 
+@theme {
+  --font-jost: jost, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
 @layer base {
   :root {
     --grey-1: #c7c7c7;
