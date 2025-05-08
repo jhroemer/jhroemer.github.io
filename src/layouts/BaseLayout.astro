@@ -25,7 +25,7 @@ const { pageTitle }: Props = Astro.props;
     <title>{pageTitle}</title>
     <ClientRouter />
   </head>
-  <body>
+  <body class="py-16 px-8">
     <Header />
     <slot />
   </body><script is:inline>
@@ -52,13 +52,4 @@ const { pageTitle }: Props = Astro.props;
       }
     });
   </script>
-  <style>
-    html {
-      scrollbar-gutter: stable;
-    }
-
-    body {
-      padding: 4rem 2rem;
-    }
-  </style>
 </html>
