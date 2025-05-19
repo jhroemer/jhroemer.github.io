@@ -1,40 +1,46 @@
 ---
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1);
+
+const links = [
+  { name: "Home", href: "/", path: "" },
+  { name: "About", href: "/about", path: "about" },
+  { name: "Projects", href: "/projects", path: "projects" },
+  { name: "Blog", href: "/blog", path: "blog" },
+];
+
+const isPathActive = (currentPath: string, pathToCheck: string) => {
+  if (pathToCheck === "") {
+    return currentPath === pathToCheck;
+  }
+  return currentPath.startsWith(pathToCheck);
+};
 ---
 
 <style>
-  div {
-    display: flex;
-    gap: 8px;
-  }
-
   a {
-    display: flex;
-    align-items: center;
-    position: relative;
-    text-decoration: underline;
-    text-decoration-thickness: 3px;
-    text-decoration-color: var(--navigation-underline-off);
-    transition: text-decoration-color 200ms;
-
-    &:hover,
-    &.active,
-    &:active {
+    &.active {
       text-decoration-color: var(--navigation-underline);
     }
   }
 </style>
 
-<div class="nav-links">
-  <a href="/" class={currentPath === "" ? "active" : ""}> Home</a>
-  <a href="/about" class={currentPath.startsWith("about") ? "active" : ""}>
-    About
-  </a>
-  <a href="/projects" class={currentPath.startsWith("projects") ? "active" : ""}
-    >Projects</a
-  >
-  <a href="/blog" class={currentPath.startsWith("blog") ? "active" : ""}>
-    Blog
-  </a>
+<div class="nav-links flex gap-2">
+  {
+    links.map(({ name, href, path }) => {
+      return (
+        <a
+          href={href}
+          class:list={[
+            {
+              active: isPathActive(currentPath, path),
+            },
+          ]}
+          class="flex items-center relative underline decoration-3 decoration-(--navigation-underline-off) transition-[text-decoration-color] duration-200 hover:decoration-(--navigation-underline) active:decoration-(--navigation-underline)"
+        >
+          {name}
+        </a>
+      );
+    })
+  }
 </div>
