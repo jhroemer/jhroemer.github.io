@@ -42,10 +42,10 @@ test("About page", async ({ page }) => {
   await expect(page).toHaveScreenshot("about-dark.png");
 });
 
-test("Blog page", async ({ page }) => {
+test("Blog/writing page", async ({ page }) => {
   await page.emulateMedia({ colorScheme: "light" });
 
-  await page.goto("/blog", {
+  await page.goto("/writing", {
     waitUntil: "networkidle",
   });
 
@@ -77,7 +77,7 @@ test("Blog comments", async ({ page }) => {
 
   await page.emulateMedia({ colorScheme: "light" });
 
-  await page.goto("/posts/jheys-exploding-layers", {
+  await page.goto("/writing/jheys-exploding-layers", {
     waitUntil: "networkidle",
   });
 

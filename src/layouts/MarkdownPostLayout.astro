@@ -106,12 +106,12 @@ const { frontmatter } = Astro.props;
     });
   };
 
-  if (window.location.pathname.startsWith("/posts")) {
+  if (window.location.pathname.startsWith("/writing")) {
     applyAnchorHeadings();
   }
 
   document.addEventListener("astro:after-swap", () => {
-    if (window.location.pathname.startsWith("/posts")) {
+    if (window.location.pathname.startsWith("/writing")) {
       applyAnchorHeadings();
     }
   });

@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 
 test("Blog post header anchor links", async ({ page }) => {
-  await page.goto("/posts/the-speed-limit-berm", {
+  await page.goto("/writing/the-speed-limit-berm", {
     waitUntil: "networkidle",
   });
 
@@ -15,5 +15,5 @@ test("Blog post header anchor links", async ({ page }) => {
 
   await speedBumpLink.click();
 
-  await expect(page).toHaveURL("/posts/the-speed-limit-berm#the-speed-bump");
+  await expect(page).toHaveURL("/writing/the-speed-limit-berm#the-speed-bump");
 });
