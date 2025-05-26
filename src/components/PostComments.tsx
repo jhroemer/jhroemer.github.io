@@ -98,10 +98,9 @@ type BlueskyPost = {
 
 const fetchData = async (postId: string) => {
   const atUri = `at://did:plc:laqygfbyvnkyuhsuaxmp6ez3/app.bsky.feed.post/${postId}`;
+  const params = new URLSearchParams({ uri: atUri });
   const response = await fetch(
-    `https://public.api.bsky.app/xrpc/app.bsky.feed.getPostThread?uri=${encodeURIComponent(
-      atUri
-    )}`
+    `https://public.api.bsky.app/xrpc/app.bsky.feed.getPostThread?${params.toString()}`
   );
   const json: { thread: BlueskyPost } = await response.json();
   return json.thread;
