@@ -34,13 +34,7 @@ export default defineConfig({
     "/posts/solid-rendered-bluesky-comments":
       "/writing/solid-rendered-bluesky-comments",
   },
-
   site: "https://jhroemer.github.io/",
-
-  experimental: {
-    svg: true,
-  },
-
   vite: {
     plugins: [tailwindcss()],
   },
