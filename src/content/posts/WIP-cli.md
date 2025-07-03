@@ -6,6 +6,7 @@ pubDate: 2025-06-26
 draft: true
 ---
 
+- Always good to do dog feeding
 - https://clig.dev/
 - make it intuitive to learn and use
 - on interactive CLI's
