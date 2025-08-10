@@ -17,3 +17,4 @@ draft: true
 - https://en.wikipedia.org/wiki/Unix_philosophy "expect the output of every program to become the input to another, as yet unknown, program."
 - Navigation? Router? Stack-based approach?
 - https://terminaltrove.com/
+- CLI vs TUI vs interactive CLI
