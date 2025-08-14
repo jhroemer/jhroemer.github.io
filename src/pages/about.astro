@@ -60,6 +60,33 @@ const pageTitle = "About me";
   }
 </style>
 
+<script>
+  // Needed as long as animation-timeline is not widely supported: https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timeline
+  const markAnimationFallback = () => {
+    if (!CSS.supports("animation-timeline: view()")) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            (entry.target as HTMLElement).style.setProperty(
+              "--highlighted",
+              entry.isIntersecting ? "1" : "0"
+            );
+          });
+        },
+        { threshold: 1.0 }
+      );
+      const marks = document.querySelectorAll("mark");
+      marks.forEach((mark) => observer.observe(mark));
+    }
+  };
+
+  markAnimationFallback();
+
+  document.addEventListener("astro:after-swap", (event) => {
+    markAnimationFallback();
+  });
+</script>
+
 <BaseLayout pageTitle={pageTitle}>
   <div class="container">
     <div class="section-left-column">
