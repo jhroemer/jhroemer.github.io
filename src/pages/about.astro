@@ -82,7 +82,7 @@ const pageTitle = "About me";
 
   markAnimationFallback();
 
-  document.addEventListener("astro:after-swap", (event) => {
+  document.addEventListener("astro:after-swap", () => {
     markAnimationFallback();
   });
 </script>
