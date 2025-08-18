@@ -15,7 +15,7 @@
     "generate-mock": "ts-generate-mock-data --output-dir ./tests/mocks"
   },
   "dependencies": {
-    "@astrojs/mdx": "4.2.3",
+    "@astrojs/mdx": "4.3.4",
     "@astrojs/rss": "4.0.11",
     "@astrojs/solid-js": "5.0.10",
     "@tailwindcss/vite": "4.1.11",
