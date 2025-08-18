@@ -19,3 +19,4 @@ draft: true
 - https://en.wikipedia.org/wiki/Unix_philosophy "expect the output of every program to become the input to another, as yet unknown, program."
 - https://terminaltrove.com/
 - http://www.catb.org/esr/writings/taoup/html/
+- https://github.com/lirantal/nodejs-cli-apps-best-practices
