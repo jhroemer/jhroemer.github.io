@@ -16,21 +16,26 @@ I'm not sure if there's an agreed-upon umbrella for applications that run in you
 
 - Terminal applications -> 'all of them'
 - TUI -> Terminal applications that have an interface, are interactive (continue running until you quit them) as TUI (The terminal-nerds at [SST](https://sst.dev/) label OpenCode as a TUI fwiw)
-- CLI -> Programs and scripts that run in the terminal. TODO: examples.
+- CLI -> Programs and scripts that run in the terminal. Hard to get around them if you're a developer, the Git-, Docker- or npm CLI for example.
 
 ## CLI
 
 <!-- TODO: improve wording -->
 
-Let's start with talking about CLI's then. UX and CLI might feel somewhat at odds, contradictory or misplaced to some people ('some people' let's be honest is probably just developers). UX is a very misunderstood field, and is often wrongly used to describe things purely of a graphical- or visual nature (an app has 'good ux', when the meaning conveyed is 'your app looks good'). Defining UX is an entire post in itself, so I'll just go simple here; if something has 'good ux', it's easy/simple and joyful to use.
+Let's start with talking about CLI's then. UX and CLI might feel somewhat at odds, contradictory or misplaced to some people ('some people' let's be honest is probably just developers). UX is a very misunderstood field, and is often wrongly used to describe things purely of a graphical- or visual nature (an app has 'good ux', when the meaning conveyed is 'your app looks good'). Defining UX is an entire post in itself, so I'll just stay simple here; if something has 'good ux', it's intuitive and sometimes even joyful to use.
 
-CLI's might not overlap very much with your typical web application, but there's still a huge difference in their ease of use.
+CLI's might not overlap very much with your typical web application, but there's still a difference in their ease of use. As with UX there's common, familiar patterns you can lean on to make things intuitive. For example, instead of relying on args you should use flags. You should include common flags that help users navigate and understand the application, such as `--help` and `--version`.
 
-- UNIX philosophy
-- Common patterns; --help, --version, --verbose etc.
-- Examples: parallel, GH,
+When discussing CLI's we often end up talking about the [UNIX philosophy](https://en.wikipedia.org/wiki/Unix_philosophy). A huge topic worthy of books. A core idea is that you should build your program as a lego brick. It should be limited to solving one thing, and the way to solve more complex tasks is to pipe it together with other lego bricks. Allowing your program to accept text input and making it emit text output facilitates tis.
+
+Overall, CLI's are well-documented and a well understood subject. As such there's lots of very good and extensive documentation, which I will simply reference here:
+
+- https://clig.dev/
+- http://www.catb.org/esr/writings/taoup/html/
 
 ## TUI
+
+Text-based user interfaces (TUI) are significantly less documented. In contrary to web interfaces, they also rely entirely (mostly at least) on keyboard interaction, as opposed to point-and-click interaction, which is much more intuitive.
 
 - make it intuitive to learn and use, documentation/manual should't be necessary (TIG example)
 - instead of view-specific hotkeys, think in reusable patterns
@@ -47,7 +52,6 @@ CLI's might not overlap very much with your typical web application, but there's
 
 ## Links
 
-- https://clig.dev/
 - https://en.wikipedia.org/wiki/Unix_philosophy "expect the output of every program to become the input to another, as yet unknown, program."
 - https://terminaltrove.com/
 - http://www.catb.org/esr/writings/taoup/html/
