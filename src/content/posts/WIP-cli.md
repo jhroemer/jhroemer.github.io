@@ -1,6 +1,6 @@
 ---
-slug: ux-in-terminal-applications
-title: "UX in terminal applications"
+slug: ux-and-terminal-applications
+title: "UX and terminal applications"
 tags: [UX, CLI, TUI, terminal]
 pubDate: 2025-08-28
 draft: true
@@ -8,7 +8,7 @@ draft: true
 
 Command-line applications (CLI), text-based user interfaces (TUI), terminal applications. There's a bunch of ways to refer to programs that run and live in your terminal. They've been around for almost as long as computers, are easier than ever to develop and are fairly hot topic right now, with LLM providers and tech companies releasing terminal UI's that let you manage coding agents. [Claude Code](https://www.anthropic.com/claude-code) (Anthropic), [Codex](https://openai.com/codex/) (OpenAI), [Cody](https://sourcegraph.com/cody) (SourceGraph) and [opencode](https://opencode.ai/) (SST) to name a few.
 
-I care a lot about UX and usability, I enjoy using terminal applications, and I believe the UX angle on terminal UI's is somewhat underappreciated and sparingly covered.
+I care a lot about UX and usability, I enjoy using terminal applications, and I believe the UX angle on terminal UI's is somewhat underappreciated and sparingly covered. "Wouldn't you call that developer experience (DX)?" you might say, but frankly I think DX, while overlapping, is a somewhat different topic.
 
 ## Terminology
 
@@ -33,6 +33,8 @@ When discussing CLI's we often end up talking about the [UNIX philosophy](https:
 Overall, CLI's are well-documented and a well understood subject. As such there's lots of very good and extensive documentation. I found [clig.dev](https://clig.dev/) particularly well made.
 
 ## TUI
+
+<!-- TODO: terminal.shop "screenshot" -->
 
 Text-based user interfaces (TUI) are significantly less documented. In contrary to web interfaces, they also rely entirely (mostly at least) on keyboard interaction, as opposed to point-and-click interaction, which is much more intuitive.
 
