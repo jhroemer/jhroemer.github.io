@@ -34,7 +34,7 @@ Overall, CLI's are well-documented and a well understood subject. As such there'
 
 ## TUI
 
-<!-- TODO: terminal.shop "screenshot" -->
+{/* TODO: terminal.shop "screenshot" */}
 
 Text-based user interfaces (TUI) are significantly less documented. In contrary to web interfaces, they also rely entirely (mostly at least) on keyboard interaction, as opposed to point-and-click interaction, which is much more intuitive.
 
@@ -47,6 +47,28 @@ So what I'm getting at? TUI can be intuitive to use, in terms of navigation and 
 **Put it right there where you need it**
 
 You can simply show the hotkey where it's needed. [Terminal.shop](https://www.terminal.shop/) is a great example of this: the 'header' links simply have the hotkey next to the section: 's' for shop, 'a' for account, 'c' for cart, 'r' to change region, 'q' for quit. Both simple and effective. It fits really well, since the TUI is an online shop, and you already asked users to ssh into it instead of simply opening it in your browser, so you don't want to add even more friction. What a cool project. Check it out if you haven't already.
+
+```
+ ┌───────────────────┬──────────────────┬──────────────────┬──────────────────┐
+ │     terminal      │      s shop      │    a account     │  c cart $ 0 [0]  │
+ └───────────────────┴──────────────────┴──────────────────┴──────────────────┘
+
+
+                         no products available for this region.
+                               press 'r' to change region.
+
+
+
+
+                           free shipping on US orders over $40
+ ──────────────────────────────────────────────────────────────────────────────
+                                  r 🇪🇺 (EU)   q quit
+
+
+Example of a screen from https://www.terminal.shop/.
+This is just a markdown codeblock, and not a screenshot btw.
+It's all just plain text anyway 😎
+```
 
 This approach clearly has its limitations though. Showing the hotkeys next to what they activate only works if they map to something directly in the interface, which is not always the case. The approach might also not scale for something more complex. But for something like terminal.shop it works perfectly.
 
@@ -74,5 +96,5 @@ This one's sort of obvious when you think about it. If an entity or 'link' is hi
 - http://www.catb.org/esr/writings/taoup/html/
 - https://github.com/lirantal/nodejs-cli-apps-best-practices
 
-<!-- TODO: if I mention own work -->
-<!-- - Always good to do dog feeding -->
+{/* TODO: if I mention own work */}
+{/* Always good to do dog feeding */}
