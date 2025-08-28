@@ -24,18 +24,13 @@ I also found [this](https://itsfoss.com/gui-cli-tui/) article on itsfoss.com qui
 
 ## CLI
 
-<!-- improve wording  -->
+UX and CLI's might feel somewhat at odds, contradictory or misplaced. UX is a very misunderstood field, and is often wrongly used to describe things purely of a graphical- or visual nature (an app has 'good ux', when the meaning conveyed is 'your app looks good'). Defining UX is an entire post in itself, so I'll just stay simple and dumb it down here; if something has 'good ux', it's intuitive and sometimes even joyful to use.
 
-Let's start with talking about CLI's then. UX and CLI might feel somewhat at odds, contradictory or misplaced to some people ('some people' let's be honest is probably just developers). UX is a very misunderstood field, and is often wrongly used to describe things purely of a graphical- or visual nature (an app has 'good ux', when the meaning conveyed is 'your app looks good'). Defining UX is an entire post in itself, so I'll just stay simple here; if something has 'good ux', it's intuitive and sometimes even joyful to use.
+CLI's might not overlap very much with your typical web application, but there's still a difference in their ease of use. As with UX there's common, familiar patterns you can lean on to make things intuitive. As an example, you should include common flags that help users navigate and understand the application, such as `--help` and `--version`. You should rely on [flags over args](https://clig.dev/#arguments-and-flags). And so forth.
 
-CLI's might not overlap very much with your typical web application, but there's still a difference in their ease of use. As with UX there's common, familiar patterns you can lean on to make things intuitive. For example, instead of relying on args you should use flags. You should include common flags that help users navigate and understand the application, such as `--help` and `--version`.
+When discussing CLI's we often end up talking about the [UNIX philosophy](https://en.wikipedia.org/wiki/Unix_philosophy). A huge topic worthy of books. A core idea is that you should build your program as a lego brick. It should be limited to solving one thing, and the way to solve more complex tasks is to pipe it together with other lego bricks. Allowing your program to accept text input and making it emit text output facilitates this.
 
-When discussing CLI's we often end up talking about the [UNIX philosophy](https://en.wikipedia.org/wiki/Unix_philosophy). A huge topic worthy of books. A core idea is that you should build your program as a lego brick. It should be limited to solving one thing, and the way to solve more complex tasks is to pipe it together with other lego bricks. Allowing your program to accept text input and making it emit text output facilitates tis.
-
-Overall, CLI's are well-documented and a well understood subject. As such there's lots of very good and extensive documentation, which I will simply reference here:
-
-- https://clig.dev/
-- http://www.catb.org/esr/writings/taoup/html/
+Overall, CLI's are well-documented and a well understood subject. As such there's lots of very good and extensive documentation. I found [clig.dev](https://clig.dev/) particularly well made.
 
 ## TUI
 
