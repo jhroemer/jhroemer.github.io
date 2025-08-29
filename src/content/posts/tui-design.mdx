@@ -1,0 +1,87 @@
+---
+slug: tui-design
+title: "TUI design"
+tags: [Design, CLI, TUI]
+pubDate: 2025-08-29
+draft: true
+---
+
+ClI's are well-known, and there's plenty of resources on getting their design right.
+Familiarize yourself with the [Unix philosophy](https://en.wikipedia.org/wiki/Unix_philosophy), read a few (of the many) good articles/books on the subject (for example [clig.dev](<(https://clig.dev/#arguments-and-flags)>) or [this repo](https://github.com/lirantal/nodejs-cli-apps-best-practices)) and you should be good to go.
+TUI design guidelines on the other hand are significantly less documented (if you're confused about the CLI vs TUI distinction then [here](https://itsfoss.com/gui-cli-tui) is a good breakdown).
+
+In contrary to web interfaces, TUI's tend to rely almost entirely on keyboard interaction, as opposed to point-and-click interaction, which is usually more intuitive.
+That doesn't mean that good interface design practice no longer applies. Use contrast (color, size) to guide users and highlight importance. Position in a way that makes it easy to find what users are looking for. Add friction around destructive actions, and remove it when it makes things cumbersome. None of this is different, it just applies in a different context.
+
+Now the more unique challenge to TUI's (from my point of view) is navigation and interaction.
+For example: I've used (the awesome) [Tig](https://jonas.github.io/tig/) on a daily basis for years, but the absence of point-and-click means that there's around a hundred hotkeys and key combinations to learn if you want to use all the features.
+This is one of the reasons that TUI's remain somewhat niche, and difficult to adopt for people who struggle with [RTFM](https://en.wikipedia.org/wiki/RTFM).
+
+I'm a big believer that well-designed interfaces shouldn't need a manual. A manual is a last resort.
+So let's see how you can remove the need for one.
+
+## Display hotkeys where you need them
+
+Simply display the hotkey where it's needed. [Terminal.shop](https://www.terminal.shop/) is a great example of this: the 'header' links simply have the hotkey next to the section: 's' for shop, 'a' for account, 'c' for cart, 'r' to change region, 'q' for quit. Both simple and effective. It fits really well, since the TUI is an online shop, and you already asked users to ssh into it instead of simply opening it in your browser, so you don't want to add even more friction. What a cool project. Check it out if you haven't already.
+
+```
+┌──────────────────┬─────────────────┬─────────────────┬─────────────────┐
+│     terminal     │     s shop      │   a account     │ c cart $ 0 [0]  │
+└──────────────────┴─────────────────┴─────────────────┴─────────────────┘
+
+
+                no products available for this region.
+                      press 'r' to change region.
+
+
+
+
+                  free shipping on US orders over $40
+──────────────────────────────────────────────────────────────────────────
+                          r 🇪🇺 (EU)   q quit
+
+
+Example of a screen from https://www.terminal.shop/.
+.. this is just a markdown codeblock, and not a screenshot btw.
+It's all just plain text anyway 😎
+```
+
+This approach clearly has its limitations though. Showing a hotkey next to what it does only works if it maps to a visual component in the interface, which is not always the case. The approach might also not scale for something more complex. But for something like terminal.shop it works perfectly.
+
+## Reusable patterns
+
+This one's sort of obvious when you think about it.
+If an entity or 'link' is highlighted in a TUI and you click enter, what then happens?
+Well you 'select' it, navigate there, or something along those lines, right?
+This is the obvious example, but we should use reusable patterns as much as we can.
+
+I'm building a small TUI right now for example, and many of the views have actions in common: you can often add an entity in a view, so let's use 'a' for that.
+Deletion is also common, let's use 'd' for that. You can mark different entities as 'completed', use 'c' for that.
+"Go back", let's go with 'q' (which is already standard). And so forth.
+You have the chance to build up a vocabulary here, so that users don't have to learn something new across different views.
+Use it to your advantage (.. but be mindful of no breaking changes).
+
+## Help/hotkey section
+
+Help sections are really useful.
+But you can do better than simply listing all the commands in the application in one big section.
+Even if your help section is simply a list of all the available hotkeys, you can improve the section drastically by moving the most used/important ones to the top.
+
+An even better approach is to have the help section work per-view (if you have multiple views that is).
+That way you narrow down the amount of information to display, and you only list things that the user might need where she is.
+You can also implement a [Command+K](https://kbar.vercel.app/) type search that lets you search through application commands and shortcuts.
+
+There's lots of example of how this can be done, you can look at Opencode or Claude Code for modern examples, Nano or HTOP for older examples.
+
+```
+╭──────────────────────────────────────────────────────────────────────────╮
+│ > Try "fix typecheck errors"                                             │
+╰──────────────────────────────────────────────────────────────────────────╯
+  ! for bash mode     double tap esc to clear input     ctrl + _ to undo
+  / for commands      shift + tab to auto-accept edits  ctrl + z to suspend
+  @ for file paths    ctrl + r for verbose output       ctrl + v to paste
+  # to memorize       shift + ⏎ for newline
+
+
+  Claude Code showing help section at the bottom
+```
