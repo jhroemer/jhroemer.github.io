@@ -18,7 +18,7 @@
     "@astrojs/mdx": "4.3.5",
     "@astrojs/rss": "4.0.11",
     "@astrojs/solid-js": "5.1.0",
-    "@tailwindcss/vite": "4.1.11",
+    "@tailwindcss/vite": "4.1.14",
     "astro": "5.10.2",
     "solid-js": "1.9.7",
     "tailwindcss": "4.1.13"
