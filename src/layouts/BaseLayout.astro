@@ -24,6 +24,12 @@ const { pageTitle }: Props = Astro.props;
     />
     <title>{pageTitle}</title>
     <ClientRouter />
+    <script
+      async
+      is:inline
+      data-astro-rerun
+      src="https://cloud.umami.is/script.js"
+      data-website-id="71d4c672-c978-4ccb-91fb-eac13463e404"></script>
   </head>
   <body class="py-16 px-8">
     <Header />
