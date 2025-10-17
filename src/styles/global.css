@@ -86,7 +86,7 @@
   h2,
   p,
   ul {
-    font-weight: 300;
+    font-weight: 400;
   }
 
   p {
@@ -94,7 +94,7 @@
   }
 
   a {
-    font-weight: 300;
+    font-weight: 400;
     color: unset;
 
     text-decoration: underline;
