@@ -8,10 +8,20 @@ draft: true
 
 # ...
 
-This post is largely for myself, just documenting some of the onboarding steps.
-If it can help someone else, then all the better.
+This post is largely for myself, just documenting some of the onboarding steps. I'm generally very low on time these, with a day-job and two kids, so OSS is a huge stretch for me. And
+So I hope this might help someone else who wants to get involved, but is struggling to cross the barrier.
+
+Lastly if I can help spread the word about Tangled and what's happening in the atproto space, then all the better. There's other project that are worth keeping an eye on:
+
+- Leaflet
+- Nookie
+- And more, maybe yours is the next one?
 
 # Contributing to OSS
+
+<!-- TODO: redundant? Make into 1-2 sentences in Intro -->
+
+This is not a general section about contributing to OSS. There's lots of those around.
 
 - It's a project that I really like
 - The tech stack is fun/interesting
@@ -25,15 +35,23 @@ If it can help someone else, then all the better.
 - Had a chat w. another contributor, Will, who made pointed the obvious, that you can just develop in a Nix image.
 - Dockerize (thanks Will)
 
+# Knot
+
+# Spindle
+
+# SSH
+
+- Add key
+- 2222 port thing
+- ?
+
 # Redis
 
 - ..
 
-# SH
-
-- Tangled requires push over SSH instead of HTTPS
-
 # Go templates
+
+<!-- https://anirudh.fi/future -->
 
 - Fundamentally different to work with html
 - Views are explicitly returned from server-side function calls. You provide the function call with an object and a template. The object properties are then accessible in the template.
@@ -46,3 +64,5 @@ If it can help someone else, then all the better.
 - HTMX 4 coming up?
 
 # Get involved
+
+<!-- I don't know if Linkedin is here for this type of content, but... -->
