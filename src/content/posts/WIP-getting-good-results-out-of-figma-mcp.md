@@ -23,7 +23,11 @@ So this experiment is about getting to the other end of the spectrum, to somethi
 
 # ..
 
-Tools:
+- https://modelcontextprotocol.io/docs/tools/inspector
+- https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents
+- https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents
+
+Out of the box behaviour of claude code and Figma will give you a very general response, which in many cases is likely to be much more innaccurate than it needs to be.
 
 ```jsx
 // Example return from get_design_context
