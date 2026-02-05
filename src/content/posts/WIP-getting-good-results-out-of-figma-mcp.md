@@ -8,6 +8,12 @@ draft: true
 
 # Framing
 
+I really dislike the ralph name. 
+The meme aspect bothers me. 
+Making all of it into a joke.
+The memecoin crypto pump'n'dump schemes certainly haven't improved my view on it. 
+So in this article I'll simply refer to the technique as The Expensive Loop (TEL). 
+
 - Disposable prototype for early feedback on a bigger upcoming project where lots of things are not yet set in stone.
 - You might thinkAI is probably able to build things correctly, if given correct specification, proper guardrails and so on. So what we're working on here is an artifact that will allow us to come up with the correct specification of this product. 
 
@@ -22,10 +28,18 @@ This is what I've seen from Figma make for example. It's quite close, but there'
 
 So this experiment is about getting to the other end of the spectrum, to something that really feels like the real thing, and testing with that.
 
+# Outcome
+
+- Start at the beginning, with the outcome
+- We got very accurate results, could generate the thing in ~15 min
+- Code quality depends on the codebase. The agent will pick up on existing patterns, this is not new.
+
 # ..
 
 - https://modelcontextprotocol.io/docs/tools/inspector
+- MCP Jam
 - https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents
+- Which optimizations do agents already do, w. caching and so forth?
 - https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents
 
 Out of the box behaviour of claude code and Figma will give you a very general response, which in many cases is likely to be much more innaccurate than it needs to be.
