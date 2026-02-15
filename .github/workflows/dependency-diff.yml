@@ -15,4 +15,4 @@ jobs:
         with:
           fetch-depth: 0
       - name: Create Diff
-        uses: e18e/action-dependency-diff@1d7c22bc4294a760e988dff8ea7857e9663cba14
+        uses: e18e/action-dependency-diff@d995338f3b229fe7b2cd82048df5da930f70c7c3
