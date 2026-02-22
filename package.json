@@ -10,8 +10,8 @@
     "astro": "astro",
     "lint": "eslint src",
     "test:ui": "npx playwright test --ui",
-    "test": "docker run --rm --network host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:v1.53.2-noble /bin/bash -c 'npm i && npx playwright test'",
-    "test:update": "docker run --rm --network host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:v1.53.2-noble /bin/bash -c 'npm i && npx playwright test --update-snapshots'",
+    "test": "docker run --rm --network host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:v1.57.0-noble /bin/bash -c 'npm i && npx playwright test'",
+    "test:update": "docker run --rm --network host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:v1.57.0-noble /bin/bash -c 'npm i && npx playwright test --update-snapshots'",
     "generate-mock": "ts-generate-mock-data --output-dir ./tests/mocks"
   },
   "dependencies": {
