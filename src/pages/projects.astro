@@ -1,21 +1,27 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import WebIcon from "../assets/web.svg";
-import SvgIcon from "../assets/cli.svg";
 import ArrowIcon from "../assets/arrow.svg";
+import SvgIcon from "../assets/cli.svg";
+import ShieldCheckIcon from "../assets/shield-check.svg";
+import WebIcon from "../assets/web.svg";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const pageTitle = "Projects";
 
 const projects = [
   {
     title: "ts-generate-mock-data",
-    type: "CLI",
+    icon: SvgIcon,
     link: "https://github.com/jhroemer/ts-generate-mock-data",
   },
   {
     title: "www.jensroemer.com",
-    type: "web",
+    icon: WebIcon,
     link: "https://github.com/jhroemer/jhroemer.github.io",
+  },
+  {
+    title: "action-agent-scan",
+    icon: ShieldCheckIcon,
+    link: "https://github.com/jhroemer/action-agent-scan",
   },
 ];
 ---
@@ -81,11 +87,7 @@ const projects = [
       {
         projects.map((project) => (
           <a href={project.link} class="card">
-            {project.type === "web" ? (
-              <WebIcon size={18} class="project-icon" />
-            ) : (
-              <SvgIcon size={18} class="project-icon" />
-            )}
+            <project.icon size={18} class="project-icon" />
             <div class="card-body">
               <h3>{project.title}</h3>
               <ArrowIcon size={18} class="arrow project-icon" />
