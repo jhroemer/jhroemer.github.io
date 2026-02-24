@@ -2,7 +2,7 @@ name: Agent Scan
 
 on:
   pull_request:
-    types: [opened]
+    types: [opened, synchronize]
 
 jobs:
   agent_scan:
