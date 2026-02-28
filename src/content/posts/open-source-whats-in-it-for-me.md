@@ -39,7 +39,7 @@ So here are the projects I'm following more closely this year:
 
 **[npmx](https://npmx.dev/)** - instead of complaining about the state of JS, the npm ecosystem and unhealthy dependency patterns, we can actually improve things. And fast. Throw in talented people from the [e18e](https://e18e.dev/) project and you have a potent force for driving positive change in the ecosystem.
 
-**[Tangled](https://tangled.org/)** - [atproto](https://atproto.com/)-based, decentralised and potentially [self-hosted](https://docs.tangled.org/spindles.html#self-hosting-guide) github alternative. Which is a nice thing to have these days. The people are wonderful, the product is cool, and for a node developer, the Nix/Go/htmx tech stack is a wonderfully refreshing reminder that there's different ways of doing things.
+**[Tangled](https://tangled.org/)** - [atproto](https://atproto.com/)-based, decentralised and potentially [self-hosted](https://docs.tangled.org/spindles.html#self-hosting-guide) github alternative. Which is a nice thing to have these days. The people are wonderful, the product is cool, and for a node developer, the Nix/Go/htmx tech stack is a refreshing reminder that there's different ways of doing things.
 
 **[OpenTUI](https://github.com/anomalyco/opentui)** - now besides a single docs contribution I have yet to contribute much here.
 But I care about the library powering [OpenCode](https://opencode.ai/), and that there are great and open alternatives to what the big model providers are building. We shouldn't leave AI and its tooling to the crypto-bros. Besides, building TUIs with [SolidJS](https://www.solidjs.com/) is lots of fun.
