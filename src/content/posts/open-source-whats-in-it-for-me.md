@@ -3,7 +3,6 @@ slug: "open-source-whats-in-it-for-me"
 title: "Open source, what's in it for me?"
 tags: [OSS]
 pubDate: 2026-03-03
-draft: true
 ---
 
 First things first: Happy [npmx.dev](https://npmx.dev/) alpha release day!
