@@ -42,6 +42,6 @@ So here are the projects I'm following more closely this year:
 **[Tangled](https://tangled.org/)** - [atproto](https://atproto.com/)-based, decentralised and potentially [self-hosted](https://docs.tangled.org/spindles.html#self-hosting-guide) github alternative. Which is a nice thing to have these days. The people are wonderful, the product is cool, and for a node developer, the Nix/Go/htmx tech stack is a refreshing reminder that there's different ways of doing things.
 
 **[OpenTUI](https://github.com/anomalyco/opentui)** - now besides a single docs contribution I have yet to contribute much here.
-But I care about the library powering [OpenCode](https://opencode.ai/), and that there are great and open alternatives to what the big model providers are building. We shouldn't leave AI and its tooling to the crypto-bros. Besides, building TUIs with [SolidJS](https://www.solidjs.com/) is lots of fun.
+But I care about the library powering [OpenCode](https://opencode.ai/), and that there are great and open alternatives to what the big model providers are building. We shouldn't leave AI and its tooling to the wrong people. Besides, building TUIs with [SolidJS](https://www.solidjs.com/) is lots of fun.
 
 Hope to meet you out there some day!
