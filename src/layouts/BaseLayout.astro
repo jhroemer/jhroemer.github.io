@@ -5,9 +5,10 @@ import "../styles/global.css";
 
 interface Props {
   pageTitle: string;
+  ogImage?: string;
 }
 
-const { pageTitle }: Props = Astro.props;
+const { pageTitle, ogImage }: Props = Astro.props;
 ---
 
 <html lang="en">
@@ -16,6 +17,12 @@ const { pageTitle }: Props = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    {
+      ogImage && (
+        <meta property="og:image" content={new URL(ogImage, Astro.site).href} />
+      )
+    }
+    <meta property="og:title" content={pageTitle} />
     <link
       rel="stylesheet"
       href="https://indestructibletype.com/fonts/Jost.css"

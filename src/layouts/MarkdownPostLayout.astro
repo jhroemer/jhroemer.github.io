@@ -8,6 +8,7 @@ interface Props {
     pubDate: Date;
     tags: string[];
     bskyPostId?: string;
+    ogImage?: string;
   };
 }
 const { frontmatter } = Astro.props;
@@ -117,7 +118,7 @@ const { frontmatter } = Astro.props;
   });
 </script>
 
-<BaseLayout pageTitle={frontmatter.title}>
+<BaseLayout pageTitle={frontmatter.title} ogImage={frontmatter.ogImage}>
   <h1>{frontmatter.title}</h1>
   <p class="publish-date">
     Published on: {frontmatter.pubDate.toString().slice(0, 15)}

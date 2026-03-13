@@ -1,5 +1,5 @@
 // Import utilities from `astro:content`
-import { z, defineCollection } from "astro:content";
+import { defineCollection, z } from "astro:content";
 // Define a `type` and `schema` for each collection
 const postsCollection = defineCollection({
   type: "content",
@@ -8,6 +8,7 @@ const postsCollection = defineCollection({
     pubDate: z.date(),
     tags: z.array(z.string()),
     draft: z.boolean().optional(),
+    ogImage: z.string().optional(),
     bskyPostId: z.string().optional(),
   }),
 });

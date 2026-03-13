@@ -4,6 +4,7 @@ title: "Open source, what's in it for me?"
 tags: [OSS]
 pubDate: 2026-03-03
 bskyPostId: "3mg5rb36g4c2o"
+ogImage: "/og/open-source-whats-in-it-for-me.png"
 ---
 
 First things first: Happy [npmx.dev](https://npmx.dev/) alpha release day!
