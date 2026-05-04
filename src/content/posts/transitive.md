@@ -52,3 +52,5 @@ New intro:
 - Pin for own projects (if you want to), don't do this for packages.
 - Regardless what you do, read your package-lock.json file, inspect your npm graph, use e18e or similar resources to get a sane dependency tree.
 - As both a package author and consumer, use npmx, you (easily) get lots of insights that are otherwise easy to miss.
+
+# TODO: mention 0.x.y as a special case: 1. because npm treats caret ranges differently in this case https://github.com/npm/node-semver#caret-ranges-123-025-004 and 2. because even with ~ being strict you would not want to use ranges at all when using 0.x versions
