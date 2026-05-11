@@ -21,3 +21,7 @@ draft: true
 - web
 - how ai works
 - heck, I would consider "knowing the programming language you're working in' to (continue to be) pretty important too..
+
+## Asymmetric bet
+
+- with all this being said I don't think it makes sense to just play it safe with everything. That would be rather sad even, never spending time on new and exciting stuff. But I think it's a great idea to be very aware that you're taking a bet with something new, and weigh your options. For me it should be something fun, something interesting, and something I believe in.
