@@ -1,6 +1,6 @@
 ---
-slug: transitive-dependencies
-title: "Transitive dependencies"
+slug: should-i-pin-my-npm-dependencies
+title: "Should I pin my npm dependencies?"
 tags: [npm, yarn, pnpm]
 pubDate: 2026-03-22
 draft: true
@@ -27,6 +27,7 @@ New intro:
   package-lock.json), get notified about even patch/minor packages
 - Always done in conjunction w. dependabot or renovate
 - npmrc save-exact
+- When do dependency versions actually change when you use semver notations? How do the version resolution
 
 ## What do we need to understand first
 
@@ -42,6 +43,9 @@ New intro:
 ## Differences between npm, yarn, pnpm that we need to observe?
 
 ## Two typical use cases: own project or package
+
+- Own project: since your project has no downstream dependants, pinning doesn't have the downside of not allowing dedupes etc.
+- Package, locking dependencies makes it hard to do version bumps of transitive dependencies, which is needed for security updates. It's just more rigid than it needs to be.
 
 ## recommendation
 
