@@ -22,7 +22,7 @@ New intro:
 
 ## Should I pin dependencies or not?
 
-- What is pinning?
+- Pinning with package-lock.json? Yes always. Not using version ranges in package.json? It depends.
 - Generally; why pin? Compromised pacages, determinism (although overlap w.
   package-lock.json), get notified about even patch/minor packages
 - Always done in conjunction w. dependabot or renovate
@@ -41,6 +41,8 @@ New intro:
 - deduplication
 
 ## Differences between npm, yarn, pnpm that we need to observe?
+
+- pnpm does not hoist - does that change anything in the equation?
 
 ## Two typical use cases: own project or package
 
