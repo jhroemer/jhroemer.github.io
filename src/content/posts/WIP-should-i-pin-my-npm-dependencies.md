@@ -1,53 +1,22 @@
 ---
-slug: should-i-pin-my-npm-dependencies
-title: "Should I pin my npm dependencies?"
+slug: on-pinning-npm-dependencies
+title: "On pinning npm dependencies?"
 tags: [npm, yarn, pnpm]
 pubDate: 2026-03-22
 draft: true
 ---
 
-- https://medium.com/node-js-cybersecurity/risks-of-transitive-dependencies-in-node-js-2683b16f3089
-- https://www.herodevs.com/blog-posts/securing-transitive-dependencies-in-end-of-life-software-a-guide
-- https://docs.npmjs.com/cli/v9/commands/npm-dedupe?v=true
-- https://yarnpkg.com/cli/dedupe
+# TODO:
 
-TODO: consider starting with a TLDR
+New title: why use ranges if the package-lock file pins dependencies anyway?
 
-- Minimal implementation
-- npm/yarn/pnpm
-- effect on node_modules
-- effect on package-lock.json
+- thought I would turn the question its head, instead of the usual response which is "why pin package.json when this is handled by the lockfile". So besides of being an extra step (npm uses caret by default), let's see why that might be.
+- Link to renovate, skip most of the formality
+- TLDR: pin only for apps, only in unison with dependabot/renovate, not for packages
+- Can hurt de-duplication - though if you work with dependabot updates, it's unlikely that you have a direct dependency that is pinned lower than a transitive dependency of the same package
+- 0.x.y is a special case: 1. because npm treats caret ranges differently in this case https://github.com/npm/node-semver#caret-ranges-123-025-004 and 2. because even with ~ being strict you would not want to use ranges at all when using 0.x versions
 
-New intro:
-
-## Should I pin dependencies or not?
-
-- Pinning with package-lock.json? Yes always. Not using version ranges in package.json? It depends.
-- Generally; why pin? Compromised pacages, determinism (although overlap w.
-  package-lock.json), get notified about even patch/minor packages
-- Always done in conjunction w. dependabot or renovate
-- npmrc save-exact
-- When do dependency versions actually change when you use semver notations? How do the version resolution
-
-## What do we need to understand first
-
-## package-lock.json
-
-- This is only for your own project, it's not part of your build output
-- shrinkwrap, but you probably don't want to do this.
-
-## dependency resolution
-
-- deduplication
-
-## Differences between npm, yarn, pnpm that we need to observe?
-
-- pnpm does not hoist - does that change anything in the equation?
-
-## Two typical use cases: own project or package
-
-- Own project: since your project has no downstream dependants, pinning doesn't have the downside of not allowing dedupes etc.
-- Package, locking dependencies makes it hard to do version bumps of transitive dependencies, which is needed for security updates. It's just more rigid than it needs to be.
+I personally still like to pin versions, and to try and be more aware about what's going on in my dependency tree. Sure, dependabot PRs can feel like an onslaught, especially if you actually want to go through changelogs etc. But I've had a fairly high return of investment personally, it's actually quite nice staying up-to-date with what's going on with your dependencies. It may also make you more aware and concerned with the cost and value of your dependencies.
 
 ## recommendation
 
@@ -59,4 +28,7 @@ New intro:
 - Regardless what you do, read your package-lock.json file, inspect your npm graph, use e18e or similar resources to get a sane dependency tree.
 - As both a package author and consumer, use npmx, you (easily) get lots of insights that are otherwise easy to miss.
 
-# TODO: mention 0.x.y as a special case: 1. because npm treats caret ranges differently in this case https://github.com/npm/node-semver#caret-ranges-123-025-004 and 2. because even with ~ being strict you would not want to use ranges at all when using 0.x versions
+- https://medium.com/node-js-cybersecurity/risks-of-transitive-dependencies-in-node-js-2683b16f3089
+- https://www.herodevs.com/blog-posts/securing-transitive-dependencies-in-end-of-life-software-a-guide
+- https://docs.npmjs.com/cli/v9/commands/npm-dedupe?v=true
+- https://yarnpkg.com/cli/dedupe
