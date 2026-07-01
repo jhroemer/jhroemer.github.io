@@ -12,7 +12,7 @@
     "lint": "eslint src",
     "test:ui": "npx playwright test --ui",
     "test": "docker run --rm --network host -e COREPACK_ENABLE_DOWNLOAD_PROMPT=0 -v $(pwd):/work/ -v /work/node_modules -w /work/ -it mcr.microsoft.com/playwright:v1.60.0-noble /bin/bash -c 'corepack enable && pnpm i && pnpm exec playwright test'",
-    "test:update": "docker run --rm --network host -e COREPACK_ENABLE_DOWNLOAD_PROMPT=0 -v $(pwd):/work/ -v /work/node_modules -w /work/ -it mcr.microsoft.com/playwright:v1.60.0-noble /bin/bash -c 'corepack enable && pnpm i && pnpm exec playwright test --update-snapshots'",
+    "test:update": "docker run --rm --network host -e COREPACK_ENABLE_DOWNLOAD_PROMPT=0 -v $(pwd):/work/ -v /work/node_modules -w /work/ -it mcr.microsoft.com/playwright:v1.57.0-noble /bin/bash -c 'corepack enable && pnpm i && pnpm exec playwright test --update-snapshots'",
     "generate-mock": "ts-generate-mock-data --output-dir ./tests/mocks"
   },
   "dependencies": {
@@ -20,7 +20,7 @@
     "@astrojs/rss": "4.0.15",
     "@astrojs/solid-js": "5.1.3",
     "@tailwindcss/vite": "4.2.4",
-    "astro": "5.18.1",
+    "astro": "^5.18.2",
     "solid-js": "1.9.12",
     "tailwindcss": "4.2.2"
   },
