@@ -10,11 +10,19 @@ draft: true
 
 New title: why use ranges if the package-lock file pins dependencies anyway?
 
-- thought I would turn the question its head, instead of the usual response which is "why pin package.json when this is handled by the lockfile". So besides of being an extra step (npm uses caret by default), let's see why that might be.
 - Link to renovate, skip most of the formality
 - TLDR: pin only for apps, only in unison with dependabot/renovate, not for packages
+
+## Why use a range if your package-lock file pins anyway?
+
+- thought I would turn the question its head, instead of the usual response which is "why pin package.json when this is handled by the lockfile". So besides of being an extra step (npm uses caret by default), let's see why that might be.
 - Can hurt de-duplication - though if you work with dependabot updates, it's unlikely that you have a direct dependency that is pinned lower than a transitive dependency of the same package
+- pnpm update -i needs --latest too, otherwise it doesn't identify anything to update. Not really a big deal necessarily.
+
+## Why pin if your package-lock file does this for you?
+
 - 0.x.y is a special case: 1. because npm treats caret ranges differently in this case https://github.com/npm/node-semver#caret-ranges-123-025-004 and 2. because even with ~ being strict you would not want to use ranges at all when using 0.x versions
+- Again, it's really an approach where you're hand-holding your dependencies more.
 
 I personally still like to pin versions, and to try and be more aware about what's going on in my dependency tree. Sure, dependabot PRs can feel like an onslaught, especially if you actually want to go through changelogs etc. But I've had a fairly high return of investment personally, it's actually quite nice staying up-to-date with what's going on with your dependencies. It may also make you more aware and concerned with the cost and value of your dependencies.
 
