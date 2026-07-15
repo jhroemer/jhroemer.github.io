@@ -93,7 +93,7 @@ const postsByYear = allPosts
               {posts.map((post) => {
                 return (
                   <div class="post-container">
-                    <a class="post" href={`/writing/${post.slug}`}>
+                    <a class="post" href={`/writing/${post.id}`}>
                       {post.data.title}
                     </a>
                     <p class="publish-date">

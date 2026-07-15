@@ -10,7 +10,7 @@ export async function get() {
     items: posts.map((post) => ({
       title: post.data.title,
       pubDate: post.data.pubDate,
-      link: `/posts/${post.slug}/`,
+      link: `/posts/${post.id}/`,
     })),
     customData: `<language>en-us</language>`,
   });
