@@ -1,7 +1,6 @@
 import { defineConfig } from "astro/config";
 
 import mdx from "@astrojs/mdx";
-import tailwindcss from "@tailwindcss/vite";
 import solidJs from "@astrojs/solid-js";
 
 // https://astro.build/config
@@ -35,7 +34,4 @@ export default defineConfig({
       "/writing/solid-rendered-bluesky-comments",
   },
   site: "https://jhroemer.github.io/",
-  vite: {
-    plugins: [tailwindcss()],
-  },
 });
