@@ -6,6 +6,7 @@ import {
   Switch,
   type Component,
 } from "solid-js";
+import styles from "./PostComments.module.css";
 
 const createPostLink = (post: BlueskyPost) => {
   const rkey = post.post.uri.split("post/")[1];
@@ -30,9 +31,9 @@ const Stats: Component<StatsProps> = (props) => {
       href={props.link}
       target="_blank"
       rel="noopener noreferrer"
-      class={`flex gap-2 ${isLarge ? "text-base" : "text-xs"}`}
+      class={`${styles.stats} ${isLarge ? styles.statsLarge : styles.statsSmall}`}
     >
-      <span class="flex items-center gap-2">
+      <span class={styles.stat}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width={size}
@@ -45,7 +46,7 @@ const Stats: Component<StatsProps> = (props) => {
         {props.replyCount}
         <Show when={isLarge}> replies</Show>
       </span>
-      <span class="flex items-center gap-2">
+      <span class={styles.stat}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width={size}
@@ -58,7 +59,7 @@ const Stats: Component<StatsProps> = (props) => {
         {props.repostCount}
         <Show when={isLarge}> reposts</Show>
       </span>
-      <span class="flex items-center gap-2">
+      <span class={styles.stat}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width={size}
@@ -112,12 +113,12 @@ const PostComment: Component<{ post: BlueskyPost }> = (props) => {
 
   return (
     <>
-      <div class="p-2 mt-2">
+      <div class={styles.comment}>
         <a
           href={profileLink}
           target="_blank"
           rel="noopener noreferrer"
-          class="flex gap-2 items-center text-sm no-underline"
+          class={styles.author}
         >
           <img
             src={props.post.post.author.avatar}
@@ -125,23 +126,23 @@ const PostComment: Component<{ post: BlueskyPost }> = (props) => {
               props.post.post.author.displayName ||
               props.post.post.author.handle
             }'s avatar`}
-            class="size-4 rounded-full"
+            class={styles.avatar}
           />
           <Show when={props.post.post.author.displayName}>
             <span>{props.post.post.author.displayName}</span>
           </Show>
           <span
-            class={`${
+            class={
               props.post.post.author.displayName
-                ? "text-[var(--text-secondary)]"
-                : ""
-            }`}
+                ? styles.handleMuted
+                : undefined
+            }
           >
             @{props.post.post.author.handle}
           </span>
         </a>
-        <div class="text-sm mt-1">{props.post.post.record.text}</div>
-        <div class="mt-2">
+        <div class={styles.text}>{props.post.post.record.text}</div>
+        <div class={styles.actions}>
           <Stats
             variant="small"
             link={replyLink}
@@ -152,7 +153,7 @@ const PostComment: Component<{ post: BlueskyPost }> = (props) => {
         </div>
       </div>
       <Show when={props.post.replies?.length}>
-        <div class="border-l-1 border-neutral-600 pl-2">
+        <div class={styles.replies}>
           <For each={props.post.replies}>
             {(reply) => {
               return <PostComment post={reply} />;
@@ -175,14 +176,14 @@ const PostComments = (props: PostCommentsProps) => {
   );
 
   return (
-    <div class="mt-8">
+    <div class={styles.root}>
       <Switch>
         <Match when={commentsResource.loading}>
           <>
-            <h3 class="mt-4">Comments</h3>
-            <div class="max-w-11/12 animate-pulse">
-              <div class="h-3 bg-[var(--text-secondary)] rounded-md w-64 mb-2"></div>
-              <div class="h-[100px] bg-[var(--text-secondary)] rounded-md"></div>
+            <h3 class={styles.heading}>Comments</h3>
+            <div class={styles.skeleton}>
+              <div class={styles.skeletonLine}></div>
+              <div class={styles.skeletonBlock}></div>
             </div>
           </>
         </Match>
@@ -196,8 +197,8 @@ const PostComments = (props: PostCommentsProps) => {
                 repostCount={post().post.repostCount ?? 0}
                 likeCount={post().post.likeCount ?? 0}
               />
-              <h2 class="mt-4">Comments</h2>
-              <p class="text-sm">
+              <h2 class={styles.heading}>Comments</h2>
+              <p class={styles.note}>
                 Click{" "}
                 <a
                   href={createPostLink(post())}
@@ -211,7 +212,7 @@ const PostComments = (props: PostCommentsProps) => {
               <Show
                 when={post().replies?.length}
                 fallback={
-                  <p class="text-sm text-[var(--text-secondary)]">
+                  <p class={`${styles.note} ${styles.noteMuted}`}>
                     No replies yet. Be the first to comment!
                   </p>
                 }

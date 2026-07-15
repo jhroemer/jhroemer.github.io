@@ -2,16 +2,35 @@
 import Navigation from "./Navigation.astro";
 ---
 
-<header class="flex items-center justify-between">
-  <div class="flex">
-    <a
-      href="/"
-      class="font-jost no-underline tracking-wide transition-colors duration-200 hover:text-[var(--grey-2)]"
-    >
-      Jens Rømer
-    </a>
+<style>
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  div,
+  nav {
+    display: flex;
+  }
+
+  a {
+    font-family: var(--font-jost);
+    text-decoration: none;
+    letter-spacing: 0.025em;
+    transition: color 200ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      color: var(--grey-2);
+    }
+  }
+</style>
+
+<header>
+  <div>
+    <a href="/">Jens Rømer</a>
   </div>
-  <nav class="flex">
+  <nav>
     <Navigation />
   </nav>
 </header>
