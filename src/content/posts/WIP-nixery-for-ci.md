@@ -8,17 +8,29 @@ draft: true
 
 <!-- TODO: consider adding a note about skipping to section x if you just want to get started migrating -->
 
+Github Actions (henceforth abbreviated GHA).
+
+- not intended for expert-level audience, practical advice at the end (link), and otherwise covering basics, most common use cases
+
 ## Comparing the Github Action environment with Tangled CI
 
-Github:
+If you're here you might not be looking at migrating huge enterprise pipelines, you might not already be a CI wizard (neither am I!) and there's a good chance that you have `runs-on: ubuntu-latest` in your current GHA workflows. So what does that line actually mean? The obvious part is that you're asking for something with Ubuntu on it, so a linux machine, and that this is what's used for your workflow (what it's running on). `latest` is a floating tag for the ubuntu version, meaning that it points to a specific version but that it will update over time to point to newer versions. As of today ubuntu-latest for example points to ubuntu-24.04. You can see an overview of the different images [here](https://github.com/actions/runner-images).
 
-- github action runners runs on VM's or containers
-- https://docs.github.com/en/actions/concepts/runners/github-hosted-runners
-- for simplicity let's focus on linux-based runners (ubuntu-latest, and not self-hosted, ARM, GPU), if you're using larger runners currently and want to use Tangled you should probably be looking at self-hosting your runner, which is way beyond this post.
+What you get by asking for ubuntu 24.04 (as an example) is a VM image running on a GitHub-hosted runner, and I think it's safe to assume that this is what most people are using, since it's standard, good enough for most use cases and free to use for personal projects.
+
+<!-- might be to basic -->
+
+A 'runner' in this case is simply a software process running on one of github's servers, that takes care of setting up a VM or container which can execute the code you're asking it to execute.
+
+<!-- TODO: mention non-linux based runners in a sentence or two -->
+
+You can use windows and macOS-based runners too. Similar to the linux images they're free for public projects, but I'm not sure they're very common.
+
+There are notable variations like the `ubuntu-slim` variant (which as the name suggests ships with less stuff) and the `ubuntu-arm` variant (uses the ARM processor architecture, can be useful to speed up execution a little and is supposed to be more environmentally friendly too!), both of which you might want to take a second look at. But hey, you're probably here because you're thinking about moving CI to tangled, so why don't we take a look at what you're getting when you're running
+
 - dependencies are handled through image use or are installed as part of steps
 - docker vs javascript actions (https://docs.github.com/en/actions/concepts/workflows-and-actions/custom-actions#docker-container-actions)
 - linux and windows runners are hosted on azure (macos in azure datacenters, whatever that distinction is) - the github actions agent is a fork of the azure pipelines agent
-- If you're wondering what you're actually asking for writing (ahem, copy-pasting- or agent writes) `ubuntu-latest` then those are simply runner images specified here: https://github.com/actions/runner-images
 
 Tangled:
 
