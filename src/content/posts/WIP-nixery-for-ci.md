@@ -38,6 +38,7 @@ Tangled's CI runners are called "Spindles" is a simple format for writing CI/CD 
 
 - you specify, per job or per step, the dependencies you need
 - explain nix's caching mechanism
+- https://jvns.ca/blog/2021/01/23/firecracker--start-a-vm-in-less-than-a-second/
 
 ## What you need to know about nix
 
