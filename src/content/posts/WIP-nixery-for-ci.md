@@ -37,6 +37,7 @@ Tangled:
 Tangled's CI runners are called "Spindles" is a simple format for writing CI/CD pipelines, and it's in many ways similar to github actions. The most notable difference is how it leans heavily into the Nix ecosystem. I'm not much of a Nix nerd myself, but I can recommend trying it out within the official docker image, if you don't want to commit and go through the somewhat involved installation process. I've also tried to summarize some of the general things you need to know for working with Nix packages in the next section.
 
 - you specify, per job or per step, the dependencies you need
+- https://blog.tangled.org/spindle-microvm/
 - explain nix's caching mechanism
 - https://jvns.ca/blog/2021/01/23/firecracker--start-a-vm-in-less-than-a-second/
 
