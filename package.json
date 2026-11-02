@@ -20,7 +20,7 @@
     "@astrojs/rss": "4.0.19",
     "@astrojs/solid-js": "6.0.1",
     "astro": "^6.4.8",
-    "solid-js": "1.9.12"
+    "solid-js": "1.9.14"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
