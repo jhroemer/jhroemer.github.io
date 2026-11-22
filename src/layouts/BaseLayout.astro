@@ -40,7 +40,9 @@ const { pageTitle, ogImage }: Props = Astro.props;
   </head>
   <body>
     <Header />
-    <slot />
+    <main>
+      <slot />
+    </main>
   </body><script is:inline>
     // Initialize the correct theme
     if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
