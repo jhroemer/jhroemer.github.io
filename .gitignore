@@ -22,5 +22,6 @@ pnpm-debug.log*
 .DS_Store
 /test-results/
 /playwright-report/
+/lup-report/
 /blob-report/
 /playwright/.cache/

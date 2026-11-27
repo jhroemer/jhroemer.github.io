@@ -39,6 +39,9 @@ importers:
       eslint-plugin-astro:
         specifier: 1.6.0
         version: 1.6.0(eslint@9.39.2)
+      lup-reporter:
+        specifier: ^0.1.0
+        version: 0.1.0(@playwright/test@1.65.0)
       ts-generate-mock-data:
         specifier: 0.0.2
         version: 0.0.2(prettier@3.8.3)
@@ -1559,6 +1562,12 @@ packages:
 
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
+
+  lup-reporter@0.1.0:
+    resolution: {integrity: sha512-9Ze6i2mIpWT0sSrZxDbSCjEDN9MhTvWbT/t82HlaX7CXR3wxEs+0nOaYf2/Ylueml2gcNPrqxEsrP5DvbVkd7Q==}
+    engines: {node: '>=22'}
+    peerDependencies:
+      '@playwright/test': ^1.40
 
   magic-string@1.4.5:
     resolution: {integrity: sha512-oLLC2+YvQUfAa+vxoufE/yc1icb87M9iXIRqAoR/2EhE/8cb3SF/+Gi0c2By1B+5Vz2e2vQtUvHiu1+63Znh+w==}
@@ -3748,6 +3757,10 @@ snapshots:
   lru-cache@5.1.1:
     dependencies:
       yallist: 3.1.1
+
+  lup-reporter@0.1.0(@playwright/test@1.65.0):
+    dependencies:
+      '@playwright/test': 1.65.0
 
   magic-string@1.4.5:
     dependencies:
