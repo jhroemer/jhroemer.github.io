@@ -1,6 +1,7 @@
 ---
 import ArrowIcon from "../assets/arrow.svg";
 import SvgIcon from "../assets/cli.svg";
+import LupIcon from "../assets/lup.svg";
 import ShieldCheckIcon from "../assets/shield-check.svg";
 import WebIcon from "../assets/web.svg";
 import BaseLayout from "../layouts/BaseLayout.astro";
@@ -8,6 +9,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "Projects";
 
 const projects = [
+  {
+    title: "lup-reporter",
+    icon: LupIcon,
+    link: "https://github.com/jhroemer/lup-reporter",
+  },
   {
     title: "ts-generate-mock-data",
     icon: SvgIcon,
